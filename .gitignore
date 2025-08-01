@@ -1,2 +1,8 @@
 # Godot 4+ specific ignores
 .godot/
+<<<<<<< Updated upstream
+=======
+/android/
+`
+.history/
+>>>>>>> Stashed changes
