@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://cv8rrwrejrbn0"]
 
-[ext_resource type="Script" uid="uid://dtej62ek16st7" path="res://Scripts/coins.gd" id="1_rtv30"]
+[ext_resource type="Script" path="res://Scripts/coins.gd" id="1_rtv30"]
 [ext_resource type="Texture2D" uid="uid://pdq6g82b0oj0" path="res://assets/spritesandtiles/coinsspritesheet.png" id="1_rud0w"]
 [ext_resource type="AudioStream" uid="uid://dpheh5d76okmv" path="res://assets/sounds/retro-coin-4-236671 (1).mp3" id="3_8vf0x"]
 

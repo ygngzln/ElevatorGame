@@ -4,5 +4,6 @@
 
 [node name="bgscore" type="AudioStreamPlayer"]
 stream = ExtResource("1_8r65k")
+volume_db = -20.0
 autoplay = true
 bus = &"BACKGROUND"
