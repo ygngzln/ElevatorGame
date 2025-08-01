@@ -368,6 +368,7 @@ position = Vector2(877, 96)
 [node name="labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="labels"]
+visible = false
 offset_left = -139.0
 offset_top = -114.0
 offset_right = -30.0
@@ -379,6 +380,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="labels"]
+visible = false
 offset_left = 1.0
 offset_top = -94.0
 offset_right = 110.0
@@ -390,6 +392,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label4" type="Label" parent="labels"]
+visible = false
 offset_left = 122.0
 offset_top = 32.0
 offset_right = 231.0
@@ -401,6 +404,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="labels"]
+visible = false
 offset_left = 278.0
 offset_top = -24.0
 offset_right = 387.0
@@ -412,6 +416,7 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="labels"]
+visible = false
 offset_left = 689.0
 offset_top = -22.0
 offset_right = 798.0
@@ -425,42 +430,55 @@ autowrap_mode = 2
 [node name="coins" type="Node" parent="."]
 
 [node name="coins" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(328, 56)
 
 [node name="coins2" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(377, 23)
 
 [node name="coins3" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(391, 23)
 
 [node name="coins4" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(280, -132)
 
 [node name="coins5" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(137, -155)
 
 [node name="coins6" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(153, -155)
 
 [node name="coins7" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(536, 25)
 
 [node name="coins8" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(648, 9)
 
 [node name="coins9" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(632, 9)
 
 [node name="coins10" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(841, 54)
 
 [node name="coins11" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(887, 85)
 
 [node name="coins12" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(982, 84)
 
 [node name="coins13" parent="coins" instance=ExtResource("6_evxin")]
+visible = false
 position = Vector2(1033, 54)
 
 [node name="platforms" type="Node" parent="."]
@@ -496,12 +514,14 @@ libraries = {
 autoplay = "move"
 
 [node name="killzone" parent="." instance=ExtResource("3_k3nfs")]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(106, 75)
 shape = SubResource("WorldBoundaryShape2D_binft")
 
 [node name="gamefinished" type="Area2D" parent="."]
+visible = false
 position = Vector2(1089, -80)
 collision_mask = 2
 
@@ -519,6 +539,7 @@ stream = ExtResource("11_jc3l0")
 bus = &"sfx"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="gamecomplete" type="Panel" parent="CanvasLayer"]
 anchors_preset = 15
