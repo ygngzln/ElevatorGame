@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cop0bc0c7rxu1"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_5k0mc"]
+[ext_resource type="Script" uid="uid://dms6p2gp56k7j" path="res://Scripts/enemy.gd" id="1_5k0mc"]
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="1_v2p4v"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="2_wgs4n"]
 
@@ -81,6 +81,7 @@ radius = 8.0
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 8
+collision_mask = 3
 script = ExtResource("1_5k0mc")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -95,6 +96,8 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_spfow")
 
 [node name="killzone" parent="." instance=ExtResource("2_wgs4n")]
+collision_layer = 0
+collision_mask = 1
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(0, -6)
@@ -104,7 +107,9 @@ debug_color = Color(0.913616, 0.0984373, 0.671985, 0.42)
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
 target_position = Vector2(10, 0)
+collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
 target_position = Vector2(-10, 0)
+collision_mask = 2
