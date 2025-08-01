@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=3 uid="uid://cop0bc0c7rxu1"]
 
-[ext_resource type="Script" path="res://Scripts/enemy.gd" id="1_5k0mc"]
+[ext_resource type="Script" uid="uid://dms6p2gp56k7j" path="res://Scripts/enemy.gd" id="1_5k0mc"]
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="1_v2p4v"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="2_wgs4n"]
 
