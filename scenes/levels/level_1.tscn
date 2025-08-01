@@ -389,7 +389,7 @@ tile_set = SubResource("TileSet_wtwp4")
 position = Vector2(-63, -31)
 
 [node name="enemy" parent="." instance=ExtResource("5_xbruk")]
-position = Vector2(-17, -35)
+position = Vector2(130, -1)
 
 [node name="labels" type="Node" parent="."]
 
