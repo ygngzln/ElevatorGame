@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=33 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b0e0b0t77smh1" path="res://scenes/levels/gametilemap.tscn" id="2_ltsy5"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="3_k3nfs"]
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_dnkej"]
+[ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="5_xbruk"]
 [ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
 [ext_resource type="PackedScene" uid="uid://c4ou5s81n7p6s" path="res://scenes/platform.tscn" id="7_t5wy8"]
@@ -218,9 +219,14 @@ texture = ExtResource("4_dnkej")
 11:15/0 = 0
 12:15/0 = 0
 
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wtwp4"]
+scenes/2/scene = ExtResource("5_mm8aj")
+scenes/2/display_placeholder = ExtResource("5_mm8aj")
+
 [sub_resource type="TileSet" id="TileSet_wtwp4"]
 physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_mm8aj")
+sources/1 = SubResource("TileSetScenesCollectionSource_wtwp4")
 
 [sub_resource type="Animation" id="Animation_0t868"]
 length = 0.001
@@ -382,7 +388,9 @@ tile_map_data = PackedByteArray("AADp/wAAAAADAAYAAADp/wEAAAADAAYAAADp/wIAAAADAAY
 collision_enabled = false
 
 [node name="gametilemap" parent="." instance=ExtResource("2_ltsy5")]
+
 tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA3AAMAAAACAAEAAAA1AAMAAAACAAEAAAA0AAMAAAACAAEAAAA2AAMAAAACAAEAAAACAP7/AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAACAP3/AAACAAEAAAA=")
+
 tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]

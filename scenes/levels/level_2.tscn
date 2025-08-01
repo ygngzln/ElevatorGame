@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=4 uid="uid://qwobquee3x4g"]
 
-[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_8xv2a"]
-[ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="2_qrtj7"]
+[ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_8xv2a"]
+[ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="2_qrtj7"]
 [ext_resource type="PackedScene" uid="uid://b0e0b0t77smh1" path="res://scenes/levels/gametilemap.tscn" id="3_1cvsu"]
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_3dqwm"]
 [ext_resource type="PackedScene" uid="uid://0dyqpxiehd0p" path="res://scenes/player.tscn" id="5_uuo3w"]
@@ -256,8 +256,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0pvl"]
 _data = {
-"RESET": SubResource("Animation_0t868"),
-"move": SubResource("Animation_2c3ku")
+&"RESET": SubResource("Animation_0t868"),
+&"move": SubResource("Animation_2c3ku")
 }
 
 [sub_resource type="Animation" id="Animation_hwp0x"]
@@ -294,8 +294,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvm3m"]
 _data = {
-"RESET": SubResource("Animation_hwp0x"),
-"move": SubResource("Animation_m40tu")
+&"RESET": SubResource("Animation_hwp0x"),
+&"move": SubResource("Animation_m40tu")
 }
 
 [sub_resource type="Animation" id="Animation_4gwgs"]
@@ -332,8 +332,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kokex"]
 _data = {
-"RESET": SubResource("Animation_4gwgs"),
-"move": SubResource("Animation_6mhvj")
+&"RESET": SubResource("Animation_4gwgs"),
+&"move": SubResource("Animation_6mhvj")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
