@@ -1,16 +1,34 @@
 extends CharacterBody2D
 
-
-@export var SPEED = 120.0
-@export var JUMP_VELOCITY = -300.0
+@export var SPEED:float = 120.0
+@export var JUMP_VELOCITY:float = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
-@onready var projectile = load("res://scenes/knife.tscn")
+@onready var projectile := load("res://scenes/knife.tscn")
+
+@onready var gameManager:Node = $"../".find_child("gamemanager");
+
+var shootDelay := {
+	"active": false,
+	"timer": 0,
+	"time": 100
+}
+
+#Invulnerability
+var invul := {
+	"active": false,
+	"timer": 0,
+	"time": 180
+}
+
+var timers = [shootDelay, invul];
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot"):
+	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
 		shoot()
-		
+	
+	decreaseTimers();
+			
 	#adding movement through input keys for left and right
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -SPEED 
@@ -38,6 +56,13 @@ func _physics_process(delta: float) -> void:
 		
 	move_and_slide()
 
+func decreaseTimers():
+	for i in timers:
+		if i.active:
+			i.timer -= 1;
+			if i.timer <= 0:
+				i.active = false;
+
 func shoot():
 	var direction_vector = get_global_mouse_position() - global_position
 	var angle_radians = direction_vector.angle()
@@ -58,13 +83,12 @@ func shoot():
 
 	var spawn_position = global_position + offset
 
-	var instance = projectile.instantiate()
+	var instance = projectile.instantiate();
 	instance.dir = angle_radians
 	instance.spawnPos = spawn_position
 	instance.spawnRot = angle_radians
-	instance.player = self  # assign player reference
-
-	get_tree().get_current_scene().add_child(instance)
-
-
+	instance.player = self;
 	
+	gameManager.spawnProjectile(instance);
+	shootDelay.active = true;
+	shootDelay.timer = shootDelay.time;

@@ -1,11 +1,11 @@
 [gd_scene load_steps=33 format=3 uid="uid://0dyqpxiehd0p"]
 
-[ext_resource type="Script" uid="uid://cryojaiyqigty" path="res://Scripts/player.gd" id="1_qgb13"]
-[ext_resource type="Texture2D" uid="uid://dyjteu80xe2yr" path="res://assets/spritesandtiles/man/Attack.png" id="2_p4m3m"]
-[ext_resource type="Texture2D" uid="uid://dgsmmp7objwao" path="res://assets/spritesandtiles/man/Death.png" id="3_mbdu5"]
-[ext_resource type="Texture2D" uid="uid://0yxer47pam7q" path="res://assets/spritesandtiles/man/Hurt.png" id="4_h37o1"]
-[ext_resource type="Texture2D" uid="uid://4f1cwed6vun" path="res://assets/spritesandtiles/man/Idle.png" id="5_koeno"]
-[ext_resource type="Texture2D" uid="uid://c578xgcm5lh3e" path="res://assets/spritesandtiles/man/Walk.png" id="6_jmoec"]
+[ext_resource type="Script" path="res://Scripts/player.gd" id="1_qgb13"]
+[ext_resource type="Texture2D" uid="uid://uegexbyxcgxh" path="res://assets/blackman/Attack.png" id="2_p4m3m"]
+[ext_resource type="Texture2D" uid="uid://bvkwpa3ryyjr4" path="res://assets/blackman/Death.png" id="3_mbdu5"]
+[ext_resource type="Texture2D" uid="uid://53tl8bw06iln" path="res://assets/blackman/Hurt.png" id="4_h37o1"]
+[ext_resource type="Texture2D" uid="uid://p62t5f4u8ykx" path="res://assets/blackman/Idle.png" id="5_koeno"]
+[ext_resource type="Texture2D" uid="uid://b54va0ggv0b07" path="res://assets/blackman/Walk.png" id="6_jmoec"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uoif"]
 atlas = ExtResource("2_p4m3m")
@@ -230,7 +230,7 @@ animations = [{
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
-radius = 6.0
+radius = 7.0
 height = 32.0
 
 [node name="Player" type="CharacterBody2D"]
@@ -241,11 +241,11 @@ script = ExtResource("1_qgb13")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_i7whq")
-animation = &"walk"
+animation = &"attack"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-6, 0)
+position = Vector2(-11, 0)
 shape = SubResource("CapsuleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]

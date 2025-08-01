@@ -1,7 +1,7 @@
 [gd_scene load_steps=27 format=4 uid="uid://dswi77j3xwly5"]
 
-[ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
-[ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
+[ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
+[ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_jt5ki"]
 [ext_resource type="LabelSettings" uid="uid://x0nkvs0ub104" path="res://styles/ingametext.tres" id="1_nswmd"]
 [ext_resource type="PackedScene" uid="uid://0dyqpxiehd0p" path="res://scenes/player.tscn" id="1_nt6kk"]
 [ext_resource type="PackedScene" uid="uid://b0e0b0t77smh1" path="res://scenes/levels/gametilemap.tscn" id="2_ltsy5"]
@@ -256,8 +256,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_x0pvl"]
 _data = {
-&"RESET": SubResource("Animation_0t868"),
-&"move": SubResource("Animation_2c3ku")
+"RESET": SubResource("Animation_0t868"),
+"move": SubResource("Animation_2c3ku")
 }
 
 [sub_resource type="Animation" id="Animation_hwp0x"]
@@ -294,8 +294,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wvm3m"]
 _data = {
-&"RESET": SubResource("Animation_hwp0x"),
-&"move": SubResource("Animation_m40tu")
+"RESET": SubResource("Animation_hwp0x"),
+"move": SubResource("Animation_m40tu")
 }
 
 [sub_resource type="Animation" id="Animation_4gwgs"]
@@ -332,8 +332,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kokex"]
 _data = {
-&"RESET": SubResource("Animation_4gwgs"),
-&"move": SubResource("Animation_6mhvj")
+"RESET": SubResource("Animation_4gwgs"),
+"move": SubResource("Animation_6mhvj")
 }
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
@@ -360,7 +360,6 @@ tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]
 position = Vector2(-63, -31)
-collision_layer = 1
 
 [node name="enemy" parent="." instance=ExtResource("5_xbruk")]
 position = Vector2(877, 96)
@@ -491,7 +490,7 @@ position = Vector2(345, 30)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform2"]
 libraries = {
-&"": SubResource("AnimationLibrary_x0pvl")
+"": SubResource("AnimationLibrary_x0pvl")
 }
 autoplay = "move"
 
@@ -500,7 +499,7 @@ position = Vector2(705, 76)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform3"]
 libraries = {
-&"": SubResource("AnimationLibrary_wvm3m")
+"": SubResource("AnimationLibrary_wvm3m")
 }
 autoplay = "move"
 
@@ -509,7 +508,7 @@ position = Vector2(966, 59)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform4"]
 libraries = {
-&"": SubResource("AnimationLibrary_kokex")
+"": SubResource("AnimationLibrary_kokex")
 }
 autoplay = "move"
 

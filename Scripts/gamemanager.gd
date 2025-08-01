@@ -1,6 +1,8 @@
 extends Node
+class_name GameManager
 
 @onready var scorelabel: Label = $"../CanvasLayer/scorelabel"
+@onready var projectilePool: Node = $"../".find_child("projectiles");
 
 var score = 0
 
@@ -9,3 +11,6 @@ func _updatescore(value):
 	#updating the text with new score 
 	#str function is used to convert a varibale to string type
 	scorelabel.text = "SCORE : " + str(score)
+
+func spawnProjectile(node):
+	projectilePool.add_child(node);
