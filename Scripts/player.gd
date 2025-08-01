@@ -23,40 +23,45 @@ var invul := {
 
 var timers = [shootDelay, invul];
 
+var was_on_floor := true
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
 		animated_sprite.play("shoot")
 		shoot()
-	
-	decreaseTimers();
-			
-	#adding movement through input keys for left and right
+
+	decreaseTimers()
+
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -SPEED
 		animated_sprite.flip_h = true
-		animated_sprite.offset = Vector2(-26, 0);
-		if !shootDelay.active:
+		animated_sprite.offset = Vector2(-26, 0)
+		if !shootDelay.active and is_on_floor():
 			animated_sprite.play("walk")
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = SPEED
 		animated_sprite.flip_h = false
-		animated_sprite.offset = Vector2(0, 0);
-		if !shootDelay.active:
+		animated_sprite.offset = Vector2(0, 0)
+		if !shootDelay.active and is_on_floor():
 			animated_sprite.play("walk")
-	#idle
 	else:
-		animated_sprite.play("idle")
+		if is_on_floor():
+			animated_sprite.play("idle")
 		velocity.x = 0
-	#handlig jump and gravity
-	if is_on_floor() :
-		#adding jump through input key for jump
+
+	if is_on_floor():
 		if Input.is_action_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 	else:
-		#applying gravity 
 		velocity += get_gravity() * delta
+
+	# Play jump animation only once when leaving the ground
+	if not is_on_floor() and was_on_floor:
 		animated_sprite.play("jump")
-		
+
+	# Update was_on_floor state
+	was_on_floor = is_on_floor()
+
 	move_and_slide()
 
 func decreaseTimers():
@@ -80,18 +85,16 @@ func shoot():
 		return
 
 	var offset_distance = 20.0
-	var offset = Vector2(20.0, -10.0)
+	var offset = Vector2(offset_distance, 0)
 	if facing_left:
 		offset.x *= -1
 
 	var spawn_position = global_position + offset
 
-	var instance = projectile.instantiate();
+	var instance = projectile.instantiate()
 	instance.dir = angle_radians
 	instance.spawnPos = spawn_position
 	instance.spawnRot = angle_radians
-	instance.player = self;
-	
-	gameManager.spawnProjectile(instance);
-	shootDelay.active = true;
-	shootDelay.timer = shootDelay.time;
+	instance.player = self  # assign player reference
+
+	get_tree().get_current_scene().add_child(instance)
