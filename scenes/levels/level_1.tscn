@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=31 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -11,8 +11,8 @@
 [ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
 [ext_resource type="PackedScene" uid="uid://c4ou5s81n7p6s" path="res://scenes/platform.tscn" id="7_t5wy8"]
 [ext_resource type="FontFile" uid="uid://bap4myteag8nn" path="res://assets/fonts/PixelOperator.ttf" id="10_asnfo"]
+[ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="11_aat41"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="11_jc3l0"]
-[ext_resource type="Texture2D" uid="uid://5pwjlsg4srtf" path="res://assets/spritesandtiles/goblingamespritesheet1.png" id="11_jxxth"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -338,8 +338,37 @@ _data = {
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_y5eht"]
+atlas = ExtResource("11_aat41")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bxgc"]
+atlas = ExtResource("11_aat41")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yurkq"]
+atlas = ExtResource("11_aat41")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_b8hd5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y5eht")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bxgc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yurkq")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ol1qt"]
-size = Vector2(46, 39)
+size = Vector2(22, 24)
 
 [node name="level1" type="Node2D"]
 script = ExtResource("1_jt5ki")
@@ -353,7 +382,7 @@ tile_map_data = PackedByteArray("AADp/wAAAAADAAYAAADp/wEAAAADAAYAAADp/wIAAAADAAY
 collision_enabled = false
 
 [node name="gametilemap" parent="." instance=ExtResource("2_ltsy5")]
-tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAACAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA=")
+tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]
@@ -525,16 +554,14 @@ collision_mask = 1
 shape = SubResource("WorldBoundaryShape2D_binft")
 
 [node name="gamefinished" type="Area2D" parent="."]
-position = Vector2(1007, 28)
-collision_mask = 2
+position = Vector2(1012, 32)
+collision_layer = 0
 
-[node name="Sprite2D" type="Sprite2D" parent="gamefinished"]
-texture = ExtResource("11_jxxth")
-region_enabled = true
-region_rect = Rect2(16, 64, 33, 32)
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="gamefinished"]
+sprite_frames = SubResource("SpriteFrames_b8hd5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="gamefinished"]
-position = Vector2(-8, -3.5)
+position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_ol1qt")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="gamefinished"]
