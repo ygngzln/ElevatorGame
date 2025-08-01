@@ -5,8 +5,12 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+@onready var projectile = load("res://scenes/knife.tscn")
 
 func _physics_process(delta: float) -> void:
+	if Input.is_action_just_pressed("shoot"):
+		shoot()
+		
 	#adding movement through input keys for left and right
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -SPEED 
@@ -33,3 +37,34 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("jump")
 		
 	move_and_slide()
+
+func shoot():
+	var direction_vector = get_global_mouse_position() - global_position
+	var angle_radians = direction_vector.angle()
+
+	var facing_left = animated_sprite.flip_h
+	var is_mouse_on_correct_side = (
+		(not facing_left and direction_vector.x >= 0) or
+		(facing_left and direction_vector.x <= 0)
+	)
+
+	if not is_mouse_on_correct_side:
+		return
+
+	var offset_distance = 20.0
+	var offset = Vector2(20.0, -10.0)
+	if facing_left:
+		offset.x *= -1
+
+	var spawn_position = global_position + offset
+
+	var instance = projectile.instantiate()
+	instance.dir = angle_radians
+	instance.spawnPos = spawn_position
+	instance.spawnRot = angle_radians
+	instance.player = self  # assign player reference
+
+	get_tree().get_current_scene().add_child(instance)
+
+
+	
