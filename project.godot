@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="Elevator"
-run/main_scene="res://scenes/levels/titleMenu.tscn"
+run/main_scene="uid://dswi77j3xwly5"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.svg"
 
@@ -58,7 +58,7 @@ shoot={
 2d_physics/layer_1="Player"
 2d_physics/layer_2="Wall"
 2d_physics/layer_3="Kill"
-2d_physics/layer_4="Hurt"
+2d_physics/layer_4="Enemy"
 2d_physics/layer_5="Coin"
 2d_physics/layer_6="Weapon"
 
