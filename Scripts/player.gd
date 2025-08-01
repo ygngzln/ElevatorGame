@@ -11,11 +11,13 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("move_left"):
 		velocity.x = -SPEED 
 		animated_sprite.flip_h = true
-		animated_sprite.play("run")
+		animated_sprite.offset = Vector2(-26, 0);
+		animated_sprite.play("walk")
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = SPEED
 		animated_sprite.flip_h = false
-		animated_sprite.play("run")
+		animated_sprite.offset = Vector2(0, 0);
+		animated_sprite.play("walk")
 	#idle
 	else:
 		animated_sprite.play("idle")
