@@ -80,18 +80,16 @@ func shoot():
 		return
 
 	var offset_distance = 20.0
-	var offset = Vector2(20.0, -10.0)
+	var offset = Vector2(offset_distance, 0)
 	if facing_left:
 		offset.x *= -1
 
 	var spawn_position = global_position + offset
 
-	var instance = projectile.instantiate();
+	var instance = projectile.instantiate()
 	instance.dir = angle_radians
 	instance.spawnPos = spawn_position
 	instance.spawnRot = angle_radians
-	instance.player = self;
-	
-	gameManager.spawnProjectile(instance);
-	shootDelay.active = true;
-	shootDelay.timer = shootDelay.time;
+	instance.player = self  # assign player reference
+
+	get_tree().get_current_scene().add_child(instance)
