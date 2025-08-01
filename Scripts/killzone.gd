@@ -4,6 +4,7 @@ extends Area2D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 
 func _on_body_entered(body: Node2D) -> void:
+	print(body.name)
 	audio.play()
 	#reducing the engine time by half on player entered
 	Engine.time_scale = 0.5

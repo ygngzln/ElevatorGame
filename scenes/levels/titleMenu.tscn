@@ -1,8 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c1sk0ew4ac8r0"]
+[gd_scene load_steps=10 format=3 uid="uid://c1sk0ew4ac8r0"]
 
 [ext_resource type="Script" path="res://Scripts/title_menu.gd" id="1_0nll0"]
 [ext_resource type="Texture2D" uid="uid://cc326ks6m72s" path="res://assets/UI/button.png" id="1_sjjc8"]
+[ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="2_c17m7"]
 [ext_resource type="Texture2D" uid="uid://7gpgccrrf468" path="res://assets/UI/buttondown.png" id="2_hlgbi"]
+[ext_resource type="FontFile" uid="uid://buqwwx17yvyoa" path="res://assets/fonts/KiwiSoda.ttf" id="5_mfe7i"]
+[ext_resource type="FontFile" uid="uid://q27k8dduddw0" path="res://assets/fonts/upheavtt.ttf" id="6_aw564"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hayji"]
 texture = ExtResource("1_sjjc8")
@@ -36,37 +39,50 @@ anchor_right = 0.5
 offset_left = -263.0
 offset_top = 22.0
 offset_right = 263.0
-offset_bottom = 166.0
+offset_bottom = 192.0
 grow_horizontal = 2
-theme_override_font_sizes/normal_font_size = 40
+theme_override_colors/default_color = Color(0.233501, 0.0364917, 0.0953152, 1)
+theme_override_constants/shadow_offset_x = 40
+theme_override_fonts/normal_font = ExtResource("2_c17m7")
+theme_override_font_sizes/normal_font_size = 60
 bbcode_enabled = true
 text = "[center]ELEVATOR GAME[/center]"
 
 [node name="Play" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -101.5
+offset_top = -3.5
+offset_right = 101.5
+offset_bottom = 75.5
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_756wm")
+theme_override_font_sizes/font_size = 45
+text = "PLAY"
+
+[node name="Credits" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -101.5
-offset_top = -160.0
-offset_right = 101.5
-offset_bottom = -44.0
+offset_left = -347.0
+offset_top = -73.0
+offset_right = 6.0
+offset_bottom = -5.0
 grow_horizontal = 2
 grow_vertical = 0
-theme = SubResource("Theme_756wm")
-theme_override_font_sizes/font_size = 45
-text = "PLAY"
-
-[node name="Credits" type="RichTextLabel" parent="."]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 439.0
-offset_right = 207.0
-offset_bottom = 476.0
-theme_override_font_sizes/normal_font_size = 10
+theme_override_fonts/normal_font = ExtResource("5_mfe7i")
+theme_override_fonts/bold_font = ExtResource("6_aw564")
+theme_override_font_sizes/normal_font_size = 20
+theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
-text = "[b] Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln"
+text = "[b]Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln"
 
 [connection signal="button_down" from="Play" to="." method="button_down"]

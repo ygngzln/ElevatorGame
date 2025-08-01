@@ -1,13 +1,11 @@
 extends CharacterBody2D
 
-
 @export var SPEED = 80.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
 @onready var ray_cast: RayCast2D = $RayCast2D
 @onready var ray_cast2: RayCast2D = $RayCast2D2
 
 var direction = 1
-
 
 func _physics_process(delta: float) -> void:
 	#change direction according to which raycast is colliding

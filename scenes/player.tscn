@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=3 uid="uid://0dyqpxiehd0p"]
+[gd_scene load_steps=37 format=3 uid="uid://0dyqpxiehd0p"]
 
 [ext_resource type="Script" path="res://Scripts/player.gd" id="1_qgb13"]
 [ext_resource type="Texture2D" uid="uid://uegexbyxcgxh" path="res://assets/blackman/Attack.png" id="2_p4m3m"]
@@ -103,6 +103,22 @@ region = Rect2(192, 0, 48, 48)
 atlas = ExtResource("6_jmoec")
 region = Rect2(240, 0, 48, 48)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_lbsqx"]
+atlas = ExtResource("2_p4m3m")
+region = Rect2(0, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ddlce"]
+atlas = ExtResource("2_p4m3m")
+region = Rect2(240, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dptjk"]
+atlas = ExtResource("2_p4m3m")
+region = Rect2(192, 0, 48, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dl43f"]
+atlas = ExtResource("2_p4m3m")
+region = Rect2(96, 0, 48, 48)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_i7whq"]
 animations = [{
 "frames": [{
@@ -206,6 +222,23 @@ animations = [{
 "speed": 10.0
 }, {
 "frames": [{
+"duration": 0.9,
+"texture": SubResource("AtlasTexture_lbsqx")
+}, {
+"duration": 0.8,
+"texture": SubResource("AtlasTexture_ddlce")
+}, {
+"duration": 1.5,
+"texture": SubResource("AtlasTexture_dptjk")
+}, {
+"duration": 1.2,
+"texture": SubResource("AtlasTexture_dl43f")
+}],
+"loop": true,
+"name": &"shoot",
+"speed": 6.0
+}, {
+"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_iqkrc")
 }, {
@@ -236,13 +269,15 @@ height = 32.0
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
 position = Vector2(18, 108)
+collision_mask = 14
 script = ExtResource("1_qgb13")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_i7whq")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
+frame_progress = 0.0164261
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11, 0)

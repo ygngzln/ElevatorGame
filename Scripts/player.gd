@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 @export var SPEED:float = 120.0
-@export var JUMP_VELOCITY:float = -300.0
+@export var JUMP_VELOCITY:float = -375.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var projectile := load("res://scenes/knife.tscn")
@@ -25,21 +25,24 @@ var timers = [shootDelay, invul];
 
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
+		animated_sprite.play("shoot")
 		shoot()
 	
 	decreaseTimers();
 			
 	#adding movement through input keys for left and right
 	if Input.is_action_pressed("move_left"):
-		velocity.x = -SPEED 
+		velocity.x = -SPEED
 		animated_sprite.flip_h = true
 		animated_sprite.offset = Vector2(-26, 0);
-		animated_sprite.play("walk")
+		if !shootDelay.active:
+			animated_sprite.play("walk")
 	elif Input.is_action_pressed("move_right"):
 		velocity.x = SPEED
 		animated_sprite.flip_h = false
 		animated_sprite.offset = Vector2(0, 0);
-		animated_sprite.play("walk")
+		if !shootDelay.active:
+			animated_sprite.play("walk")
 	#idle
 	else:
 		animated_sprite.play("idle")
@@ -47,7 +50,7 @@ func _physics_process(delta: float) -> void:
 	#handlig jump and gravity
 	if is_on_floor() :
 		#adding jump through input key for jump
-		if Input.is_action_just_pressed("jump"):
+		if Input.is_action_pressed("jump"):
 			velocity.y = JUMP_VELOCITY
 	else:
 		#applying gravity 
