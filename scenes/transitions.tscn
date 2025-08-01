@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ewdngmwuyjts"]
+
+[ext_resource type="Shader" path="res://Shaders/eyes.gdshader" id="1_6qwqf"]
+[ext_resource type="Script" path="res://Scripts/transition.gd" id="1_83puu"]
+[ext_resource type="Script" path="res://Scripts/shader.gd" id="1_rgh6u"]
+[ext_resource type="Shader" path="res://Shaders/slider.gdshader" id="3_fejcv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_p6hho"]
+shader = ExtResource("1_6qwqf")
+shader_parameter/color = null
+shader_parameter/time = 0.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_nsnb1"]
+noise_type = 2
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1146m"]
+noise = SubResource("FastNoiseLite_nsnb1")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_76bc2"]
+shader = ExtResource("3_fejcv")
+shader_parameter/color = null
+shader_parameter/time = 1.0
+shader_parameter/direction = false
+shader_parameter/dissolveTexture = SubResource("NoiseTexture2D_1146m")
+
+[node name="Transitions" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_83puu")
+
+[node name="Eyes" type="ColorRect" parent="."]
+visible = false
+material = SubResource("ShaderMaterial_p6hho")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_rgh6u")
+
+[node name="VanishSlider" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_76bc2")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_rgh6u")
+speed = 0.03

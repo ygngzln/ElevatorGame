@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c1sk0ew4ac8r0"]
+[gd_scene load_steps=11 format=3 uid="uid://c1sk0ew4ac8r0"]
 
 [ext_resource type="Script" path="res://Scripts/title_menu.gd" id="1_0nll0"]
 [ext_resource type="Texture2D" uid="uid://cc326ks6m72s" path="res://assets/UI/button.png" id="1_sjjc8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://7gpgccrrf468" path="res://assets/UI/buttondown.png" id="2_hlgbi"]
 [ext_resource type="FontFile" uid="uid://buqwwx17yvyoa" path="res://assets/fonts/KiwiSoda.ttf" id="5_mfe7i"]
 [ext_resource type="FontFile" uid="uid://q27k8dduddw0" path="res://assets/fonts/upheavtt.ttf" id="6_aw564"]
+[ext_resource type="PackedScene" uid="uid://ewdngmwuyjts" path="res://scenes/transitions.tscn" id="7_j0orq"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hayji"]
 texture = ExtResource("1_sjjc8")
@@ -84,5 +85,8 @@ theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 text = "[b]Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln"
+
+[node name="Transitions" parent="." instance=ExtResource("7_j0orq")]
+layout_mode = 1
 
 [connection signal="button_down" from="Play" to="." method="button_down"]
