@@ -11,7 +11,7 @@ extends CharacterBody2D
 var shootDelay := {
 	"active": false,
 	"timer": 0,
-	"time": 100
+	"time": 0 #change the time
 }
 
 #Invulnerability
@@ -21,7 +21,13 @@ var invul := {
 	"time": 180
 }
 
-var timers = [shootDelay, invul];
+var coyote := {
+	"active": false,
+	"timer": 0,
+	"time": 100
+}
+
+var timers = [shootDelay, invul, coyote];
 
 var was_on_floor := true
 
@@ -51,9 +57,12 @@ func _physics_process(delta: float) -> void:
 			animated_sprite.play("idle")
 		velocity.x = 0
 
-	if is_on_floor():
-		if Input.is_action_pressed("jump"):
-			velocity.y = JUMP_VELOCITY
+	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
+		velocity.y = JUMP_VELOCITY
+		coyote.active = false
+	elif is_on_floor():
+		coyote.active = true
+		coyote.timer = coyote.time
 	else:
 		velocity += get_gravity() * delta
 

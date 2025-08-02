@@ -32,5 +32,5 @@ func _physics_process(delta: float) -> void:
 		queue_free()
 
 
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	body.queue_free()
+#func _on_area_2d_body_entered(body: Node2D) -> void:
+	#body.queue_free()

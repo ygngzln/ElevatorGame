@@ -490,7 +490,7 @@ position = Vector2(345, 30)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform2"]
 libraries = {
-"": SubResource("AnimationLibrary_x0pvl")
+&"": SubResource("AnimationLibrary_x0pvl")
 }
 autoplay = "move"
 
@@ -500,7 +500,7 @@ position = Vector2(705, 76)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform3"]
 libraries = {
-"": SubResource("AnimationLibrary_wvm3m")
+&"": SubResource("AnimationLibrary_wvm3m")
 }
 autoplay = "move"
 
@@ -510,7 +510,7 @@ position = Vector2(966, 59)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform4"]
 libraries = {
-"": SubResource("AnimationLibrary_kokex")
+&"": SubResource("AnimationLibrary_kokex")
 }
 autoplay = "move"
 
