@@ -262,9 +262,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
-radius = 7.0
-height = 31.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
+size = Vector2(16, 31.85)
 
 [node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shootDelay")]
 z_index = 5
@@ -279,8 +278,8 @@ animation = &"death"
 autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, 1)
-shape = SubResource("CapsuleShape2D_tuyoq")
+position = Vector2(-11, 0.0749998)
+shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)

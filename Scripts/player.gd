@@ -64,13 +64,14 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("dash") and not dashed:
 		dashed = true
 		dashing = true
-		if Input.is_action_pressed("move_left"):
-			velocity.x = -dashX
-		if Input.is_action_pressed("move_right"):
-			velocity.x = dashX
+
+		# Dash in the direction the sprite is facing
+		velocity.x = -dashX if animated_sprite.flip_h else dashX
+
+		# Optional vertical dash modifiers
 		if Input.is_action_pressed("jump"):
 			velocity.y = -dashY
-		if Input.is_action_pressed("crouch"):
+		elif Input.is_action_pressed("crouch"):
 			velocity.y = dashY
 		$dashTimer.start()
 

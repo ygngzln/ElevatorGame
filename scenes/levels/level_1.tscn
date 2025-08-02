@@ -287,7 +287,7 @@ tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAI
 tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]
-position = Vector2(-63, -31)
+position = Vector2(-59, -33)
 
 [node name="enemy" parent="." instance=ExtResource("5_xbruk")]
 position = Vector2(130, -1)
@@ -470,40 +470,4 @@ size_flags_horizontal = 0
 texture_under = ExtResource("16_bahl2")
 texture_progress = ExtResource("17_np2pn")
 
-[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46463" to="gametilemap/@Area2D@46463" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46464" to="gametilemap/@Area2D@46464" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46465" to="gametilemap/@Area2D@46465" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46466" to="gametilemap/@Area2D@46466" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46467" to="gametilemap/@Area2D@46467" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46468" to="gametilemap/@Area2D@46468" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46469" to="gametilemap/@Area2D@46469" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46470" to="gametilemap/@Area2D@46470" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46471" to="gametilemap/@Area2D@46471" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46472" to="gametilemap/@Area2D@46472" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46473" to="gametilemap/@Area2D@46473" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46474" to="gametilemap/@Area2D@46474" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46475" to="gametilemap/@Area2D@46475" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46476" to="gametilemap/@Area2D@46476" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46477" to="gametilemap/@Area2D@46477" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46478" to="gametilemap/@Area2D@46478" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46479" to="gametilemap/@Area2D@46479" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46480" to="gametilemap/@Area2D@46480" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46481" to="gametilemap/@Area2D@46481" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46482" to="gametilemap/@Area2D@46482" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46483" to="gametilemap/@Area2D@46483" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46484" to="gametilemap/@Area2D@46484" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46485" to="gametilemap/@Area2D@46485" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46486" to="gametilemap/@Area2D@46486" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46487" to="gametilemap/@Area2D@46487" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46488" to="gametilemap/@Area2D@46488" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46489" to="gametilemap/@Area2D@46489" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46490" to="gametilemap/@Area2D@46490" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46491" to="gametilemap/@Area2D@46491" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46492" to="gametilemap/@Area2D@46492" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46493" to="gametilemap/@Area2D@46493" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46494" to="gametilemap/@Area2D@46494" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46495" to="gametilemap/@Area2D@46495" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46496" to="gametilemap/@Area2D@46496" method="_on_body_entered"]
-[connection signal="body_entered" from="gametilemap/@Area2D@46497" to="gametilemap/@Area2D@46497" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
