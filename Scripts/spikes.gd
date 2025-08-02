@@ -13,7 +13,8 @@ func _hurt_player(player) -> void:
 	_add_blood_to_spike();
 
 func retrigger(body) -> void:
-	$Area2D/SpikeHurtbox.shape.extents = Vector2(1, 1);
+	if not body.dead:
+		$Area2D/SpikeHurtbox.shape.extents = Vector2(1, 1);
 	await get_tree().physics_frame;
 	await get_tree().physics_frame;
 	$Area2D/SpikeHurtbox.shape.extents = Vector2(10, 6);

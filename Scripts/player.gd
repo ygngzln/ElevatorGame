@@ -67,6 +67,8 @@ func _physics_process(delta: float) -> void:
 		dashed = false
 	
 	if Input.is_action_pressed("dash") and not dashed:
+		
+		Global.change_stat(-30, 100, "mana");
 		dashed = true
 		dashing = true
 		dashTrail.start_dash();
@@ -79,9 +81,11 @@ func _physics_process(delta: float) -> void:
 			velocity.y = -dashY
 		elif Input.is_action_pressed("crouch"):
 			velocity.y = dashY
-		$dashTimer.start()
-
-
+		$dashTimer.start()	
+		
+		invul.active = true;
+		invul.timer = 180;
+		
 	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 		coyote.active = false
@@ -144,6 +148,7 @@ func shoot():
 
 func _on_dash_timer_timeout() -> void:
 	velocity.x = 0
+	invul.timer = 5;
 	dashTrail.end_dash();
 	dashing = false
 	$dashCooldown.start()

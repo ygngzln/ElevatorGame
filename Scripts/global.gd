@@ -18,7 +18,7 @@ func change_stat(change, cap, key):
 			return;
 		else:
 			player.invul.active = true;
-			player.invul.timer = 180;
+			player.invul.timer = 30;
 		
 	stats[key] += change;
 	#Caps the stat between 0 and 100 (can 

@@ -67,6 +67,7 @@ script = ExtResource("1_mmke3")
 sprite_frames = SubResource("SpriteFrames_yuy0u")
 
 [node name="SpikeHitbox" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, 4)
 shape = SubResource("RectangleShape2D_0qqtr")
 
