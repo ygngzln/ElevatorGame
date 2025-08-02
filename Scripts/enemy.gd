@@ -19,7 +19,7 @@ var kb = {
 
 func _physics_process(delta: float) -> void:
 	if kb.active:
-		velocity += kb.vect.normalized() * 260;
+		velocity += kb.vect.normalized() * 120;
 		move_and_slide();
 		
 		if kb.time > 0:
@@ -29,6 +29,7 @@ func _physics_process(delta: float) -> void:
 			kb.vect = Vector2.ZERO;
 			kb.time = 14;
 	velocity = Vector2.ZERO;
+	
 	#change direction according to which raycast is colliding
 	if ray_cast1.is_colliding() or not ray_cast3.is_colliding():
 		direction = -1;
@@ -56,6 +57,7 @@ func damage(x, veloc):
 		await $Death.finished;
 		queue_free();
 	$HealthBar.changeValue(health)
+	$Hit.emitting = true;
 	if kb.active: return;
 	kb.vect = veloc;
 	kb.active = true;

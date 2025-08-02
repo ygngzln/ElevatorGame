@@ -1,22 +1,24 @@
-[gd_scene load_steps=11 format=3 uid="uid://bkjlh75bnot5x"]
+[gd_scene load_steps=13 format=3 uid="uid://bkjlh75bnot5x"]
 
 [ext_resource type="Script" uid="uid://cgdqhq2dawd42" path="res://Scripts/title_menu.gd" id="1_0nll0"]
 [ext_resource type="Texture2D" uid="uid://cc326ks6m72s" path="res://assets/UI/button.png" id="1_sjjc8"]
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="2_c17m7"]
 [ext_resource type="Texture2D" uid="uid://7gpgccrrf468" path="res://assets/UI/buttondown.png" id="2_hlgbi"]
+[ext_resource type="Texture2D" uid="uid://bg36sifp2lgo7" path="res://assets/UI/titlebg.png" id="2_mhxr3"]
 [ext_resource type="FontFile" uid="uid://buqwwx17yvyoa" path="res://assets/fonts/KiwiSoda.ttf" id="5_mfe7i"]
 [ext_resource type="FontFile" uid="uid://q27k8dduddw0" path="res://assets/fonts/upheavtt.ttf" id="6_aw564"]
 [ext_resource type="PackedScene" uid="uid://ewdngmwuyjts" path="res://scenes/transitions.tscn" id="7_j0orq"]
+[ext_resource type="FontFile" uid="uid://wqdqgcur2u0p" path="res://assets/fonts/KGSimplytheBest.ttf" id="7_uo1n6"]
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_hayji"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uo1n6"]
 texture = ExtResource("1_sjjc8")
+modulate_color = Color(1, 1, 1, 0.941176)
 
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ta5wp"]
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4pwlq"]
 texture = ExtResource("2_hlgbi")
 
-[sub_resource type="Theme" id="Theme_756wm"]
-Button/styles/normal = SubResource("StyleBoxTexture_hayji")
-Button/styles/pressed = SubResource("StyleBoxTexture_ta5wp")
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhxr3"]
+texture = ExtResource("1_sjjc8")
 
 [node name="TitleMenu" type="Control"]
 layout_mode = 3
@@ -28,26 +30,31 @@ grow_vertical = 2
 script = ExtResource("1_0nll0")
 
 [node name="Background" type="TextureRect" parent="."]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mhxr3")
+expand_mode = 1
 
 [node name="Title" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -263.0
-offset_top = 22.0
-offset_right = 263.0
-offset_bottom = 192.0
+offset_left = -230.0
+offset_top = 486.0
+offset_right = 296.0
+offset_bottom = 557.0
 grow_horizontal = 2
-theme_override_colors/default_color = Color(0.233501, 0.0364917, 0.0953152, 1)
+theme_override_colors/default_color = Color(0.647059, 0.117647, 0.227451, 1)
 theme_override_constants/shadow_offset_x = 40
 theme_override_fonts/normal_font = ExtResource("2_c17m7")
-theme_override_font_sizes/normal_font_size = 60
+theme_override_font_sizes/normal_font_size = 50
 bbcode_enabled = true
-text = "[center]ELEVATOR GAME[/center]"
+text = "[center]HELLEVATOR[/center]"
 
 [node name="Play" type="Button" parent="."]
 layout_mode = 1
@@ -56,14 +63,19 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = 16.0
-offset_right = 101.0
-offset_bottom = 95.0
+offset_left = -86.0
+offset_top = -156.0
+offset_right = 154.0
+offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_756wm")
+focus_mode = 0
+theme_override_colors/font_hover_color = Color(0.606851, 0.683155, 0.741606, 1)
+theme_override_fonts/font = ExtResource("5_mfe7i")
 theme_override_font_sizes/font_size = 45
+theme_override_styles/hover = SubResource("StyleBoxTexture_uo1n6")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_4pwlq")
+theme_override_styles/normal = SubResource("StyleBoxTexture_mhxr3")
 text = "PLAY"
 
 [node name="Credits" type="RichTextLabel" parent="."]
@@ -73,18 +85,18 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -467.0
-offset_top = -75.0
-offset_right = -17.0
-offset_bottom = -12.0
+offset_left = -344.0
+offset_top = -60.0
+offset_right = 459.0
+offset_bottom = -18.0
 grow_horizontal = 2
 grow_vertical = 0
-theme_override_fonts/normal_font = ExtResource("5_mfe7i")
+theme_override_fonts/normal_font = ExtResource("7_uo1n6")
 theme_override_fonts/bold_font = ExtResource("6_aw564")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
-text = "[b]Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln, ErictheBobbit"
+text = "[b]Credits: [/b]matthewproskils, hihitherethere, comtedehonk, ygngzln, ErictheBobbit"
 
 [node name="Transitions" parent="." instance=ExtResource("7_j0orq")]
 layout_mode = 1

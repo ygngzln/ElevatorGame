@@ -68,7 +68,7 @@ func _physics_process(delta: float) -> void:
 	
 	if Input.is_action_pressed("dash") and not dashed:
 		dashed = true
-		dashing = true
+		#dashing =	 true
 		dashTrail.start_dash();
 
 		# Dash in the direction the sprite is facing

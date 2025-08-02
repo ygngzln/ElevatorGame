@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cop0bc0c7rxu1"]
+[gd_scene load_steps=19 format=3 uid="uid://cop0bc0c7rxu1"]
 
 [ext_resource type="Script" uid="uid://dms6p2gp56k7j" path="res://Scripts/enemy.gd" id="1_5k0mc"]
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="1_v2p4v"]
@@ -81,6 +81,13 @@ radius = 6.0
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
 size = Vector2(11, 15)
 
+[sub_resource type="Curve" id="Curve_c4w8v"]
+_data = [Vector2(0, 0.950035), 0.0, 0.0, 0, 0, Vector2(1, 0.504892), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_c4w8v"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.717647)
+
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 2
@@ -141,6 +148,7 @@ health = false
 enemy = true
 
 [node name="Death" type="CPUParticles2D" parent="."]
+position = Vector2(0, -6)
 scale = Vector2(50, 50)
 emitting = false
 amount = 220
@@ -157,3 +165,25 @@ linear_accel_min = 1.0
 linear_accel_max = 1.0
 scale_amount_min = 0.5
 scale_amount_max = 2.0
+
+[node name="Hit" type="CPUParticles2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(50, 50)
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.9
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_min = 0.8
+scale_amount_max = 2.4
+scale_amount_curve = SubResource("Curve_c4w8v")
+color = Color(0.392157, 0, 0, 1)
+color_ramp = SubResource("Gradient_c4w8v")

@@ -435,6 +435,7 @@ stream = ExtResource("11_jc3l0")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Parent" type="Control" parent="HUD"]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
