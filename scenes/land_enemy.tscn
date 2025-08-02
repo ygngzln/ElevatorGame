@@ -181,12 +181,12 @@ text = "[center]100[/center]"
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
-target_position = Vector2(10, 0)
+target_position = Vector2(10, -2)
 collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
 position = Vector2(0, -6)
-target_position = Vector2(-10, 0)
+target_position = Vector2(-10, -2)
 collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]

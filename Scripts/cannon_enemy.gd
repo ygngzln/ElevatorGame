@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 		reloaded = false
 		launched += 1
 		$cannonReload.start()
-		print("pew")
+		#print("pew")
 	
 	checkDir();
 	move_and_slide()
