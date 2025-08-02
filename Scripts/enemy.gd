@@ -30,5 +30,4 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func damage(x):
-	if !$HealthBar.change(-x):
-		queue_free();
+	Global.player_health -= x

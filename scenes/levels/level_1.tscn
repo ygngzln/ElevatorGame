@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=29 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -16,7 +16,9 @@
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="15_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="15_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dhy0to77jnuqf" path="res://assets/UI/Mana.png" id="16_bahl2"]
+[ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="16_np2pn"]
 [ext_resource type="Texture2D" uid="uid://cxyhqa74svlxw" path="res://assets/UI/Mana2.png" id="17_np2pn"]
+[ext_resource type="Script" uid="uid://j0j5swtav7er" path="res://Scripts/mana_bar.gd" id="19_v6ha0"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -442,7 +444,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="HealthBar" parent="HUD/Parent" instance=ExtResource("15_wtwp4")]
+[node name="PlayerHealthBar" parent="HUD/Parent" instance=ExtResource("15_wtwp4")]
 layout_mode = 1
 offset_left = 22.0
 offset_top = 19.0
@@ -450,6 +452,7 @@ offset_right = 92.0
 offset_bottom = 29.0
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
+texture_under = ExtResource("16_np2pn")
 
 [node name="Parent2" type="Control" parent="HUD"]
 layout_mode = 3
@@ -467,7 +470,8 @@ offset_right = 92.0
 offset_bottom = 53.0
 scale = Vector2(2, 2)
 size_flags_horizontal = 0
-texture_under = ExtResource("16_bahl2")
-texture_progress = ExtResource("17_np2pn")
+texture_under = ExtResource("17_np2pn")
+texture_progress = ExtResource("16_bahl2")
+script = ExtResource("19_v6ha0")
 
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]

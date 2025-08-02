@@ -7,8 +7,7 @@ extends CharacterBody2D
 @onready var projectile := load("res://scenes/knife.tscn")
 
 @onready var gameManager:Node = $"../".find_child("gamemanager");
-@export var shootDelay:Timer;
-
+@onready var mana_bar: TextureProgressBar = $"../".find_child("ManaBar")
 #Invulnerability
 var invul := {
 	"active": false,
@@ -21,6 +20,8 @@ var coyote := {
 	"timer": 0,
 	"time": 100
 }
+
+
 var shootAnim = false;
 var timers = [invul, coyote];
 
@@ -32,17 +33,18 @@ var dashX = 500
 var dashY = 300
 
 func _ready():
-	Global.dead = false;
+	Global.player_health_changed.connect(self._on_player_health_changed)
 
 func _physics_process(delta: float) -> void:
-	if Global.dead: return;
-	if Input.is_action_just_pressed("shoot") and shootDelay.is_stopped() and !shootAnim:
+	if Input.is_action_just_pressed("shoot") and Global.player_mana >= 29 and !shootAnim:
 		animated_sprite.play("shoot");
 		shootAnim = true;
 		await animated_sprite.animation_finished;
 		shoot()
 		shootAnim = false;
-		shootDelay.start();
+		Global.player_mana -= 34.5;
+		if Global.player_mana < 0:
+			Global.player_mana = 0;
 
 	decreaseTimers()
 
@@ -146,3 +148,14 @@ func _on_dash_cooldown_timeout() -> void:
 	print("hi")
 func die():
 	animated_sprite.play("death");
+
+func _on_player_health_changed(new_health: float):
+	if new_health <= 0:
+		handle_player_death()
+
+func handle_player_death():
+	print("Player health reached 0. Playing death animation.")
+	animated_sprite.play("death")
+	await animated_sprite.animation_finished
+	Global.reload_scene_after_delay(0.5)  # Call from a node that won't be freed
+	queue_free()
