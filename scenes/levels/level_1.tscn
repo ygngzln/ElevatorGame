@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=27 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -13,8 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="11_aat41"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="11_jc3l0"]
-[ext_resource type="PackedScene" uid="uid://b7k3hh0aa3ce" path="res://scenes/background.tscn" id="15_iwr0g"]
+[ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="15_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="15_wtwp4"]
+[ext_resource type="Texture2D" uid="uid://dhy0to77jnuqf" path="res://assets/UI/Mana.png" id="16_bahl2"]
+[ext_resource type="Texture2D" uid="uid://cxyhqa74svlxw" path="res://assets/UI/Mana2.png" id="17_np2pn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -267,6 +269,10 @@ size = Vector2(22, 24)
 [node name="level1" type="Node2D"]
 script = ExtResource("1_jt5ki")
 
+[node name="Background" parent="." instance=ExtResource("15_iwr0g")]
+visible = false
+position = Vector2(-16, -139)
+
 [node name="gamemanager" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("1_g24pm")
@@ -440,10 +446,64 @@ grow_vertical = 2
 layout_mode = 1
 offset_left = 22.0
 offset_top = 19.0
-offset_right = 427.0
-offset_bottom = 61.0
+offset_right = 92.0
+offset_bottom = 29.0
+scale = Vector2(2, 2)
 size_flags_horizontal = 0
 
-[node name="Background" parent="." instance=ExtResource("15_iwr0g")]
+[node name="Parent2" type="Control" parent="HUD"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
+[node name="ManaBar" parent="HUD/Parent2" instance=ExtResource("15_wtwp4")]
+layout_mode = 1
+offset_left = 22.0
+offset_top = 43.0
+offset_right = 92.0
+offset_bottom = 53.0
+scale = Vector2(2, 2)
+size_flags_horizontal = 0
+texture_under = ExtResource("16_bahl2")
+texture_progress = ExtResource("17_np2pn")
+
+[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46463" to="gametilemap/@Area2D@46463" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46464" to="gametilemap/@Area2D@46464" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46465" to="gametilemap/@Area2D@46465" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46466" to="gametilemap/@Area2D@46466" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46467" to="gametilemap/@Area2D@46467" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46468" to="gametilemap/@Area2D@46468" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46469" to="gametilemap/@Area2D@46469" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46470" to="gametilemap/@Area2D@46470" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46471" to="gametilemap/@Area2D@46471" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46472" to="gametilemap/@Area2D@46472" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46473" to="gametilemap/@Area2D@46473" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46474" to="gametilemap/@Area2D@46474" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46475" to="gametilemap/@Area2D@46475" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46476" to="gametilemap/@Area2D@46476" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46477" to="gametilemap/@Area2D@46477" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46478" to="gametilemap/@Area2D@46478" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46479" to="gametilemap/@Area2D@46479" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46480" to="gametilemap/@Area2D@46480" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46481" to="gametilemap/@Area2D@46481" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46482" to="gametilemap/@Area2D@46482" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46483" to="gametilemap/@Area2D@46483" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46484" to="gametilemap/@Area2D@46484" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46485" to="gametilemap/@Area2D@46485" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46486" to="gametilemap/@Area2D@46486" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46487" to="gametilemap/@Area2D@46487" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46488" to="gametilemap/@Area2D@46488" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46489" to="gametilemap/@Area2D@46489" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46490" to="gametilemap/@Area2D@46490" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46491" to="gametilemap/@Area2D@46491" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46492" to="gametilemap/@Area2D@46492" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46493" to="gametilemap/@Area2D@46493" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46494" to="gametilemap/@Area2D@46494" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46495" to="gametilemap/@Area2D@46495" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46496" to="gametilemap/@Area2D@46496" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@46497" to="gametilemap/@Area2D@46497" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]

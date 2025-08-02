@@ -78,8 +78,8 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_spfow"]
 radius = 6.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_ikl0w"]
-radius = 8.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c4w8v"]
+size = Vector2(11, 15)
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 8
@@ -105,8 +105,8 @@ damage = 30.0
 hurtDelay = 0.35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
-position = Vector2(0, -6)
-shape = SubResource("CircleShape2D_ikl0w")
+position = Vector2(-0.5, -7.5)
+shape = SubResource("RectangleShape2D_c4w8v")
 debug_color = Color(0.913616, 0.0984373, 0.671985, 0.42)
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]
