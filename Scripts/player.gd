@@ -31,6 +31,11 @@ var timers = [shootDelay, invul, coyote];
 
 var was_on_floor := true
 
+var dashed = false
+var dashing = false
+var dashX = 500
+var dashY = 300
+
 func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
 		animated_sprite.play("shoot")
@@ -40,22 +45,41 @@ func _physics_process(delta: float) -> void:
 
 	decreaseTimers()
 
-	if Input.is_action_pressed("move_left"):
-		velocity.x = -SPEED
-		animated_sprite.flip_h = true
-		animated_sprite.offset = Vector2(-26, 0)
-		if !shootDelay.active and is_on_floor():
-			animated_sprite.play("walk")
-	elif Input.is_action_pressed("move_right"):
-		velocity.x = SPEED
-		animated_sprite.flip_h = false
-		animated_sprite.offset = Vector2(0, 0)
-		if !shootDelay.active and is_on_floor():
-			animated_sprite.play("walk")
-	else:
-		if is_on_floor():
-			animated_sprite.play("idle")
-		velocity.x = 0
+	if not dashing:
+		if Input.is_action_pressed("move_left"):
+			velocity.x = -SPEED
+			animated_sprite.flip_h = true
+			animated_sprite.offset = Vector2(-20, 0)
+			if !shootDelay.active and is_on_floor():
+				animated_sprite.play("walk")
+		elif Input.is_action_pressed("move_right"):
+			velocity.x = SPEED
+			animated_sprite.flip_h = false
+			animated_sprite.offset = Vector2(0, 0)
+			if !shootDelay.active and is_on_floor():
+				animated_sprite.play("walk")
+		else:
+			if is_on_floor():
+				animated_sprite.play("idle")
+			velocity.x = 0
+
+
+	if is_on_floor() and dashed and not dashing and $dashCooldown.is_stopped():
+		dashed = false	
+	
+	if Input.is_action_pressed("dash") and not dashed:
+		dashed = true
+		dashing = true
+		if Input.is_action_pressed("move_left"):
+			velocity.x = -dashX
+		if Input.is_action_pressed("move_right"):
+			velocity.x = dashX
+		if Input.is_action_pressed("jump"):
+			velocity.y = -dashY
+		if Input.is_action_pressed("crouch"):
+			velocity.y = dashY
+		$dashTimer.start()
+
 
 	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
@@ -63,12 +87,13 @@ func _physics_process(delta: float) -> void:
 	elif is_on_floor():
 		coyote.active = true
 		coyote.timer = coyote.time
-	else:
+	elif not dashing:
 		velocity += get_gravity() * delta
 
 	# Play jump animation only once when leaving the ground
 	if not is_on_floor() and was_on_floor:
 		animated_sprite.play("jump")
+		
 
 	# Update was_on_floor state
 	was_on_floor = is_on_floor()
@@ -109,3 +134,13 @@ func shoot():
 	instance.player = self  # assign player reference
 
 	get_tree().get_current_scene().add_child(instance)
+
+func _on_dash_timer_timeout() -> void:
+	velocity.x = 0
+	dashing = false
+	$dashCooldown.start()
+	
+	
+
+func _on_dash_cooldown_timeout() -> void:
+	print("hi")
