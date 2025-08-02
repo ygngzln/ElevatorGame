@@ -266,11 +266,11 @@ animations = [{
 radius = 7.0
 height = 31.0
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("shootDelay")]
 z_index = 5
-position = Vector2(18, 108)
 collision_mask = 14
 script = ExtResource("1_qgb13")
+shootDelay = NodePath("shootDelay")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -292,6 +292,10 @@ wait_time = 0.2
 one_shot = true
 
 [node name="dashCooldown" type="Timer" parent="."]
+one_shot = true
+
+[node name="shootDelay" type="Timer" parent="."]
+wait_time = 0.6
 one_shot = true
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]

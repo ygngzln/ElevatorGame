@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 100
+@export var SPEED = 175
 
 var dir: float
 var spawnPos: Vector2
@@ -20,6 +20,7 @@ func _physics_process(delta: float) -> void:
 	# Move forward
 	velocity = Vector2.RIGHT.rotated(dir) * SPEED
 	move_and_slide()
+	if get_slide_collision_count() > 0: queue_free();
 	
 	# Track time
 	alive_time += delta

@@ -7,12 +7,7 @@ extends CharacterBody2D
 @onready var projectile := load("res://scenes/knife.tscn")
 
 @onready var gameManager:Node = $"../".find_child("gamemanager");
-
-var shootDelay := {
-	"active": false,
-	"timer": 0,
-	"time": 0 #change the time
-}
+@export var shootDelay:Timer;
 
 #Invulnerability
 var invul := {
@@ -26,7 +21,8 @@ var coyote := {
 	"timer": 0,
 	"time": 100
 }
-var timers = [shootDelay, invul, coyote];
+var shootAnim = false;
+var timers = [invul, coyote];
 
 var was_on_floor := true
 
@@ -34,17 +30,19 @@ var dashed = false
 var dashing = false
 var dashX = 500
 var dashY = 300
+
 func _ready():
 	Global.dead = false;
 
 func _physics_process(delta: float) -> void:
 	if Global.dead: return;
-	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
-		animated_sprite.play("shoot")
+	if Input.is_action_just_pressed("shoot") and shootDelay.is_stopped() and !shootAnim:
+		animated_sprite.play("shoot");
+		shootAnim = true;
 		await animated_sprite.animation_finished;
 		shoot()
-		shootDelay.active = true
-		shootDelay.timer = shootDelay.time
+		shootAnim = false;
+		shootDelay.start();
 
 	decreaseTimers()
 
@@ -53,19 +51,12 @@ func _physics_process(delta: float) -> void:
 			velocity.x = -SPEED
 			animated_sprite.flip_h = true
 			animated_sprite.offset = Vector2(-20, 0)
-			if !shootDelay.active and is_on_floor():
-				animated_sprite.play("walk")
 		elif Input.is_action_pressed("move_right"):
 			velocity.x = SPEED
 			animated_sprite.flip_h = false
 			animated_sprite.offset = Vector2(0, 0)
-			if !shootDelay.active and is_on_floor():
-				animated_sprite.play("walk")
 		else:
-			if is_on_floor():
-				animated_sprite.play("idle")
 			velocity.x = 0
-
 
 	if is_on_floor() and dashed and not dashing and $dashCooldown.is_stopped():
 		dashed = false	
@@ -93,15 +84,20 @@ func _physics_process(delta: float) -> void:
 	elif not dashing:
 		velocity += get_gravity() * delta
 
-	# Play jump animation only once when leaving the ground
-	if not is_on_floor() and was_on_floor:
-		animated_sprite.play("jump")
-		
-
+	var animCheckFloor := was_on_floor;
 	# Update was_on_floor state
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
+	if shootAnim: return;
+	if is_on_floor():
+		if velocity == Vector2.ZERO:
+			animated_sprite.play("idle");
+			return;
+		animated_sprite.play("walk");
+		return;
+	if animCheckFloor:
+		animated_sprite.play("jump")
 
 func decreaseTimers():
 	for i in timers:
