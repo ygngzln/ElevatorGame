@@ -33,4 +33,9 @@ func _physics_process(delta: float) -> void:
 
 func damage(x):
 	health -= 50;
+	if health <= 0:
+		$AnimatedSprite2D.visible = false;
+		$Death.emitting = true;
+		await $Death.finished;
+		queue_free();
 	$HealthBar.changeValue(health)
