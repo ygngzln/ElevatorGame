@@ -48,6 +48,7 @@ sprite_frames = SubResource("SpriteFrames_50cdl")
 collision_layer = 0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(-4, -8)
 shape = SubResource("RectangleShape2D_uvdjg")
 

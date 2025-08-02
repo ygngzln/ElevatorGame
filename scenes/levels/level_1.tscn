@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=34 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="3_k3nfs"]
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_dnkej"]
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
+[ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://Coin.tscn" id="5_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="5_xbruk"]
 [ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
 [ext_resource type="PackedScene" uid="uid://c4ou5s81n7p6s" path="res://scenes/platform.tscn" id="7_t5wy8"]
@@ -220,8 +221,9 @@ texture = ExtResource("4_dnkej")
 12:15/0 = 0
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wtwp4"]
+resource_name = "Door"
+scenes/1/scene = ExtResource("5_wtwp4")
 scenes/2/scene = ExtResource("5_mm8aj")
-scenes/2/display_placeholder = ExtResource("5_mm8aj")
 
 [sub_resource type="TileSet" id="TileSet_wtwp4"]
 physics_layer_0/collision_layer = 2
@@ -388,9 +390,7 @@ tile_map_data = PackedByteArray("AADp/wAAAAADAAYAAADp/wEAAAADAAYAAADp/wIAAAADAAY
 collision_enabled = false
 
 [node name="gametilemap" parent="." instance=ExtResource("2_ltsy5")]
-
-tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA3AAMAAAACAAEAAAA1AAMAAAACAAEAAAA0AAMAAAACAAEAAAA2AAMAAAACAAEAAAACAP7/AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAACAP3/AAACAAEAAAA=")
-
+tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA3AAMAAAACAAEAAAA1AAMAAAACAAEAAAA0AAMAAAACAAEAAAA2AAMAAAACAAEAAAACAP7/AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAACAP3/AAACAAEAAAD4//z/AAADAAEAAAD5//z/AAADAAEAAAD6//z/AAADAAEAAAD3//z/AAADAAEAAAD2//z/AAADAAEAAAD1//z/AAADAAEAAAD1//v/AAADAAEAAAD1//r/AAADAAEAAAD1//n/AAADAAEAAAD2//n/AAADAAEAAAD3//n/AAADAAEAAAD4//n/AAADAAEAAAD5//n/AAADAAEAAAD5//v/AQAAAAAAAgD3//r/AQAAAAAAAQD2//r/AQAAAAAAAQD2//v/AQAAAAAAAQD3//v/AQAAAAAAAQAKAP//AQAAAAAAAQALAP7/AQAAAAAAAQAMAP7/AQAAAAAAAQANAP7/AQAAAAAAAQAOAP//AQAAAAAAAQALAP//AQAAAAAAAQANAP//AQAAAAAAAQATAP//AQAAAAAAAQAUAP//AQAAAAAAAQAUAP7/AQAAAAAAAQAVAP7/AQAAAAAAAQAWAP7/AQAAAAAAAQAXAP7/AQAAAAAAAQAXAP//AQAAAAAAAQAYAP//AQAAAAAAAQAEAPz/AQAAAAAAAQAFAPz/AQAAAAAAAQAGAPz/AQAAAAAAAQAGAP3/AQAAAAAAAQAHAP3/AQAAAAAAAQD5//7/AQAAAAAAAQD5//3/AQAAAAAAAQAAAPj/AQAAAAAAAQD///j/AQAAAAAAAQD+//j/AQAAAAAAAQD9//j/AQAAAAAAAQD8//j/AQAAAAAAAQD9//n/AQAAAAAAAQD+//n/AQAAAAAAAQD///n/AQAAAAAAAQAAAPn/AQAAAAAAAQD8//n/AQAAAAAAAQA=")
 tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]
@@ -645,5 +645,41 @@ grow_horizontal = 0
 text = "SCORE : 0"
 label_settings = ExtResource("1_nswmd")
 
+[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92287" to="gametilemap/@Area2D@92287" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92288" to="gametilemap/@Area2D@92288" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92289" to="gametilemap/@Area2D@92289" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92290" to="gametilemap/@Area2D@92290" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92292" to="gametilemap/@Area2D@92292" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92293" to="gametilemap/@Area2D@92293" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92294" to="gametilemap/@Area2D@92294" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92296" to="gametilemap/@Area2D@92296" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92298" to="gametilemap/@Area2D@92298" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92299" to="gametilemap/@Area2D@92299" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92300" to="gametilemap/@Area2D@92300" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92301" to="gametilemap/@Area2D@92301" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92302" to="gametilemap/@Area2D@92302" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92303" to="gametilemap/@Area2D@92303" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92304" to="gametilemap/@Area2D@92304" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92305" to="gametilemap/@Area2D@92305" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92306" to="gametilemap/@Area2D@92306" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92307" to="gametilemap/@Area2D@92307" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92308" to="gametilemap/@Area2D@92308" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92309" to="gametilemap/@Area2D@92309" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92310" to="gametilemap/@Area2D@92310" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92311" to="gametilemap/@Area2D@92311" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92312" to="gametilemap/@Area2D@92312" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92313" to="gametilemap/@Area2D@92313" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92314" to="gametilemap/@Area2D@92314" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92315" to="gametilemap/@Area2D@92315" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92316" to="gametilemap/@Area2D@92316" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92317" to="gametilemap/@Area2D@92317" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92318" to="gametilemap/@Area2D@92318" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92319" to="gametilemap/@Area2D@92319" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92320" to="gametilemap/@Area2D@92320" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92321" to="gametilemap/@Area2D@92321" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92322" to="gametilemap/@Area2D@92322" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92323" to="gametilemap/@Area2D@92323" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@92324" to="gametilemap/@Area2D@92324" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
 [connection signal="pressed" from="CanvasLayer/gamecomplete/RESTARTBUTTON" to="." method="_on_restartbutton_pressed"]

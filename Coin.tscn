@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://bohs6n1yjf768"]
+
+[ext_resource type="Texture2D" uid="uid://pdq6g82b0oj0" path="res://assets/spritesandtiles/coinsspritesheet.png" id="1_h5dih"]
+[ext_resource type="Script" uid="uid://ci8w4hpwnmj5t" path="res://coin.gd" id="1_ou7jl"]
+[ext_resource type="AudioStream" uid="uid://dpheh5d76okmv" path="res://assets/sounds/retro-coin-4-236671 (1).mp3" id="3_ufda5"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ou7jl"]
+atlas = ExtResource("1_h5dih")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ufda5"]
+atlas = ExtResource("1_h5dih")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fj540"]
+atlas = ExtResource("1_h5dih")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kjs0g"]
+atlas = ExtResource("1_h5dih")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bqf1"]
+atlas = ExtResource("1_h5dih")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lvgfy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ou7jl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ufda5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fj540")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kjs0g")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bqf1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_tkog7"]
+radius = 8.0
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_ou7jl")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lvgfy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("CircleShape2D_tkog7")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_ufda5")
+volume_db = -13.866
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -264,7 +264,7 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_tuyoq"]
 radius = 7.0
-height = 32.0
+height = 31.0
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 5
@@ -280,7 +280,7 @@ autoplay = "idle"
 frame_progress = 0.55768
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-11, 0)
+position = Vector2(-11, 1)
 shape = SubResource("CapsuleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
