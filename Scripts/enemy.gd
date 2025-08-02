@@ -11,7 +11,24 @@ var health = 100;
 
 var direction = 1
 
+var kb = {
+	"active": false,
+	"vect": Vector2.ZERO,
+	"time": 16
+}
+
 func _physics_process(delta: float) -> void:
+	if kb.active:
+		velocity += kb.vect.normalized() * 260;
+		move_and_slide();
+		
+		if kb.time > 0:
+			kb.time -= 1;
+		else:
+			kb.active = false;
+			kb.vect = Vector2.ZERO;
+			kb.time = 14;
+	velocity = Vector2.ZERO;
 	#change direction according to which raycast is colliding
 	if ray_cast1.is_colliding() or not ray_cast3.is_colliding():
 		direction = -1;
@@ -31,7 +48,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.flip_h = true
 	move_and_slide()
 
-func damage(x):
+func damage(x, veloc):
 	health -= 50;
 	if health <= 0:
 		$AnimatedSprite2D.visible = false;
@@ -39,3 +56,7 @@ func damage(x):
 		await $Death.finished;
 		queue_free();
 	$HealthBar.changeValue(health)
+	if kb.active: return;
+	kb.vect = veloc;
+	kb.active = true;
+	kb.time = 16;
