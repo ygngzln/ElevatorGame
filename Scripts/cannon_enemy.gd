@@ -12,20 +12,23 @@ var lobtime := 2
 var launchX = 0
 var launchY = 0
 
+var launched = 0
+
 
 func _physics_process(delta: float) -> void:
-	if tracking and reloaded:
+	if tracking and reloaded and launched < 10:
 		var targvec = Global.player.global_position - global_position
 		var ydisp = targvec.y
 		var xdisp = targvec.x
 		launchX = xdisp/lobtime
 		launchY = (ydisp-0.5*get_gravity().y*lobtime*lobtime)/lobtime
 		var newspawn = projectile.instantiate()
-		newspawn.global_position = self.get_parent().global_position
-		newspawn.velocity.x = launchX*10
+		self.get_parent().add_child(newspawn)
+		newspawn.global_position = global_position
+		newspawn.velocity.x = launchX
 		newspawn.velocity.y = launchY
-		add_child(newspawn)
 		reloaded = false
+		launched += 1
 		$cannonReload.start()
 		print("pew")
 	
