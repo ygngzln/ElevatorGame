@@ -45,9 +45,9 @@ func _physics_process(delta: float) -> void:
 		animated_sprite.play("shoot");
 		shootAnim = true;
 		await animated_sprite.animation_finished;
-		shoot()
 		shootAnim = false;
-		Global.change_stat(-34.5, 100.0, "mana");
+		if shoot():
+			Global.change_stat(-34.5, 100.0, "mana");
 
 	decreaseTimers()
 
@@ -64,7 +64,7 @@ func _physics_process(delta: float) -> void:
 			velocity.x = 0
 
 	if is_on_floor() and dashed and not dashing and $dashCooldown.is_stopped():
-		dashed = false	
+		dashed = false
 	
 	if Input.is_action_pressed("dash") and not dashed:
 		dashed = true
@@ -124,7 +124,7 @@ func shoot():
 	)
 
 	if not is_mouse_on_correct_side:
-		return
+		return false;
 
 	var offset_distance = 5
 	var offset = Vector2(offset_distance, 0)
@@ -140,6 +140,7 @@ func shoot():
 	instance.player = self
 
 	get_tree().get_current_scene().add_child(instance)
+	return true;
 
 func _on_dash_timer_timeout() -> void:
 	velocity.x = 0
