@@ -28,3 +28,7 @@ func _physics_process(delta: float) -> void:
 	else:
 		animated_sprite_2d.flip_h = true
 	move_and_slide()
+
+func damage(x):
+	if !$HealthBar.change(-x):
+		queue_free();
