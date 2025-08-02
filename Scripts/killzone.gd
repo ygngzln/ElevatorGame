@@ -10,10 +10,13 @@ extends Area2D
 func _ready():
 	$Timer.wait_time = hurtDelay;
 
-func _on_body_entered(_body: Node2D) -> void:
+func _on_body_entered(body: Node2D) -> void:
 	#audio.play()
-	_on_timer_timeout();
-	timer.start();
+	if body.name == "Player":
+		_on_timer_timeout();
+		timer.start();
+	else:
+		body.queue_free();
 
 func _on_timer_timeout() -> void:
 	Global.change_stat(-damage, 100.0, "health");

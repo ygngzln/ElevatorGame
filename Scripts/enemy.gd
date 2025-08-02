@@ -19,7 +19,7 @@ var kb = {
 
 func _physics_process(delta: float) -> void:
 	if kb.active:
-		velocity += kb.vect.normalized() * 50;
+		velocity += kb.vect.normalized() * 5;
 		move_and_slide();
 		
 		if kb.time > 0:
@@ -28,6 +28,7 @@ func _physics_process(delta: float) -> void:
 			kb.active = false;
 			kb.vect = Vector2.ZERO;
 			kb.time = 14;
+		return;
 	velocity = Vector2.ZERO;
 	
 	#change direction according to which raycast is colliding
@@ -41,7 +42,7 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("run");
 	#apply gravity
 	else:
-		velocity += get_gravity() * delta
+		velocity += get_gravity() * delta * 4;
 	#flipping the sprite according to direction
 	if direction == 1:
 		animated_sprite_2d.flip_h = false
@@ -54,12 +55,14 @@ func damage(x, veloc):
 	if health <= 0:
 		$AnimatedSprite2D.visible = false;
 		$HealthBar.visible = false;
+		$Health.visible = false;
 		$Death.emitting = true;
 		await $Death.finished;
 		queue_free();
 	$HealthBar.changeValue(health)
+	$Health.text = "[center]" + str(health)
 	$Hit.emitting = true;
 	if kb.active: return;
 	kb.vect = veloc;
 	kb.active = true;
-	kb.time = 16;
+	kb.time = 12;

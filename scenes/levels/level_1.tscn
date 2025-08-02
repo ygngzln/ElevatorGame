@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=26 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -10,7 +10,6 @@
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://Coin.tscn" id="5_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="5_xbruk"]
-[ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="11_aat41"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="11_jc3l0"]
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="15_iwr0g"]
@@ -283,7 +282,7 @@ tile_map_data = PackedByteArray("AADp/wAAAAADAAYAAADp/wEAAAADAAYAAADp/wIAAAADAAY
 collision_enabled = false
 
 [node name="gametilemap" parent="." instance=ExtResource("2_ltsy5")]
-tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA3AAMAAAACAAEAAAA1AAMAAAACAAEAAAA0AAMAAAACAAEAAAA2AAMAAAACAAEAAAACAP7/AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAACAP3/AAACAAEAAAD4//z/AAADAAEAAAD5//z/AAADAAEAAAD6//z/AAADAAEAAAD3//z/AAADAAEAAAD2//z/AAADAAEAAAD1//z/AAADAAEAAAD1//v/AAADAAEAAAD1//r/AAADAAEAAAD1//n/AAADAAEAAAD2//n/AAADAAEAAAD3//n/AAADAAEAAAD4//n/AAADAAEAAAD5//n/AAADAAEAAAD5//v/AQAAAAAAAgD3//r/AQAAAAAAAQD2//r/AQAAAAAAAQD2//v/AQAAAAAAAQD3//v/AQAAAAAAAQAKAP//AQAAAAAAAQALAP7/AQAAAAAAAQAMAP7/AQAAAAAAAQANAP7/AQAAAAAAAQAOAP//AQAAAAAAAQALAP//AQAAAAAAAQANAP//AQAAAAAAAQATAP//AQAAAAAAAQAUAP//AQAAAAAAAQAUAP7/AQAAAAAAAQAVAP7/AQAAAAAAAQAWAP7/AQAAAAAAAQAXAP7/AQAAAAAAAQAXAP//AQAAAAAAAQAYAP//AQAAAAAAAQAEAPz/AQAAAAAAAQAFAPz/AQAAAAAAAQAGAPz/AQAAAAAAAQAGAP3/AQAAAAAAAQAHAP3/AQAAAAAAAQD5//7/AQAAAAAAAQD5//3/AQAAAAAAAQAAAPj/AQAAAAAAAQD///j/AQAAAAAAAQD+//j/AQAAAAAAAQD9//j/AQAAAAAAAQD8//j/AQAAAAAAAQD9//n/AQAAAAAAAQD+//n/AQAAAAAAAQD///n/AQAAAAAAAQAAAPn/AQAAAAAAAQD8//n/AQAAAAAAAQA=")
+tile_map_data = PackedByteArray("AAD5/wAAAAACAAIAAAD6/wAAAAACAAIAAAD7/wAAAAACAAIAAAD8/wAAAAACAAIAAAD9/wAAAAACAAIAAAD+/wAAAAACAAIAAAD//wAAAAACAAIAAAAAAAAAAAACAAIAAAD5/wEAAAACAAIAAAD6/wEAAAACAAIAAAD7/wEAAAACAAIAAAD8/wEAAAACAAIAAAD9/wEAAAACAAIAAAD+/wEAAAACAAIAAAD//wEAAAACAAIAAAAAAAEAAAACAAIAAAABAAEAAAACAAIAAAD4/wEAAAACAAIAAAD4/wAAAAACAAIAAAD4////AAACAAEAAAD5////AAACAAEAAAD6////AAACAAEAAAD7////AAACAAEAAAD8////AAACAAEAAAD9////AAACAAEAAAD+////AAACAAEAAAD/////AAACAAEAAAAAAP//AAACAAEAAAABAP//AAACAAEAAAABAAAAAAACAAIAAAACAP//AAACAAEAAAACAAAAAAACAAIAAAACAAEAAAACAAIAAAAGAAEAAAACAAEAAAAHAAEAAAACAAEAAAAIAAEAAAACAAEAAAAJAAEAAAACAAEAAAAQAAIAAAACAAEAAAARAAIAAAACAAEAAAASAAIAAAACAAEAAAATAAIAAAACAAEAAAAaAAIAAAACAAEAAAAbAAIAAAACAAEAAAAcAAIAAAACAAEAAAAdAAIAAAACAAEAAAAjAAIAAAACAAEAAAAkAAIAAAACAAEAAAAlAAIAAAACAAEAAAAmAAIAAAACAAEAAAAnAAIAAAACAAEAAAAoAAIAAAACAAEAAAAuAAIAAAACAAEAAAAvAAIAAAACAAEAAAAwAAIAAAACAAEAAAAxAAIAAAACAAEAAAAyAAIAAAACAAEAAAAzAAIAAAACAAEAAAA4AAIAAAACAAEAAAA5AAIAAAACAAEAAAA6AAIAAAACAAEAAAA7AAIAAAACAAEAAAA8AAIAAAADAAEAAAA9AAMAAAACAAEAAAA+AAMAAAACAAEAAAA/AAMAAAACAAEAAAAPAAIAAAACAAEAAAAYAAIAAAACAAEAAAAZAAIAAAACAAEAAAAiAAIAAAACAAEAAAAtAAIAAAACAAEAAAA8AAMAAAACAAIAAAA7AAMAAAACAAIAAAA8AAQAAAACAAIAAAA9AAQAAAACAAIAAAA+AAQAAAACAAIAAAA/AAQAAAACAAIAAAA6AAMAAAACAAIAAAA5AAMAAAACAAIAAAA4AAMAAAACAAIAAAA3AAMAAAACAAEAAAA1AAMAAAACAAEAAAA0AAMAAAACAAEAAAA2AAMAAAACAAEAAAACAP7/AAACAAEAAAD4//7/AAACAAEAAAD4//3/AAACAAEAAAACAP3/AAACAAEAAAD4//z/AAADAAEAAAD5//z/AAADAAEAAAD6//z/AAADAAEAAAD3//z/AAADAAEAAAD2//z/AAADAAEAAAD1//z/AAADAAEAAAD1//v/AAADAAEAAAD1//r/AAADAAEAAAD1//n/AAADAAEAAAD2//n/AAADAAEAAAD3//n/AAADAAEAAAD4//n/AAADAAEAAAD5//n/AAADAAEAAAD5//v/AQAAAAAAAgD3//r/AQAAAAAAAQD2//r/AQAAAAAAAQD2//v/AQAAAAAAAQD3//v/AQAAAAAAAQAKAP//AQAAAAAAAQALAP7/AQAAAAAAAQAMAP7/AQAAAAAAAQANAP7/AQAAAAAAAQAOAP//AQAAAAAAAQALAP//AQAAAAAAAQANAP//AQAAAAAAAQATAP//AQAAAAAAAQAUAP//AQAAAAAAAQAUAP7/AQAAAAAAAQAVAP7/AQAAAAAAAQAWAP7/AQAAAAAAAQAXAP7/AQAAAAAAAQAXAP//AQAAAAAAAQAYAP//AQAAAAAAAQAEAPz/AQAAAAAAAQAFAPz/AQAAAAAAAQAGAPz/AQAAAAAAAQAGAP3/AQAAAAAAAQAHAP3/AQAAAAAAAQD5//7/AQAAAAAAAQD5//3/AQAAAAAAAQAAAPj/AQAAAAAAAQD///j/AQAAAAAAAQD+//j/AQAAAAAAAQD9//j/AQAAAAAAAQD8//j/AQAAAAAAAQD9//n/AQAAAAAAAQD+//n/AQAAAAAAAQD///n/AQAAAAAAAQAAAPn/AQAAAAAAAQD8//n/AQAAAAAAAQAGAAIAAAACAAIAAAAHAAIAAAACAAIAAAAIAAIAAAACAAIAAAAJAAIAAAACAAIAAAAJAAMAAAACAAIAAAAIAAMAAAACAAIAAAAHAAMAAAACAAIAAAAGAAMAAAACAAIAAAAJAAQAAAACAAIAAAAIAAQAAAACAAIAAAAHAAQAAAACAAIAAAAGAAQAAAACAAIAAAAGAAUAAAACAAIAAAAHAAUAAAACAAIAAAAIAAUAAAACAAIAAAAJAAUAAAACAAIAAAAPAAMAAAACAAIAAAAQAAMAAAACAAIAAAARAAMAAAACAAIAAAASAAMAAAACAAIAAAATAAMAAAACAAIAAAAYAAMAAAACAAIAAAAZAAMAAAACAAIAAAAaAAMAAAACAAIAAAAbAAMAAAACAAIAAAAcAAMAAAACAAIAAAAdAAMAAAACAAIAAAAjAAMAAAACAAIAAAAiAAMAAAACAAIAAAAkAAMAAAACAAIAAAAlAAMAAAACAAIAAAAmAAMAAAACAAIAAAAnAAMAAAACAAIAAAAoAAMAAAACAAIAAAAtAAMAAAACAAIAAAAuAAMAAAACAAIAAAAvAAMAAAACAAIAAAAwAAMAAAACAAIAAAAxAAMAAAACAAIAAAAyAAMAAAACAAIAAAAzAAMAAAACAAIAAAA0AAQAAAACAAIAAAA1AAQAAAACAAIAAAAzAAQAAAACAAIAAAA2AAQAAAACAAIAAAA3AAQAAAACAAIAAAA4AAQAAAACAAIAAAA=")
 tile_set = SubResource("TileSet_wtwp4")
 
 [node name="Player" parent="." instance=ExtResource("1_nt6kk")]
@@ -354,66 +353,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
-[node name="coins" type="Node" parent="."]
-
-[node name="coins" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(328, 56)
-
-[node name="coins2" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(377, 23)
-
-[node name="coins3" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(391, 23)
-
-[node name="coins4" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(280, -132)
-
-[node name="coins5" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(137, -155)
-
-[node name="coins6" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(153, -155)
-
-[node name="coins7" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(536, 25)
-
-[node name="coins8" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(648, 9)
-
-[node name="coins9" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(632, 9)
-
-[node name="coins10" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(841, 54)
-
-[node name="coins11" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(887, 85)
-
-[node name="coins12" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(982, 84)
-
-[node name="coins13" parent="coins" instance=ExtResource("6_evxin")]
-visible = false
-position = Vector2(1033, 54)
-
 [node name="projectiles" type="Node" parent="."]
 
 [node name="killzone" parent="." instance=ExtResource("3_k3nfs")]
 position = Vector2(144, 245)
 collision_layer = 0
-collision_mask = 1
+collision_mask = 9
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_binft")
@@ -468,5 +413,41 @@ mana = true
 [node name="Regen" type="Timer" parent="."]
 wait_time = 1.2
 
+[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147579" to="gametilemap/@Area2D@147579" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147580" to="gametilemap/@Area2D@147580" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147581" to="gametilemap/@Area2D@147581" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147582" to="gametilemap/@Area2D@147582" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147583" to="gametilemap/@Area2D@147583" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147584" to="gametilemap/@Area2D@147584" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147585" to="gametilemap/@Area2D@147585" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147586" to="gametilemap/@Area2D@147586" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147587" to="gametilemap/@Area2D@147587" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147588" to="gametilemap/@Area2D@147588" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147589" to="gametilemap/@Area2D@147589" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147590" to="gametilemap/@Area2D@147590" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147591" to="gametilemap/@Area2D@147591" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147592" to="gametilemap/@Area2D@147592" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147593" to="gametilemap/@Area2D@147593" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147594" to="gametilemap/@Area2D@147594" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147595" to="gametilemap/@Area2D@147595" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147596" to="gametilemap/@Area2D@147596" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147597" to="gametilemap/@Area2D@147597" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147598" to="gametilemap/@Area2D@147598" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147599" to="gametilemap/@Area2D@147599" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147600" to="gametilemap/@Area2D@147600" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147601" to="gametilemap/@Area2D@147601" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147602" to="gametilemap/@Area2D@147602" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147603" to="gametilemap/@Area2D@147603" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147604" to="gametilemap/@Area2D@147604" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147605" to="gametilemap/@Area2D@147605" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147606" to="gametilemap/@Area2D@147606" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147607" to="gametilemap/@Area2D@147607" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147608" to="gametilemap/@Area2D@147608" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147609" to="gametilemap/@Area2D@147609" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147610" to="gametilemap/@Area2D@147610" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147611" to="gametilemap/@Area2D@147611" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147612" to="gametilemap/@Area2D@147612" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@147613" to="gametilemap/@Area2D@147613" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
