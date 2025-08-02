@@ -29,6 +29,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
 		animated_sprite.play("shoot")
 		shoot()
+		shootDelay.active = true
+		shootDelay.timer = shootDelay.time
 
 	decreaseTimers()
 
@@ -84,7 +86,7 @@ func shoot():
 	if not is_mouse_on_correct_side:
 		return
 
-	var offset_distance = 20.0
+	var offset_distance = 5
 	var offset = Vector2(offset_distance, 0)
 	if facing_left:
 		offset.x *= -1

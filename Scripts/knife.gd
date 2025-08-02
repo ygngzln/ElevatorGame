@@ -30,3 +30,7 @@ func _physics_process(delta: float) -> void:
 	# Check distance to player
 	if player and global_position.distance_to(player.global_position) >= MAX_DISTANCE:
 		queue_free()
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.queue_free()
