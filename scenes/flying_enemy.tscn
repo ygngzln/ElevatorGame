@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dca5w3ydpdcep"]
+
+[ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="1_vbcm2"]
+[ext_resource type="Script" uid="uid://c6a7ioomxgmju" path="res://Scripts/flying_enemy.gd" id="2_fgwew"]
+
+[node name="FlyingEnemy" node_paths=PackedStringArray("dir") instance=ExtResource("1_vbcm2")]
+motion_mode = 1
+script = ExtResource("2_fgwew")
+dir = NodePath("DirectionChange")
+SPEED = 50.0
+
+[node name="DirectionChange" type="Timer" parent="." index="11"]
+wait_time = 3.2
+
+[connection signal="timeout" from="DirectionChange" to="." method="_on_direction_change_timeout"]

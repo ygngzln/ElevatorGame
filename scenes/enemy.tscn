@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cop0bc0c7rxu1"]
 
-[ext_resource type="Script" uid="uid://dms6p2gp56k7j" path="res://Scripts/enemy.gd" id="1_5k0mc"]
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="1_v2p4v"]
+[ext_resource type="Script" uid="uid://bm6vycc3dsbrc" path="res://Scripts/landEnemy.gd" id="1_xwavj"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="2_wgs4n"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="4_c4w8v"]
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="5_xwavj"]
@@ -92,8 +92,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.717647)
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 8
 collision_mask = 2
-script = ExtResource("1_5k0mc")
-SPEED = 66.0
+script = ExtResource("1_xwavj")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)

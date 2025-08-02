@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy;
 
 @export var SPEED = 80.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
@@ -17,38 +18,29 @@ var kb = {
 	"time": 16
 }
 
+func takeKB():
+	velocity += kb.vect.normalized() * 5;
+	move_and_slide();
+	
+	if kb.time > 0:
+		kb.time -= 1;
+	else:
+		kb.active = false;
+		kb.vect = Vector2.ZERO;
+		kb.time = 14;
+
 func _physics_process(delta: float) -> void:
 	if kb.active:
-		velocity += kb.vect.normalized() * 5;
-		move_and_slide();
-		
-		if kb.time > 0:
-			kb.time -= 1;
-		else:
-			kb.active = false;
-			kb.vect = Vector2.ZERO;
-			kb.time = 14;
+		takeKB();
 		return;
-	velocity = Vector2.ZERO;
 	
-	#change direction according to which raycast is colliding
-	if ray_cast1.is_colliding() or not ray_cast3.is_colliding():
-		direction = -1;
-	if ray_cast2.is_colliding() or not ray_cast4.is_colliding():
-		direction = 1;
-	#handling movement 
-	if is_on_floor():
-		velocity.x = direction * SPEED
-		animated_sprite_2d.play("run");
-	#apply gravity
-	else:
-		velocity += get_gravity() * delta * 4;
-	#flipping the sprite according to direction
+	checkDir();
+
+func checkDir():
 	if direction == 1:
 		animated_sprite_2d.flip_h = false
 	else:
 		animated_sprite_2d.flip_h = true
-	move_and_slide()
 
 func damage(x, veloc):
 	health -= 50;
@@ -66,3 +58,6 @@ func damage(x, veloc):
 	kb.vect = veloc;
 	kb.active = true;
 	kb.time = 12;
+
+func flipDir():
+	direction *= -1;
