@@ -3,6 +3,8 @@ extends CharacterBody2D
 @export var SPEED:float = 120.0
 @export var JUMP_VELOCITY:float = -375.0
 
+@export var dashTrail:Line2D;
+
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var projectile := load("res://scenes/knife.tscn")
 
@@ -67,6 +69,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("dash") and not dashed:
 		dashed = true
 		dashing = true
+		dashTrail.start_dash();
 
 		# Dash in the direction the sprite is facing
 		velocity.x = -dashX if animated_sprite.flip_h else dashX
@@ -140,6 +143,7 @@ func shoot():
 
 func _on_dash_timer_timeout() -> void:
 	velocity.x = 0
+	dashTrail.end_dash();
 	dashing = false
 	$dashCooldown.start()
 
@@ -147,7 +151,6 @@ func _on_dash_cooldown_timeout() -> void:
 	print("hi")
 
 func _on_player_health_changed(new_health: float):
-	print("NEW HEALTH: " + str(new_health));
 	if new_health <= 0:
 		handle_player_death()
 

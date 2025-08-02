@@ -13,9 +13,6 @@ func reload_scene():
 	initializePlayer();
 
 func change_stat(change, cap, key):
-	if key == "health": 
-		print(change)
-		print(stats["health"])
 	stats[key] += change;
 	#Caps the stat between 0 and 100 (can 
 	#be changed for other values later)

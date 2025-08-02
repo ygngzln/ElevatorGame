@@ -1,6 +1,6 @@
 [gd_scene load_steps=11 format=3 uid="uid://bkjlh75bnot5x"]
 
-[ext_resource type="Script" uid="uid://c3ksr4ni6drbh" path="res://Scripts/title_menu.gd" id="1_0nll0"]
+[ext_resource type="Script" uid="uid://cgdqhq2dawd42" path="res://Scripts/title_menu.gd" id="1_0nll0"]
 [ext_resource type="Texture2D" uid="uid://cc326ks6m72s" path="res://assets/UI/button.png" id="1_sjjc8"]
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="2_c17m7"]
 [ext_resource type="Texture2D" uid="uid://7gpgccrrf468" path="res://assets/UI/buttondown.png" id="2_hlgbi"]
@@ -56,10 +56,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -101.5
-offset_top = -3.5
-offset_right = 101.5
-offset_bottom = 75.5
+offset_left = -102.0
+offset_top = 16.0
+offset_right = 101.0
+offset_bottom = 95.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_756wm")
@@ -73,10 +73,10 @@ anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -347.0
-offset_top = -73.0
-offset_right = 6.0
-offset_bottom = -5.0
+offset_left = -467.0
+offset_top = -75.0
+offset_right = -17.0
+offset_bottom = -12.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_fonts/normal_font = ExtResource("5_mfe7i")
@@ -84,7 +84,7 @@ theme_override_fonts/bold_font = ExtResource("6_aw564")
 theme_override_font_sizes/normal_font_size = 20
 theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
-text = "[b]Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln"
+text = "[b]Credits: [/b] matthewproskils, hihitherethere, comtedehonk, ygngzln, ErictheBobbit"
 
 [node name="Transitions" parent="." instance=ExtResource("7_j0orq")]
 layout_mode = 1

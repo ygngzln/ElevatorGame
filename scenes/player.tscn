@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://0dyqpxiehd0p"]
+[gd_scene load_steps=39 format=3 uid="uid://0dyqpxiehd0p"]
 
 [ext_resource type="Script" uid="uid://cryojaiyqigty" path="res://Scripts/player.gd" id="1_qgb13"]
 [ext_resource type="Texture2D" uid="uid://uegexbyxcgxh" path="res://assets/blackman/Attack.png" id="2_p4m3m"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://53tl8bw06iln" path="res://assets/blackman/Hurt.png" id="4_h37o1"]
 [ext_resource type="Texture2D" uid="uid://p62t5f4u8ykx" path="res://assets/blackman/Idle.png" id="5_koeno"]
 [ext_resource type="Texture2D" uid="uid://b54va0ggv0b07" path="res://assets/blackman/Walk.png" id="6_jmoec"]
+[ext_resource type="Script" uid="uid://dpdwsttsqqxlt" path="res://Scripts/dash_trail.gd" id="7_fjrip"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uoif"]
 atlas = ExtResource("2_p4m3m")
@@ -265,10 +266,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
 size = Vector2(16, 31.85)
 
-[node name="Player" type="CharacterBody2D"]
+[sub_resource type="Curve" id="Curve_fjrip"]
+_data = [Vector2(0, 0.0425397), 0.0, 0.0, 0, 0, Vector2(0.82963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.533651), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dashTrail")]
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_qgb13")
+dashTrail = NodePath("DashTrail")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -291,6 +297,16 @@ one_shot = true
 
 [node name="dashCooldown" type="Timer" parent="."]
 one_shot = true
+
+[node name="DashTrail" type="Line2D" parent="."]
+show_behind_parent = true
+top_level = true
+width_curve = SubResource("Curve_fjrip")
+default_color = Color(0.867491, 0.662646, 0.929708, 0.588235)
+joint_mode = 2
+begin_cap_mode = 2
+end_cap_mode = 2
+script = ExtResource("7_fjrip")
 
 [connection signal="timeout" from="dashTimer" to="." method="_on_dash_timer_timeout"]
 [connection signal="timeout" from="dashCooldown" to="." method="_on_dash_cooldown_timeout"]
