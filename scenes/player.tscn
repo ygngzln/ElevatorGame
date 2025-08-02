@@ -296,6 +296,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="dashCooldown" type="Timer" parent="."]
+wait_time = 0.001
 one_shot = true
 
 [node name="DashTrail" type="Line2D" parent="."]

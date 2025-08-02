@@ -3,10 +3,6 @@ class_name Enemy;
 
 @export var SPEED = 80.0
 @onready var animated_sprite_2d: AnimatedSprite2D = $AnimatedSprite2D
-@onready var ray_cast1: RayCast2D = $RayCast2D1
-@onready var ray_cast2: RayCast2D = $RayCast2D2
-@onready var ray_cast3: RayCast2D = $RayCast2D3
-@onready var ray_cast4: RayCast2D = $RayCast2D4
 
 var health = 100;
 

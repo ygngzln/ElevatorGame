@@ -1,7 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dca5w3ydpdcep"]
+[gd_scene load_steps=5 format=3 uid="uid://dca5w3ydpdcep"]
 
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="1_vbcm2"]
 [ext_resource type="Script" uid="uid://c6a7ioomxgmju" path="res://Scripts/flying_enemy.gd" id="2_fgwew"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_fgwew"]
+radius = 8.06226
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_c4a5w"]
+radius = 102.108
 
 [node name="FlyingEnemy" node_paths=PackedStringArray("dir") instance=ExtResource("1_vbcm2")]
 motion_mode = 1
@@ -9,7 +15,28 @@ script = ExtResource("2_fgwew")
 dir = NodePath("DirectionChange")
 SPEED = 50.0
 
-[node name="DirectionChange" type="Timer" parent="." index="11"]
+[node name="CollisionShape2D" parent="killzone" index="2"]
+shape = SubResource("CircleShape2D_fgwew")
+
+[node name="DirectionChange" type="Timer" parent="." index="7"]
 wait_time = 3.2
 
+[node name="RayCast2D1" type="RayCast2D" parent="." index="8"]
+position = Vector2(0, -6)
+target_position = Vector2(10, 0)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="." index="9"]
+position = Vector2(0, -6)
+target_position = Vector2(-10, 0)
+collision_mask = 2
+
+[node name="targetzone" type="Area2D" parent="." index="10"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="targetzone" index="0"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_c4a5w")
+
 [connection signal="timeout" from="DirectionChange" to="." method="_on_direction_change_timeout"]
+[connection signal="body_entered" from="targetzone" to="." method="_on_targetzone_body_entered"]
+[connection signal="body_exited" from="targetzone" to="." method="_on_targetzone_body_exited"]

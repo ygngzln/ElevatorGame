@@ -1,5 +1,10 @@
 extends Enemy
 
+@onready var ray_cast1: RayCast2D = $RayCast2D1
+@onready var ray_cast2: RayCast2D = $RayCast2D2
+@onready var ray_cast3: RayCast2D = $RayCast2D3
+@onready var ray_cast4: RayCast2D = $RayCast2D4
+
 func _physics_process(delta: float) -> void:
 	if kb.active:
 		takeKB();
