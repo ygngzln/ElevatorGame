@@ -26,7 +26,7 @@ func _physics_process(delta: float) -> void:
 	alive_time += delta
 	if alive_time >= MAX_LIFETIME:
 		queue_free();
-		return
+		return;
 
 	# Check distance to player
 	if player and global_position.distance_to(player.global_position) >= MAX_DISTANCE:
@@ -34,3 +34,4 @@ func _physics_process(delta: float) -> void:
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	body.damage(35, velocity);
+	queue_free();

@@ -19,7 +19,7 @@ var kb = {
 
 func _physics_process(delta: float) -> void:
 	if kb.active:
-		velocity += kb.vect.normalized() * 120;
+		velocity += kb.vect.normalized() * 50;
 		move_and_slide();
 		
 		if kb.time > 0:
@@ -53,6 +53,7 @@ func damage(x, veloc):
 	health -= 50;
 	if health <= 0:
 		$AnimatedSprite2D.visible = false;
+		$HealthBar.visible = false;
 		$Death.emitting = true;
 		await $Death.finished;
 		queue_free();
