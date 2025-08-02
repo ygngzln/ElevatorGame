@@ -137,3 +137,5 @@ offset_bottom = -16.0
 texture_under = ExtResource("5_xwavj")
 texture_progress = ExtResource("5_xwavj")
 tint_under = Color(0, 0, 0, 1)
+health = false
+enemy = true

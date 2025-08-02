@@ -1,19 +1,18 @@
 # PlayerHealthBar.gd (or whatever you name your progress bar script)
 extends TextureProgressBar
 
-@onready var tween := create_tween()
-
+@onready var tween:Tween;
+@export var health:bool = true;
+@export var mana:bool = false;
+@export var enemy:bool = false;
 
 func _ready():
-	await get_tree().process_frame  # Let Global._ready() run first
-	print("✅ PlayerHealthBar ready")
-	print("✅ Global health is", Global.player_health)
-	value = Global.player_health
-	Global.player_health_changed.connect(_on_player_health_changed)
-
-# --- Signal Handler Function ---
-
-func _on_player_health_changed(new_health: float):
-	tween.kill()  # cancel any existing tween
+	await get_tree().process_frame
+	value = max_value;
+	if health: Global.player_health_changed.connect(changeValue);
+	if mana: Global.player_mana_changed.connect(changeValue);
+	
+func changeValue(new_value):
+	if tween: tween.kill()
 	tween = create_tween()
-	tween.tween_property(self, "value", new_health, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
+	tween.tween_property(self, "value", new_value, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)

@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b1wer0tkyj7o8" path="res://assets/Background/Layer_0003_6.png" id="8_r4ipc"]
 [ext_resource type="Texture2D" uid="uid://te78nxsm7een" path="res://assets/Background/Layer_0002_7.png" id="9_5xduy"]
 [ext_resource type="Texture2D" uid="uid://l82gjrtjevej" path="res://assets/Background/Layer_0000_9.png" id="10_fligg"]
-[ext_resource type="Texture2D" uid="uid://brxug6abps13p" path="res://assets/Background/Layer_0000_10.png" id="11_da6cc"]
+[ext_resource type="Texture2D" uid="uid://bkdvmx7bi62aw" path="res://assets/Background/Layer_0010_1.png" id="11_da6cc"]
 
 [node name="Background" type="Node2D"]
 

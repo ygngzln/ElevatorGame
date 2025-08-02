@@ -7,6 +7,8 @@ extends CharacterBody2D
 @onready var ray_cast3: RayCast2D = $RayCast2D3
 @onready var ray_cast4: RayCast2D = $RayCast2D4
 
+var health = 100;
+
 var direction = 1
 
 func _physics_process(delta: float) -> void:
@@ -30,4 +32,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func damage(x):
-	Global.player_health -= x
+	health -= 50;
+	$HealthBar.changeValue(health)

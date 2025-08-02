@@ -16,7 +16,7 @@ func _on_body_entered(_body: Node2D) -> void:
 	timer.start();
 
 func _on_timer_timeout() -> void:
-	Global.player_health -= damage
+	Global.change_stat(-damage, 100.0, "health");
 
 func _on_body_exited(_body: Node2D) -> void:
 	timer.stop();
