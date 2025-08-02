@@ -3,7 +3,7 @@ extends Enemy
 var projectile
 
 func _ready():
-	projectile = load("res://scenes/land_enemy.tscn")
+	projectile = preload("res://scenes/land_enemy.tscn")
 	
 var tracking := false
 var reloaded = true
@@ -21,8 +21,8 @@ func _physics_process(delta: float) -> void:
 		launchX = xdisp/lobtime
 		launchY = (ydisp-0.5*get_gravity().y*lobtime*lobtime)/lobtime
 		var newspawn = projectile.instantiate()
-		newspawn.global_position = global_position
-		newspawn.velocity.x = launchX
+		newspawn.global_position = self.get_parent().global_position
+		newspawn.velocity.x = launchX*10
 		newspawn.velocity.y = launchY
 		add_child(newspawn)
 		reloaded = false
@@ -40,14 +40,11 @@ func _on_targetzone_body_entered(body: Node2D) -> void:
 	if body.name != "Player":
 		return
 	tracking = true
-	
 
 func _on_targetzone_body_exited(body: Node2D) -> void:
 	if body.name != "Player":
 		return
 	tracking = false
-
-
 
 func _on_cannon_reload_timeout() -> void:
 	reloaded = true

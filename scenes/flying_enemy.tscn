@@ -18,9 +18,6 @@ SPEED = 50.0
 [node name="AnimatedSprite2D" parent="." index="0"]
 animation = &"run"
 
-[node name="killzone" parent="." index="2"]
-collision_layer = 0
-
 [node name="CollisionShape2D" parent="killzone" index="2"]
 shape = SubResource("CircleShape2D_fgwew")
 

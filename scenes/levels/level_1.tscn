@@ -421,7 +421,7 @@ wait_time = 1.2
 position = Vector2(117, -70)
 
 [node name="cannonEnemy" parent="." instance=ExtResource("19_v6ha0")]
-position = Vector2(125, 2)
+position = Vector2(-78, -74)
 
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
