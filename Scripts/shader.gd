@@ -12,7 +12,6 @@ func _ready():
 	pass;
 
 func setup(settings):
-	print(settings)
 	shader.set_shader_parameter("direction", true);
 	time = 0.0;
 	if settings == "open":

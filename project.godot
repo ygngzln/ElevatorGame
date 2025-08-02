@@ -11,18 +11,19 @@ config_version=5
 [application]
 
 config/name="Elevator"
-run/main_scene="uid://dswi77j3xwly5"
+run/main_scene="uid://bkjlh75bnot5x"
 config/features=PackedStringArray("4.4")
 config/icon="res://icon.svg"
 
 [autoload]
 
-Bgscore="*res://scenes/bgscore.tscn"
+Bgscore="res://scenes/bgscore.tscn"
+Global="*res://Scripts/global.gd"
 
 [display]
 
-window/size/viewport_width=720
-window/size/viewport_height=480
+window/size/viewport_width=960
+window/size/viewport_height=640
 window/stretch/mode="viewport"
 window/stretch/aspect="expand"
 

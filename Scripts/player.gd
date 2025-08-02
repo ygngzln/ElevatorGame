@@ -26,7 +26,6 @@ var coyote := {
 	"timer": 0,
 	"time": 100
 }
-
 var timers = [shootDelay, invul, coyote];
 
 var was_on_floor := true
@@ -35,10 +34,14 @@ var dashed = false
 var dashing = false
 var dashX = 500
 var dashY = 300
+func _ready():
+	Global.dead = false;
 
 func _physics_process(delta: float) -> void:
+	if Global.dead: return;
 	if Input.is_action_just_pressed("shoot") and !shootDelay.active:
 		animated_sprite.play("shoot")
+		await animated_sprite.animation_finished;
 		shoot()
 		shootDelay.active = true
 		shootDelay.timer = shootDelay.time
@@ -144,3 +147,5 @@ func _on_dash_timer_timeout() -> void:
 
 func _on_dash_cooldown_timeout() -> void:
 	print("hi")
+func die():
+	animated_sprite.play("death");

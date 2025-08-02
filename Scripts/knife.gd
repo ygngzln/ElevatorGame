@@ -20,17 +20,16 @@ func _physics_process(delta: float) -> void:
 	# Move forward
 	velocity = Vector2.RIGHT.rotated(dir) * SPEED
 	move_and_slide()
-
+	
 	# Track time
 	alive_time += delta
 	if alive_time >= MAX_LIFETIME:
-		queue_free()
+		queue_free();
 		return
 
 	# Check distance to player
 	if player and global_position.distance_to(player.global_position) >= MAX_DISTANCE:
 		queue_free()
 
-
-#func _on_area_2d_body_entered(body: Node2D) -> void:
-	#body.queue_free()
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	body.queue_free()`

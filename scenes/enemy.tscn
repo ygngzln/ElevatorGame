@@ -81,8 +81,9 @@ radius = 8.0
 
 [node name="enemy" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 2
 script = ExtResource("1_5k0mc")
+SPEED = 66.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -96,8 +97,11 @@ position = Vector2(0, -6)
 shape = SubResource("CircleShape2D_spfow")
 
 [node name="killzone" parent="." instance=ExtResource("2_wgs4n")]
-collision_layer = 0
+collision_layer = 8
 collision_mask = 1
+monitorable = false
+damage = 30.0
+hurtDelay = 0.35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 position = Vector2(0, -6)

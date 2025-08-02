@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=24 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -11,10 +11,9 @@
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://Coin.tscn" id="5_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="5_xbruk"]
 [ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="6_evxin"]
-[ext_resource type="PackedScene" uid="uid://c4ou5s81n7p6s" path="res://scenes/platform.tscn" id="7_t5wy8"]
-[ext_resource type="FontFile" uid="uid://bap4myteag8nn" path="res://assets/fonts/PixelOperator.ttf" id="10_asnfo"]
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="11_aat41"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="11_jc3l0"]
+[ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="15_wtwp4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -230,120 +229,6 @@ physics_layer_0/collision_layer = 2
 sources/0 = SubResource("TileSetAtlasSource_mm8aj")
 sources/1 = SubResource("TileSetScenesCollectionSource_wtwp4")
 
-[sub_resource type="Animation" id="Animation_0t868"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(345, 30)]
-}
-
-[sub_resource type="Animation" id="Animation_2c3ku"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.96667),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(345, 30), Vector2(345, -99)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_x0pvl"]
-_data = {
-&"RESET": SubResource("Animation_0t868"),
-&"move": SubResource("Animation_2c3ku")
-}
-
-[sub_resource type="Animation" id="Animation_hwp0x"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(705, 76)]
-}
-
-[sub_resource type="Animation" id="Animation_m40tu"]
-resource_name = "move"
-length = 1.5
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 1.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(705, 76), Vector2(783, 76)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_wvm3m"]
-_data = {
-&"RESET": SubResource("Animation_hwp0x"),
-&"move": SubResource("Animation_m40tu")
-}
-
-[sub_resource type="Animation" id="Animation_4gwgs"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(966, 59)]
-}
-
-[sub_resource type="Animation" id="Animation_6mhvj"]
-resource_name = "move"
-length = 2.0
-loop_mode = 2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(966, 59), Vector2(966, -57)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_kokex"]
-_data = {
-&"RESET": SubResource("Animation_4gwgs"),
-&"move": SubResource("Animation_6mhvj")
-}
-
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y5eht"]
@@ -515,42 +400,6 @@ position = Vector2(982, 84)
 visible = false
 position = Vector2(1033, 54)
 
-[node name="platforms" type="Node" parent="."]
-
-[node name="platform" parent="platforms" instance=ExtResource("7_t5wy8")]
-visible = false
-position = Vector2(587, 57)
-
-[node name="platform2" parent="platforms" instance=ExtResource("7_t5wy8")]
-visible = false
-position = Vector2(345, 30)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform2"]
-libraries = {
-&"": SubResource("AnimationLibrary_x0pvl")
-}
-autoplay = "move"
-
-[node name="platform3" parent="platforms" instance=ExtResource("7_t5wy8")]
-visible = false
-position = Vector2(705, 76)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform3"]
-libraries = {
-&"": SubResource("AnimationLibrary_wvm3m")
-}
-autoplay = "move"
-
-[node name="platform4" parent="platforms" instance=ExtResource("7_t5wy8")]
-visible = false
-position = Vector2(966, 59)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="platforms/platform4"]
-libraries = {
-&"": SubResource("AnimationLibrary_kokex")
-}
-autoplay = "move"
-
 [node name="projectiles" type="Node" parent="."]
 
 [node name="killzone" parent="." instance=ExtResource("3_k3nfs")]
@@ -575,75 +424,58 @@ shape = SubResource("RectangleShape2D_ol1qt")
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="gamefinished"]
 stream = ExtResource("11_jc3l0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
+[node name="HUD" type="CanvasLayer" parent="."]
 
-[node name="gamecomplete" type="Panel" parent="CanvasLayer"]
+[node name="Parent" type="Control" parent="HUD"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="CanvasLayer/gamecomplete"]
+[node name="HealthBar" parent="HUD/Parent" instance=ExtResource("15_wtwp4")]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -77.0
-offset_top = -81.5
-offset_right = 77.0
-offset_bottom = -58.5
-grow_horizontal = 2
-grow_vertical = 2
-text = "CONGRATS ! YOU ARE GREAT"
-label_settings = ExtResource("1_nswmd")
+offset_left = 22.0
+offset_top = 19.0
+offset_right = 427.0
+offset_bottom = 61.0
+size_flags_horizontal = 0
 
-[node name="Label2" type="Label" parent="CanvasLayer/gamecomplete"]
-layout_mode = 1
-anchors_preset = 7
-anchor_left = 0.5
-anchor_top = 1.0
-anchor_right = 0.5
-anchor_bottom = 1.0
-offset_left = -128.5
-offset_top = -40.0
-offset_right = 128.5
-offset_bottom = -5.0
-grow_horizontal = 2
-grow_vertical = 0
-text = "this demo was developed and published by 
-DARKPALETTEGAMES"
-label_settings = ExtResource("1_nswmd")
-horizontal_alignment = 1
-
-[node name="RESTARTBUTTON" type="Button" parent="CanvasLayer/gamecomplete"]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -28.5
-offset_top = -12.0
-offset_right = 28.5
-offset_bottom = 12.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_fonts/font = ExtResource("10_asnfo")
-text = "RESTART"
-
-[node name="scorelabel" type="Label" parent="CanvasLayer"]
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -55.0
-offset_bottom = 23.0
-grow_horizontal = 0
-text = "SCORE : 0"
-label_settings = ExtResource("1_nswmd")
-
+[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50951" to="gametilemap/@Area2D@50951" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50952" to="gametilemap/@Area2D@50952" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50953" to="gametilemap/@Area2D@50953" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50954" to="gametilemap/@Area2D@50954" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50955" to="gametilemap/@Area2D@50955" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50956" to="gametilemap/@Area2D@50956" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50957" to="gametilemap/@Area2D@50957" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50958" to="gametilemap/@Area2D@50958" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50959" to="gametilemap/@Area2D@50959" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50960" to="gametilemap/@Area2D@50960" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50961" to="gametilemap/@Area2D@50961" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50962" to="gametilemap/@Area2D@50962" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50963" to="gametilemap/@Area2D@50963" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50964" to="gametilemap/@Area2D@50964" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50965" to="gametilemap/@Area2D@50965" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50966" to="gametilemap/@Area2D@50966" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50967" to="gametilemap/@Area2D@50967" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50968" to="gametilemap/@Area2D@50968" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50969" to="gametilemap/@Area2D@50969" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50970" to="gametilemap/@Area2D@50970" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50971" to="gametilemap/@Area2D@50971" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50972" to="gametilemap/@Area2D@50972" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50973" to="gametilemap/@Area2D@50973" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50974" to="gametilemap/@Area2D@50974" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50975" to="gametilemap/@Area2D@50975" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50976" to="gametilemap/@Area2D@50976" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50977" to="gametilemap/@Area2D@50977" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50978" to="gametilemap/@Area2D@50978" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50979" to="gametilemap/@Area2D@50979" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50980" to="gametilemap/@Area2D@50980" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50981" to="gametilemap/@Area2D@50981" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50982" to="gametilemap/@Area2D@50982" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50983" to="gametilemap/@Area2D@50983" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50984" to="gametilemap/@Area2D@50984" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50985" to="gametilemap/@Area2D@50985" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
-[connection signal="pressed" from="CanvasLayer/gamecomplete/RESTARTBUTTON" to="." method="_on_restartbutton_pressed"]

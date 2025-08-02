@@ -26,7 +26,6 @@ func enable(str):
 	anims[str].visible = true;
 
 func control(anim, settings):
-	print(settings);
 	able(true);
 	disableAll();
 	enable(anim);

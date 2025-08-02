@@ -8,11 +8,12 @@ collision_mask = 2
 script = ExtResource("1_3rev5")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.5
-one_shot = true
+wait_time = 0.2
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("2_otkia")
+volume_db = 1.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
