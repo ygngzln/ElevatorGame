@@ -32,11 +32,14 @@ var dashing = false
 var dashX = 500
 var dashY = 300
 
+var dead = false;
+
 func _ready():
 	Global.player_health_changed.connect(self._on_player_health_changed)
+	dead = false;
 
 func _physics_process(delta: float) -> void:
-	if Input.is_action_just_pressed("shoot") and Global.stats["mana"] >= 29 and !shootAnim:
+	if !dead and Input.is_action_just_pressed("shoot") and Global.stats["mana"] >= 29 and !shootAnim:
 		animated_sprite.play("shoot");
 		shootAnim = true;
 		await animated_sprite.animation_finished;
@@ -90,7 +93,7 @@ func _physics_process(delta: float) -> void:
 	was_on_floor = is_on_floor()
 
 	move_and_slide()
-	if shootAnim: return;
+	if shootAnim or dead: return;
 	if is_on_floor():
 		if velocity == Vector2.ZERO:
 			animated_sprite.play("idle");
@@ -144,11 +147,16 @@ func _on_dash_cooldown_timeout() -> void:
 	print("hi")
 
 func _on_player_health_changed(new_health: float):
+	print("NEW HEALTH: " + str(new_health));
 	if new_health <= 0:
 		handle_player_death()
 
 func handle_player_death():
+	if dead: return;
+	dead = true;
+	Engine.time_scale = 0.5;
+	await get_tree().create_timer(0.14).timeout;
 	animated_sprite.play("death")
-	await animated_sprite.animation_finished
-	Global.reload_scene_after_delay(0.5)
+	await animated_sprite.animation_finished;
+	Global.reload_scene();
 	queue_free()

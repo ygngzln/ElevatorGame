@@ -7,17 +7,15 @@ var stats := {
 	"mana": 100.0
 }
 
-func reload_scene_after_animation(animated_sprite: AnimatedSprite2D):
-	await animated_sprite.animation_finished;
+func reload_scene():
 	Engine.time_scale = 1;
-	get_tree().reload_current_scene();
-
-func reload_scene_after_delay(seconds: float):
-	await get_tree().create_timer(seconds).timeout;
 	get_tree().reload_current_scene();
 	initializePlayer();
 
 func change_stat(change, cap, key):
+	if key == "health": 
+		print(change)
+		print(stats["health"])
 	stats[key] += change;
 	#Caps the stat between 0 and 100 (can 
 	#be changed for other values later)

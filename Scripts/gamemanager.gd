@@ -18,14 +18,6 @@ func _updatescore(value):
 func spawnProjectile(node):
 	projectilePool.add_child(node);
 
-func death():
-	if Global.dead: return;
-	Global.dead = true;
-	Engine.time_scale = 0.5;
-	await get_tree().create_timer(0.14).timeout;
-	player.die();
-	Global.reload_scene_after_animation(player.animated_sprite)
-
 func _on_regen_timeout() -> void:
 	if regen_enabled:
 			Global.change_stat(5.0, 100.0, "health");
