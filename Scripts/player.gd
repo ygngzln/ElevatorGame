@@ -4,7 +4,6 @@ extends CharacterBody2D
 @export var JUMP_VELOCITY:float = -375.0
 
 @export var dashTrail:Line2D;
-
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 @onready var projectile := load("res://scenes/knife.tscn")
 
@@ -14,13 +13,13 @@ extends CharacterBody2D
 var invul := {
 	"active": false,
 	"timer": 0,
-	"time": 180
+	"time": 30
 }
 
 var coyote := {
 	"active": false,
 	"timer": 0,
-	"time": 100
+	"time": 30
 }
 
 
@@ -38,6 +37,7 @@ var dead = false;
 
 func _ready():
 	Global.player_health_changed.connect(self._on_player_health_changed)
+	Global.player = self;
 	dead = false;
 
 func _physics_process(delta: float) -> void:

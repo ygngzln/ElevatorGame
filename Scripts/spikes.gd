@@ -6,11 +6,11 @@ func _ready() -> void:
 
 func _add_blood_to_spike() -> void:
 	if $SpikeSprite.frame < 4:
-			$SpikeSprite.frame += randi_range(1, 2);
+		$SpikeSprite.frame += randi_range(1, 2);
 	
 func _hurt_player(player) -> void:
-		Global.change_stat(-2, 100, "health")
-		_add_blood_to_spike();
+	Global.change_stat(-25, 100, "health")
+	_add_blood_to_spike();
 
 func retrigger(body) -> void:
 	$Area2D/SpikeHurtbox.shape.extents = Vector2(1, 1);

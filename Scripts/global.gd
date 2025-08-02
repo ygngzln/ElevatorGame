@@ -1,7 +1,7 @@
 extends Node
 signal player_health_changed(new_health: float)
 signal player_mana_changed(new_mana: float)
-
+var player;
 var stats := {
 	"health": 100.0,
 	"mana": 100.0
@@ -13,6 +13,13 @@ func reload_scene():
 	initializePlayer();
 
 func change_stat(change, cap, key):
+	if key == "health" && change < 0:
+		if player.invul.active == true:
+			return;
+		else:
+			player.invul.active = true;
+			player.invul.timer = 180;
+		
 	stats[key] += change;
 	#Caps the stat between 0 and 100 (can 
 	#be changed for other values later)
