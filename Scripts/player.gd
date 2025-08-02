@@ -33,7 +33,7 @@ var dashed = false
 var dashing = false
 var dashX = 500
 var dashY = 300
-
+var spikes_active = true;
 var dead = false;
 
 func _ready():
