@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=24 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -17,6 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="17_np2pn"]
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="19_mqh5v"]
 [ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_ndtll"]
+[ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="19_v6ha0"]
 [ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://Scripts/manaText.gd" id="21_7o3do"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
@@ -401,5 +402,8 @@ script = ExtResource("21_7o3do")
 
 [node name="Regen" type="Timer" parent="."]
 wait_time = 1.2
+
+[node name="Elevator" parent="." instance=ExtResource("19_v6ha0")]
+position = Vector2(1119, 16)
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
