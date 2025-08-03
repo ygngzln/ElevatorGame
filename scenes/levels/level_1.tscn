@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=30 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="17_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dca5w3ydpdcep" path="res://scenes/flying_enemy.tscn" id="17_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="19_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://cg8w61en2txnt" path="res://scenes/thrower_enemy.tscn" id="20_gmpev"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -421,7 +422,10 @@ wait_time = 1.2
 position = Vector2(117, -70)
 
 [node name="cannonEnemy" parent="." instance=ExtResource("19_v6ha0")]
-position = Vector2(-78, -74)
+position = Vector2(796, 3)
+
+[node name="throwerEnemy" parent="." instance=ExtResource("20_gmpev")]
+position = Vector2(429, 15)
 
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
