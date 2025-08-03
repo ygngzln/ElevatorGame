@@ -271,60 +271,47 @@ position = Vector2(-48, -27)
 [node name="labels" type="Node" parent="."]
 
 [node name="Label" type="Label" parent="labels"]
-visible = false
-offset_left = -139.0
-offset_top = -114.0
-offset_right = -30.0
-offset_bottom = -39.0
-text = " click left or right arrows to move"
+offset_left = 46.0
+offset_top = -144.0
+offset_right = 155.0
+offset_bottom = -69.0
+text = "Use wasd to move
+"
 label_settings = ExtResource("1_nswmd")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="labels"]
-visible = false
-offset_left = 1.0
-offset_top = -94.0
-offset_right = 110.0
-offset_bottom = -19.0
-text = "click space to jump"
-label_settings = ExtResource("1_nswmd")
-horizontal_alignment = 1
-vertical_alignment = 1
-autowrap_mode = 2
+offset_left = 229.0
+offset_top = -152.0
+offset_right = 338.0
+offset_bottom = -60.0
+text = "space to jump
 
-[node name="Label4" type="Label" parent="labels"]
-visible = false
-offset_left = 122.0
-offset_top = 32.0
-offset_right = 231.0
-offset_bottom = 107.0
-text = "dont fall...."
+shift in the air or on the ground to dash"
 label_settings = ExtResource("1_nswmd")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="labels"]
-visible = false
-offset_left = 278.0
-offset_top = -24.0
-offset_right = 387.0
-offset_bottom = 51.0
-text = "collect!"
+offset_left = 439.0
+offset_top = -153.0
+offset_right = 548.0
+offset_bottom = -78.0
+text = "click to launch knives"
 label_settings = ExtResource("1_nswmd")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="labels"]
-visible = false
-offset_left = 689.0
-offset_top = -22.0
-offset_right = 798.0
-offset_bottom = 53.0
-text = "careful..."
+offset_left = 607.0
+offset_top = -133.0
+offset_right = 716.0
+offset_bottom = -58.0
+text = "have fun!"
 label_settings = ExtResource("1_nswmd")
 horizontal_alignment = 1
 vertical_alignment = 1
