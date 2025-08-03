@@ -1,0 +1,92 @@
+[gd_scene load_steps=11 format=3 uid="uid://ctr22mqhnwebp"]
+
+[ext_resource type="Script" uid="uid://dpy4chjky6dhx" path="res://Scripts/sawblade.gd" id="1_3tlya"]
+[ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="2_fdl44"]
+[ext_resource type="Script" uid="uid://dndy8tvfk3b8x" path="res://Scripts/sawblade_sprite.gd" id="3_gq47k"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6alnm"]
+radius = 14.0
+height = 40.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gkun8"]
+atlas = ExtResource("2_fdl44")
+region = Rect2(112, 240, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejuqb"]
+atlas = ExtResource("2_fdl44")
+region = Rect2(184, 240, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ennym"]
+atlas = ExtResource("2_fdl44")
+region = Rect2(136, 240, 24, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_585h1"]
+atlas = ExtResource("2_fdl44")
+region = Rect2(160, 240, 24, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a2m3q"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gkun8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ejuqb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ennym")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_585h1")
+}],
+"loop": true,
+"name": &"default",
+"speed": 0.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_gkun8"]
+radius = 17.0
+height = 48.0
+
+[node name="Sawblade" type="StaticBody2D"]
+collision_layer = 2
+script = ExtResource("1_3tlya")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_6alnm")
+
+[node name="topleft" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, -8)
+sprite_frames = SubResource("SpriteFrames_a2m3q")
+frame = 3
+script = ExtResource("3_gq47k")
+
+[node name="topright" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, -8)
+sprite_frames = SubResource("SpriteFrames_a2m3q")
+frame = 1
+script = ExtResource("3_gq47k")
+
+[node name="bottomright" type="AnimatedSprite2D" parent="."]
+position = Vector2(12, 8)
+sprite_frames = SubResource("SpriteFrames_a2m3q")
+frame = 2
+script = ExtResource("3_gq47k")
+
+[node name="bottomleft" type="AnimatedSprite2D" parent="."]
+position = Vector2(-12, 8)
+sprite_frames = SubResource("SpriteFrames_a2m3q")
+script = ExtResource("3_gq47k")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.504
+autostart = true
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_gkun8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
