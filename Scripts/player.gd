@@ -183,7 +183,12 @@ func shoot():
 	instance.spawnRot = angle_radians
 	instance.player = self
 
+	# Flip horizontally if on the left
+	if animated_sprite.flip_h:
+		instance.get_node("Sprite").flip_h = true  # Replace "Sprite" with the actual node name
+
 	get_tree().get_current_scene().add_child(instance)
+
 	return true;
 
 func _on_dash_timer_timeout() -> void:

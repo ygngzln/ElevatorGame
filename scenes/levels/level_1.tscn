@@ -17,7 +17,7 @@
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="17_np2pn"]
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="19_mqh5v"]
 [ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_ndtll"]
-[ext_resource type="Script" uid="uid://d3uqngx7l1auw" path="res://scripts/nextlevel_2.gd" id="19_v6ha0"]
+[ext_resource type="Script" uid="uid://d3uqngx7l1auw" path="res://Scripts/nextlevel_2.gd" id="19_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://dca5w3ydpdcep" path="res://scenes/flying_enemy.tscn" id="20_7h2jl"]
 [ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://Scripts/manaText.gd" id="21_7o3do"]
 [ext_resource type="PackedScene" uid="uid://cg8w61en2txnt" path="res://scenes/thrower_enemy.tscn" id="21_mqh5v"]
