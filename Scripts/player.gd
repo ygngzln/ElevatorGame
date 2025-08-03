@@ -13,13 +13,13 @@ extends CharacterBody2D
 var invul := {
 	"active": false,
 	"timer": 0,
-	"time": 30
+	"time": 40
 }
 
 var coyote := {
 	"active": false,
 	"timer": 0,
-	"time": 30
+	"time": 10
 }
 
 
@@ -84,7 +84,7 @@ func _physics_process(delta: float) -> void:
 		$dashTimer.start()	
 		
 		invul.active = true;
-		invul.timer = 180;
+		invul.timer = invul.time;
 		
 	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
@@ -156,9 +156,25 @@ func _on_dash_timer_timeout() -> void:
 func _on_dash_cooldown_timeout() -> void:
 	print("hi")
 
-func _on_player_health_changed(new_health: float):
+func _on_player_hurt():
+	invul.active = true;
+	invul.timer = invul.time;
+	await Global.await_physics_frames(2)
+	$AnimatedSprite2D.modulate = Color(1, 0, 0)  # Red
+	$PlayerHurt.play();
+	await Global.await_physics_frames(10)
+	$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Back to normal 
+
+func _on_player_health_changed(new_health: float, change: float):	
 	if new_health <= 0:
 		handle_player_death()
+		return;
+	if change < 0:
+		if invul.active == true:
+			return;
+		else:
+			_on_player_hurt();
+			
 
 func handle_player_death():
 	if dead: return;
