@@ -1,7 +1,7 @@
 [gd_scene load_steps=20 format=3 uid="uid://cure53ws6x05i"]
 
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="1_gk7gx"]
-[ext_resource type="Script" uid="uid://cwjywhg3hh7ox" path="res://Scripts/cannon_enemy.gd" id="1_uo0vl"]
+[ext_resource type="Script" path="res://Scripts/cannon_enemy.gd" id="1_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="2_uo0vl"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="3_x0d5d"]
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="4_v5100"]
@@ -108,7 +108,6 @@ shape = SubResource("CircleShape2D_spfow")
 collision_layer = 0
 collision_mask = 1
 monitorable = false
-damage = 30.0
 hurtDelay = 0.35
 
 [node name="HealthBar" parent="." instance=ExtResource("3_x0d5d")]
@@ -164,6 +163,7 @@ color = Color(0.392157, 0, 0, 1)
 color_ramp = SubResource("Gradient_c4w8v")
 
 [node name="Health" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -7.0
 offset_top = -25.0
 offset_right = 53.0

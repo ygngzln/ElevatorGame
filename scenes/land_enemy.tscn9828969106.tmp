@@ -93,6 +93,7 @@ colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.717647)
 collision_layer = 8
 collision_mask = 2
 script = ExtResource("1_b6kot")
+SPEED = null
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
@@ -130,7 +131,7 @@ position = Vector2(0, -6)
 scale = Vector2(50, 50)
 emitting = false
 amount = 220
-lifetime = 0.05
+lifetime = 0.25
 one_shot = true
 speed_scale = 1.2
 explosiveness = 1.0
@@ -143,7 +144,6 @@ linear_accel_min = 1.0
 linear_accel_max = 1.0
 scale_amount_min = 0.5
 scale_amount_max = 2.0
-color = Color(0.338849, 0.526211, 0.813686, 1)
 
 [node name="Hit" type="CPUParticles2D" parent="."]
 position = Vector2(0, -7)
@@ -180,21 +180,31 @@ bbcode_enabled = true
 text = "[center]100[/center]"
 
 [node name="RayCast2D1" type="RayCast2D" parent="."]
-position = Vector2(0, -10)
-target_position = Vector2(7, -6)
+position = Vector2(0, -6)
+target_position = Vector2(10, -2)
 collision_mask = 2
 
 [node name="RayCast2D2" type="RayCast2D" parent="."]
-position = Vector2(0, -10)
-target_position = Vector2(-7, -6)
+position = Vector2(0, -6)
+target_position = Vector2(-10, -2)
 collision_mask = 2
 
 [node name="RayCast2D3" type="RayCast2D" parent="."]
-position = Vector2(4, -5)
-target_position = Vector2(-4, 8)
+position = Vector2(0, -6)
+target_position = Vector2(6, 7)
 collision_mask = 2
 
 [node name="RayCast2D4" type="RayCast2D" parent="."]
-position = Vector2(-4, -5)
-target_position = Vector2(4, 8)
+position = Vector2(0, -6)
+target_position = Vector2(-6, 7)
+collision_mask = 2
+
+[node name="RayCast2D5" type="RayCast2D" parent="."]
+position = Vector2(7, -3)
+target_position = Vector2(0, 9)
+collision_mask = 2
+
+[node name="RayCast2D6" type="RayCast2D" parent="."]
+position = Vector2(-8, -1)
+target_position = Vector2(0, 9)
 collision_mask = 2

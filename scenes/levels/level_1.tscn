@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=29 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -18,7 +18,11 @@
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="19_mqh5v"]
 [ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_ndtll"]
 [ext_resource type="Script" uid="uid://d3uqngx7l1auw" path="res://scripts/nextlevel_2.gd" id="19_v6ha0"]
+[ext_resource type="PackedScene" uid="uid://dca5w3ydpdcep" path="res://scenes/flying_enemy.tscn" id="20_7h2jl"]
 [ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://Scripts/manaText.gd" id="21_7o3do"]
+[ext_resource type="PackedScene" uid="uid://cg8w61en2txnt" path="res://scenes/thrower_enemy.tscn" id="21_mqh5v"]
+[ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="22_7o3do"]
+[ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="23_7h2jl"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -340,7 +344,6 @@ position = Vector2(16, 282)
 shape = SubResource("WorldBoundaryShape2D_binft")
 
 [node name="HUD" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Parent" type="Control" parent="HUD"]
 layout_mode = 3
@@ -410,5 +413,49 @@ script = ExtResource("19_v6ha0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel-2"]
 position = Vector2(4976, -4)
 shape = SubResource("RectangleShape2D_np2pn")
+
+[node name="Enemies" type="Node2D" parent="."]
+
+[node name="FlyingEnemy" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(1494, -83)
+
+[node name="FlyingEnemy2" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(1584, -67)
+
+[node name="FlyingEnemy3" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(1541, -136)
+
+[node name="throwerEnemy" parent="Enemies" instance=ExtResource("21_mqh5v")]
+position = Vector2(967, -51)
+
+[node name="landEnemy" parent="Enemies" instance=ExtResource("22_7o3do")]
+position = Vector2(491, -37)
+
+[node name="FlyingEnemy4" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(2267, -12)
+
+[node name="FlyingEnemy5" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(3574, 40)
+
+[node name="FlyingEnemy6" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(3644, 138)
+
+[node name="FlyingEnemy7" parent="Enemies" instance=ExtResource("20_7h2jl")]
+position = Vector2(3509, 120)
+
+[node name="landEnemy2" parent="Enemies" instance=ExtResource("22_7o3do")]
+position = Vector2(3202, 187)
+
+[node name="landEnemy3" parent="Enemies" instance=ExtResource("22_7o3do")]
+position = Vector2(3596, 239)
+
+[node name="landEnemy4" parent="Enemies" instance=ExtResource("22_7o3do")]
+position = Vector2(2976, 155)
+
+[node name="cannonEnemy" parent="." instance=ExtResource("23_7h2jl")]
+position = Vector2(3882, 201)
+
+[node name="cannonEnemy2" parent="." instance=ExtResource("23_7h2jl")]
+position = Vector2(1870, 57)
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
