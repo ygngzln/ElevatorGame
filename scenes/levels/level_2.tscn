@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0dyqpxiehd0p" path="res://scenes/player.tscn" id="5_uuo3w"]
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="6_tl7nn"]
 [ext_resource type="LabelSettings" uid="uid://x0nkvs0ub104" path="res://styles/ingametext.tres" id="7_5130x"]
-[ext_resource type="PackedScene" uid="uid://cv8rrwrejrbn0" path="res://scenes/coins.tscn" id="8_sv3e5"]
+[ext_resource type="PackedScene" uid="uid://dx1cot1dnqlp4" path="res://scenes/coins.tscn" id="8_sv3e5"]
 [ext_resource type="PackedScene" uid="uid://c4ou5s81n7p6s" path="res://scenes/platform.tscn" id="9_858df"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="10_nd1rp"]
 [ext_resource type="Texture2D" uid="uid://5pwjlsg4srtf" path="res://assets/spritesandtiles/goblingamespritesheet1.png" id="11_wav3o"]
