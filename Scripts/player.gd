@@ -23,8 +23,14 @@ var coyote := {
 	"time": 10
 }
 
+var kb := {
+	"active": false,
+	"timer": 0,
+	"vector": Vector2.ZERO
+}
+
 var shootAnim = false;
-var timers = [invul, coyote];
+var timers = [invul, coyote, kb];
 
 var was_on_floor := true
 
@@ -99,6 +105,9 @@ func _physics_process(delta: float) -> void:
 		coyote.timer = coyote.time
 	elif not dashing:
 		velocity += get_gravity() * delta;
+	
+	if kb.active == true:
+		velocity = kb.vector;
 	
 	if !is_on_floor() and is_on_wall() and checkWallCollision():
 		if !Input.is_action_pressed("crouch"):
@@ -185,6 +194,12 @@ func _on_player_hurt():
 	$PlayerHurt.play();
 	await Global.await_physics_frames(10)
 	$AnimatedSprite2D.modulate = Color(1, 1, 1)  # Back to normal 
+
+func apply_kb(direction: Vector2, force: float, duration: float):
+	kb.vector = direction * force;
+	kb.timer = duration;
+	kb.active = true;
+	
 
 func _on_player_health_changed(new_health: float, change: float):	
 	if new_health <= 0:

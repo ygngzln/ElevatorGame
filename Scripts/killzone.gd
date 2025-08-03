@@ -20,6 +20,10 @@ func _on_body_entered(body: Node2D) -> void:
 
 func _on_timer_timeout() -> void:
 	Global.change_stat(-damage, 100.0, "health");
+	if get_parent().name != "level1":
+		var kb_direction = (Global.player.global_position - global_position).normalized();
+		Global.player.apply_kb(kb_direction, 250, 10);
+	
 
 func _on_body_exited(_body: Node2D) -> void:
 	timer.stop();
