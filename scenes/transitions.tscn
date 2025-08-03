@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ewdngmwuyjts"]
+[gd_scene load_steps=7 format=3 uid="uid://ewdngmwuyjts"]
 
 [ext_resource type="Shader" uid="uid://fmy8s7yxrpkd" path="res://Shaders/eyes.gdshader" id="1_6qwqf"]
 [ext_resource type="Script" uid="uid://k856mntuhljn" path="res://Scripts/transition.gd" id="1_83puu"]
@@ -10,11 +10,8 @@ shader = ExtResource("1_6qwqf")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/time = 0.0
 
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1146m"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76bc2"]
 shader = ExtResource("3_fejcv")
-shader_parameter/dissolveTexture = SubResource("NoiseTexture2D_1146m")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/time = 1.0
 shader_parameter/direction = false
