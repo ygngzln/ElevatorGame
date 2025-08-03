@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=34 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_dnkej"]
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://scenes/Coin.tscn" id="5_wtwp4"]
+[ext_resource type="PackedScene" uid="uid://dqvi1a5mckuxw" path="res://scenes/spikes_floor.tscn" id="8_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dfx70v5gdiii0" path="res://scenes/spikes_ceiling.tscn" id="9_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cmabf6ihno2ww" path="res://scenes/spikes_leftwall.tscn" id="10_31oqk"]
 [ext_resource type="PackedScene" uid="uid://bipvpupxnet1l" path="res://scenes/spikes_rightwall.tscn" id="11_x7jkp"]
@@ -239,6 +240,7 @@ scenes/2/scene = ExtResource("5_mm8aj")
 
 [sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0qwwm"]
 resource_name = "Spikes"
+scenes/1/scene = ExtResource("8_np2pn")
 scenes/2/scene = ExtResource("9_o7j4k")
 scenes/3/scene = ExtResource("10_31oqk")
 scenes/4/scene = ExtResource("11_x7jkp")

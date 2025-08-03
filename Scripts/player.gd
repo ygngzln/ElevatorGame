@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 @onready var gameManager:Node = $"../".find_child("gamemanager");
 @onready var mana_bar: TextureProgressBar = $"../".find_child("ManaBar")
-
+@export var ghost_scene: PackedScene
 #Invulnerability
 var invul := {
 	"active": false,
@@ -98,9 +98,12 @@ func _physics_process(delta: float) -> void:
 			var direction = Input.get_vector("move_left", "move_right", "up", "crouch")	
 			velocity = direction * dash_speed;	
 		$dashTimer.start()
-		
 		invul.active = true;
 		invul.timer = invul.time;
+		
+		
+		spawn_dash_ghosts();
+		
 	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
 		velocity.y = JUMP_VELOCITY
 		coyote.active = false
@@ -188,6 +191,15 @@ func shoot():
 	get_tree().get_current_scene().add_child(instance)
 
 	return true;
+
+func spawn_dash_ghosts():	
+	for n in 3:
+		await get_tree().create_timer($dashTimer.wait_time/4).timeout;
+		var ghost = ghost_scene.instantiate()
+		ghost.global_position = global_position - Vector2(8, 8);
+		ghost.frame = n;
+		ghost.flip_h = $AnimatedSprite2D.flip_h
+		get_parent().add_child(ghost)
 
 func _on_dash_timer_timeout() -> void:
 	velocity.x = 0
