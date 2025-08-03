@@ -1,8 +1,8 @@
-[gd_scene load_steps=9 format=3 uid="uid://ewdngmwuyjts"]
+[gd_scene load_steps=8 format=3 uid="uid://ewdngmwuyjts"]
 
 [ext_resource type="Shader" uid="uid://fmy8s7yxrpkd" path="res://Shaders/eyes.gdshader" id="1_6qwqf"]
-[ext_resource type="Script" path="res://Scripts/transition.gd" id="1_83puu"]
-[ext_resource type="Script" path="res://Scripts/shader.gd" id="1_rgh6u"]
+[ext_resource type="Script" uid="uid://k856mntuhljn" path="res://Scripts/transition.gd" id="1_83puu"]
+[ext_resource type="Script" uid="uid://dek3i7wrmapv7" path="res://Scripts/shader.gd" id="1_rgh6u"]
 [ext_resource type="Shader" uid="uid://0347wviu1ckh" path="res://Shaders/slider.gdshader" id="3_fejcv"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_p6hho"]
@@ -10,11 +10,7 @@ shader = ExtResource("1_6qwqf")
 shader_parameter/color = Color(0, 0, 0, 1)
 shader_parameter/time = 0.0
 
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_nsnb1"]
-noise_type = 2
-
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_1146m"]
-noise = SubResource("FastNoiseLite_nsnb1")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_76bc2"]
 shader = ExtResource("3_fejcv")
