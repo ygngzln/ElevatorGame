@@ -4,7 +4,7 @@ var playerMovingIn = false;
 var mvmt:float;
 var time = 80;
 
-var next_scene: String = "res://scenes/levels/level_2.tscn"
+var next_scene_path: String = "res://scenes/levels/level_3.tscn"
 
 func _ready():
 	$Sprites.animation = "default";
@@ -39,4 +39,4 @@ func _physics_process(delta: float) -> void:
 			$Sprites.play("close");
 			Global.player.visible = false;
 			await $Sprites.animation_finished;
-			get_tree().change_scene_to_file(next_scene)
+			get_tree().change_scene_to_file(next_scene_path)
