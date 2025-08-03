@@ -71,7 +71,6 @@ func _physics_process(delta: float) -> void:
 		dashed = false
 	
 	if Input.is_action_pressed("dash") and not dashed:
-		Global.change_stat(-30, 100, "mana");
 		dashed = true
 		dashing = true
 		dashTrail.start_dash();

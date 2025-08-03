@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=34 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -13,13 +13,17 @@
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="11_aat41"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="11_jc3l0"]
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="11_v6ha0"]
+[ext_resource type="Script" uid="uid://4sapg1ajynx8" path="res://Scripts/bounds-killzone.gd" id="13_mkypq"]
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="15_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="15_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dhy0to77jnuqf" path="res://assets/UI/Mana.png" id="17_bahl2"]
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="17_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dca5w3ydpdcep" path="res://scenes/flying_enemy.tscn" id="17_v6ha0"]
+[ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="19_mqh5v"]
+[ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_ndtll"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="19_v6ha0"]
 [ext_resource type="PackedScene" uid="uid://cg8w61en2txnt" path="res://scenes/thrower_enemy.tscn" id="20_gmpev"]
+[ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://scripts/manaText.gd" id="21_7o3do"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -364,6 +368,8 @@ autowrap_mode = 2
 position = Vector2(144, 245)
 collision_layer = 0
 collision_mask = 9
+script = ExtResource("13_mkypq")
+damage = 200.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
 shape = SubResource("WorldBoundaryShape2D_binft")
@@ -419,6 +425,29 @@ texture_progress = ExtResource("17_bahl2")
 health = false
 mana = true
 
+[node name="Health" type="RichTextLabel" parent="HUD/Parent"]
+layout_mode = 0
+offset_left = 127.0
+offset_top = 21.0
+offset_right = 170.0
+offset_bottom = 43.0
+theme_override_fonts/normal_font = ExtResource("19_mqh5v")
+theme_override_font_sizes/normal_font_size = 11
+text = "100"
+scroll_active = false
+script = ExtResource("19_ndtll")
+
+[node name="Mana" type="RichTextLabel" parent="HUD/Parent"]
+offset_left = 127.0
+offset_top = 45.0
+offset_right = 170.0
+offset_bottom = 67.0
+theme_override_fonts/normal_font = ExtResource("19_mqh5v")
+theme_override_font_sizes/normal_font_size = 11
+text = "100"
+scroll_active = false
+script = ExtResource("21_7o3do")
+
 [node name="Regen" type="Timer" parent="."]
 wait_time = 1.2
 
@@ -431,5 +460,41 @@ position = Vector2(796, 3)
 [node name="throwerEnemy" parent="." instance=ExtResource("20_gmpev")]
 position = Vector2(429, 15)
 
+[connection signal="body_entered" from="gametilemap/Area2D" to="gametilemap/Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50923" to="gametilemap/@Area2D@50923" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50924" to="gametilemap/@Area2D@50924" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50925" to="gametilemap/@Area2D@50925" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50926" to="gametilemap/@Area2D@50926" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50927" to="gametilemap/@Area2D@50927" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50928" to="gametilemap/@Area2D@50928" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50929" to="gametilemap/@Area2D@50929" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50930" to="gametilemap/@Area2D@50930" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50931" to="gametilemap/@Area2D@50931" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50932" to="gametilemap/@Area2D@50932" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50933" to="gametilemap/@Area2D@50933" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50934" to="gametilemap/@Area2D@50934" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50935" to="gametilemap/@Area2D@50935" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50936" to="gametilemap/@Area2D@50936" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50937" to="gametilemap/@Area2D@50937" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50938" to="gametilemap/@Area2D@50938" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50939" to="gametilemap/@Area2D@50939" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50940" to="gametilemap/@Area2D@50940" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50941" to="gametilemap/@Area2D@50941" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50942" to="gametilemap/@Area2D@50942" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50943" to="gametilemap/@Area2D@50943" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50944" to="gametilemap/@Area2D@50944" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50945" to="gametilemap/@Area2D@50945" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50946" to="gametilemap/@Area2D@50946" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50947" to="gametilemap/@Area2D@50947" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50948" to="gametilemap/@Area2D@50948" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50949" to="gametilemap/@Area2D@50949" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50950" to="gametilemap/@Area2D@50950" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50951" to="gametilemap/@Area2D@50951" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50952" to="gametilemap/@Area2D@50952" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50953" to="gametilemap/@Area2D@50953" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50954" to="gametilemap/@Area2D@50954" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50955" to="gametilemap/@Area2D@50955" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50956" to="gametilemap/@Area2D@50956" method="_on_body_entered"]
+[connection signal="body_entered" from="gametilemap/@Area2D@50957" to="gametilemap/@Area2D@50957" method="_on_body_entered"]
 [connection signal="body_entered" from="gamefinished" to="." method="_on_gamefinished_body_entered"]
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]

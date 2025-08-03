@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-@export var SPEED = 300
+@export var SPEED = 500
 
 var dir: float
 var spawnPos: Vector2
