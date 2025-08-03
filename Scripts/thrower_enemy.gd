@@ -37,6 +37,11 @@ func _physics_process(delta: float) -> void:
 		instance.global_position = global_position
 		instance.spawnRot = angle_radians
 		instance.thrower = self
+		var sprite_node = instance.get_node("Sprite2D")
+		sprite_node.rotation = instance.dir
+		
+		if direction_vector.x < 0:
+			sprite_node.scale.y = -abs(sprite_node.scale.y)
 		canthrow = false
 		$throwreload.start()
 	else:
