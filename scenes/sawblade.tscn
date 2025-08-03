@@ -80,7 +80,7 @@ sprite_frames = SubResource("SpriteFrames_a2m3q")
 script = ExtResource("3_gq47k")
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 0.504
+wait_time = 0.025
 autostart = true
 
 [node name="Area2D" type="Area2D" parent="."]

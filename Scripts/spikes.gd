@@ -2,7 +2,7 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	$SpikeSprite.frame = randi_range(0, 1);
+	$SpikeSprite.frame = randi_range(0, 4);
 
 func _add_blood_to_spike() -> void:
 	if $SpikeSprite.frame < 4:

@@ -2,8 +2,10 @@ extends StaticBody2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass;
+	$Timer.timeout.connect(_on_timer_timeout);
 
+func _on_timer_timeout():
+	rotation_degrees += 16;
 
 func _hurt_player(player) -> void:
 	Global.change_stat(-50, 100, "health")

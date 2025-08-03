@@ -2,7 +2,7 @@ extends AnimatedSprite2D
 
 var count = 0;
 
- 
+"""
 func _ready():
 	$"../Timer".timeout.connect(_on_timer_timeout)
 	if (frame >= 2):
@@ -22,3 +22,4 @@ func _on_timer_timeout():
 	else:
 		count = 0;
 		change_sprite();	
+"""
