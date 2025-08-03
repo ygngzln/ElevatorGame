@@ -27,4 +27,4 @@ func _on_regen_timeout() -> void:
 	if regen_enabled:
 		if Global.stats.health > 0:
 			Global.change_stat(10.0, 100.0, "health");
-		Global.change_stat(15.0, 100.0, "mana");
+		Global.change_stat(25.0, 100.0, "mana");

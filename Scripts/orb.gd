@@ -17,6 +17,8 @@ func _ready() -> void:
 	#spawnPos = Global.player.global_position
 	#self.global_position = spawnPos
 	rotation = spawnRot
+	print("Rotation applied:", rotation)
+
 
 func _physics_process(delta: float) -> void:
 	#pass

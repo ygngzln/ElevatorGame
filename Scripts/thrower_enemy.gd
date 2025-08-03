@@ -11,7 +11,6 @@ var projectile
 
 func _ready():
 	projectile = preload("res://scenes/orb.tscn")
-	print("e")
 
 func _physics_process(delta: float) -> void:
 	if kb.active:
@@ -33,6 +32,7 @@ func _physics_process(delta: float) -> void:
 		get_tree().current_scene.add_child(instance)
 		
 		instance.dir = angle_radians
+		
 		#instance.spawnPos = spawn_position
 		instance.global_position = global_position
 		instance.spawnRot = angle_radians

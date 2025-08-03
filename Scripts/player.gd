@@ -185,8 +185,9 @@ func shoot():
 
 	# Flip horizontally if on the left
 	if animated_sprite.flip_h:
-		instance.get_node("Sprite").flip_h = true  # Replace "Sprite" with the actual node name
-
+		var sprite_node = instance.get_node("Sprite2D")
+		sprite_node.scale.y = -abs(sprite_node.scale.y) 
+		
 	get_tree().get_current_scene().add_child(instance)
 
 	return true;
