@@ -15,7 +15,7 @@ var launchY := 0.0;
 var launched := 0.0;
 
 func _physics_process(delta: float) -> void:
-	if tracking and reloaded and launched < 10:
+	if tracking and reloaded and launched < 1:
 		var launch = calculate_arc_velocity(global_position, Global.player.global_position, -30, get_gravity().y)
 		launchX = launch.x
 		launchY = launch.y
