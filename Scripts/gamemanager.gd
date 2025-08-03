@@ -10,7 +10,12 @@ var score := 0;
 var regen_enabled := true
 
 func _ready():
-	regen.start();
+	await get_tree().process_frame  # wait one frame
+	regen = get_tree().current_scene.find_child("Regen", true, false)
+	if regen:
+		regen.start()
+	else:
+		push_error("Regen Timer not found!")
 
 func _updatescore(value):
 	score += value
