@@ -1,23 +1,11 @@
-[gd_scene load_steps=12 format=3 uid="uid://c1sk0ew4ac8r0"]
+[gd_scene load_steps=7 format=3 uid="uid://c1sk0ew4ac8r0"]
 
 [ext_resource type="Script" uid="uid://c3ksr4ni6drbh" path="res://Scripts/title_menu.gd" id="1_0nll0"]
-[ext_resource type="Texture2D" uid="uid://cc326ks6m72s" path="res://assets/UI/button.png" id="1_sjjc8"]
-[ext_resource type="Texture2D" uid="uid://7gpgccrrf468" path="res://assets/UI/buttondown.png" id="2_hlgbi"]
 [ext_resource type="Texture2D" uid="uid://bg36sifp2lgo7" path="res://assets/UI/titlebg.png" id="2_mhxr3"]
 [ext_resource type="FontFile" uid="uid://bnejn2pma4xdr" path="res://assets/fonts/TypefaceMarioWorldPixelFilledRegular-rgVMx.ttf" id="3_mhxr3"]
 [ext_resource type="FontFile" uid="uid://q27k8dduddw0" path="res://assets/fonts/upheavtt.ttf" id="6_aw564"]
 [ext_resource type="PackedScene" uid="uid://ewdngmwuyjts" path="res://scenes/transitions.tscn" id="7_j0orq"]
 [ext_resource type="FontFile" uid="uid://wqdqgcur2u0p" path="res://assets/fonts/KGSimplytheBest.ttf" id="7_uo1n6"]
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uo1n6"]
-texture = ExtResource("1_sjjc8")
-modulate_color = Color(1, 1, 1, 0.941176)
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4pwlq"]
-texture = ExtResource("2_hlgbi")
-
-[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mhxr3"]
-texture = ExtResource("1_sjjc8")
 
 [node name="TitleMenu" type="Control"]
 layout_mode = 3
@@ -27,6 +15,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_0nll0")
+
+[node name="Transitions" parent="." instance=ExtResource("7_j0orq")]
+layout_mode = 1
+offset_left = 1.0
+offset_top = -4.0
+offset_right = 1.0
+offset_bottom = -4.0
 
 [node name="Background" type="TextureRect" parent="."]
 layout_mode = 1
@@ -56,28 +51,6 @@ bbcode_enabled = true
 text = "[center]HELLEVATOR[/center]"
 scroll_active = false
 
-[node name="Play" type="Button" parent="."]
-layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -102.0
-offset_top = -156.0
-offset_right = 138.0
-offset_bottom = -56.0
-grow_horizontal = 2
-grow_vertical = 2
-focus_mode = 0
-theme_override_colors/font_hover_color = Color(0.606851, 0.683155, 0.741606, 1)
-theme_override_fonts/font = ExtResource("3_mhxr3")
-theme_override_font_sizes/font_size = 29
-theme_override_styles/hover = SubResource("StyleBoxTexture_uo1n6")
-theme_override_styles/pressed = SubResource("StyleBoxTexture_4pwlq")
-theme_override_styles/normal = SubResource("StyleBoxTexture_mhxr3")
-text = "PLAY"
-
 [node name="Credits" type="RichTextLabel" parent="."]
 layout_mode = 1
 anchors_preset = 7
@@ -98,11 +71,13 @@ theme_override_font_sizes/bold_font_size = 40
 bbcode_enabled = true
 text = "[b]Credits: [/b]matthewproskils, hihitherethere, comtedehonk, ygngzln, ErictheBobbit"
 
-[node name="Transitions" parent="." instance=ExtResource("7_j0orq")]
-layout_mode = 1
-offset_left = 1.0
-offset_top = -4.0
-offset_right = 1.0
-offset_bottom = -4.0
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 33.0
+offset_right = 753.0
+offset_bottom = 148.0
+theme_override_fonts/normal_font = ExtResource("3_mhxr3")
+text = "Click anywhere to start
 
-[connection signal="button_down" from="Play" to="." method="button_down"]
+"

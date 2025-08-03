@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://ewdngmwuyjts"]
 
 [ext_resource type="Shader" uid="uid://fmy8s7yxrpkd" path="res://Shaders/eyes.gdshader" id="1_6qwqf"]
-[ext_resource type="Script" path="res://Scripts/transition.gd" id="1_83puu"]
+[ext_resource type="Script" uid="uid://k856mntuhljn" path="res://Scripts/transition.gd" id="1_83puu"]
 [ext_resource type="Script" path="res://Scripts/shader.gd" id="1_rgh6u"]
 [ext_resource type="Shader" uid="uid://0347wviu1ckh" path="res://Shaders/slider.gdshader" id="3_fejcv"]
 
@@ -30,11 +30,10 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 script = ExtResource("1_83puu")
 
 [node name="Eyes" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_p6hho")
 layout_mode = 1
 anchors_preset = 15
@@ -54,7 +53,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
+mouse_filter = 1
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_rgh6u")
 speed = 0.03

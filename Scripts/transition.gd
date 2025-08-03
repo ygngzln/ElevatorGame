@@ -9,6 +9,11 @@ var idx = 0;
 	"vanishSlider": $VanishSlider
 }
 
+func _unhandled_input(event: InputEvent) -> void:
+	if event is InputEventMouseButton:
+		print("hi")
+		get_parent().start_transition()
+
 func _ready():
 	#able(false)
 	for str in anims:
