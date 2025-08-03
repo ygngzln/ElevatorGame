@@ -28,7 +28,7 @@
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="22_7o3do"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_o7j4k"]
-[ext_resource type="PackedScene" path="res://scenes/filter.tscn" id="28_x7jkp"]
+[ext_resource type="PackedScene" uid="uid://cuocvggm2707s" path="res://scenes/filter.tscn" id="28_x7jkp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -345,7 +345,7 @@ offset_bottom = -62.0
 theme = SubResource("Theme_7o3do")
 theme_override_fonts/font = ExtResource("18_o7j4k")
 theme_override_font_sizes/font_size = 2
-text = "right click to shoot"
+text = "left click to shoot"
 label_settings = ExtResource("1_nswmd")
 horizontal_alignment = 1
 vertical_alignment = 1
