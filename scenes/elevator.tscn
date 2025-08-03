@@ -50,7 +50,6 @@ script = ExtResource("1_jmdsd")
 
 [node name="Sprites" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_8o1yk")
-autoplay = "default"
 
 [node name="Hitbox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -62,6 +61,7 @@ stream = ExtResource("2_8lbij")
 
 [node name="Check" type="Area2D" parent="."]
 collision_layer = 0
+monitorable = false
 
 [node name="Hitbox" type="CollisionShape2D" parent="Check"]
 position = Vector2(0, 5)

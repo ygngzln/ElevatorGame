@@ -52,6 +52,10 @@ func _ready():
 	Global.player = self;
 	dead = false;
 
+func stopMoving():
+	freeze = true;
+	animated_sprite.play("idle");
+
 func _physics_process(delta: float) -> void:
 	if freeze: return;
 	if !dead and Input.is_action_just_pressed("shoot") and Global.stats["mana"] >= 29 and !shootAnim:
