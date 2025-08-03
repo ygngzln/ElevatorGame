@@ -20,5 +20,6 @@ func spawnProjectile(node):
 
 func _on_regen_timeout() -> void:
 	if regen_enabled:
-			Global.change_stat(50.0, 100.0, "health");
-			Global.change_stat(60.0, 100.0, "mana");
+		if Global.stats.health > 0:
+			Global.change_stat(10.0, 100.0, "health");
+		Global.change_stat(15.0, 100.0, "mana");

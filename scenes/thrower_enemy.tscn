@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://cg8w61en2txnt"]
 
-[ext_resource type="Script" uid="uid://c82r07h4ewek4" path="res://Scripts/thrower_enemy.gd" id="1_0cx0c"]
+[ext_resource type="Script" path="res://Scripts/thrower_enemy.gd" id="1_0cx0c"]
 [ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="2_6ecdj"]
 [ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="3_koima"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="4_bjy53"]
@@ -111,7 +111,6 @@ shape = SubResource("CircleShape2D_spfow")
 collision_layer = 0
 collision_mask = 1
 monitorable = false
-damage = 30.0
 hurtDelay = 0.35
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
@@ -172,6 +171,7 @@ color = Color(0.392157, 0, 0, 1)
 color_ramp = SubResource("Gradient_c4w8v")
 
 [node name="Health" type="RichTextLabel" parent="."]
+visible = false
 offset_left = -7.0
 offset_top = -25.0
 offset_right = 53.0

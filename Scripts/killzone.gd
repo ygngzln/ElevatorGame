@@ -4,8 +4,8 @@ extends Area2D
 @onready var audio: AudioStreamPlayer = $AudioStreamPlayer
 @onready var gm:Node = get_tree().root.get_child(2).get_node("gamemanager");
 
-@export var damage:float = 100.0;
-@export var hurtDelay:float = 0.5;
+@export var damage:float = 30.0;
+@export var hurtDelay:float = 0.2;
 
 func _ready():
 	$Timer.wait_time = hurtDelay;
