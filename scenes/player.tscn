@@ -290,8 +290,8 @@ shape = SubResource("RectangleShape2D_tuyoq")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
-limit_bottom = 240
 limit_smoothed = true
+position_smoothing_enabled = true
 
 [node name="dashTimer" type="Timer" parent="."]
 wait_time = 0.2

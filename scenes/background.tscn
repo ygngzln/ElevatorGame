@@ -113,6 +113,6 @@ texture = ExtResource("10_fligg")
 motion_mirroring = Vector2(928, 0)
 
 [node name="Layer00010" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer12"]
-position = Vector2(307, -365)
+position = Vector2(305, -299)
 rotation = 3.14159
 texture = ExtResource("11_b6e46")
