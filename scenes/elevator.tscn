@@ -1,9 +1,9 @@
 [gd_scene load_steps=11 format=3 uid="uid://d3h6yyywn80bt"]
 
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="1_7lcry"]
-[ext_resource type="Script" uid="uid://ck5j5bdrj2fxs" path="res://Scripts/elevator.gd" id="1_jmdsd"]
+[ext_resource type="Script" path="res://Scripts/elevator.gd" id="1_jmdsd"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="2_8lbij"]
-[ext_resource type="Texture2D" uid="uid://2rcrk487xdrc" path="res://assets/spritesandtiles/smoke.png" id="4_gisge"]
+[ext_resource type="Texture2D" uid="uid://cmxvmbpq6ixmm" path="res://assets/spritesandtiles/smoke.png" id="4_gisge"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cwxy"]
 atlas = ExtResource("1_7lcry")

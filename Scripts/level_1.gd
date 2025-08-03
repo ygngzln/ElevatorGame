@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var audio: AudioStreamPlayer = $gamefinished/AudioStreamPlayer
+#@onready var audio: AudioStreamPlayer = $gamefinished/AudioStreamPlayer
 
 func _on_restartbutton_pressed() -> void:
 	#get_tree().reload_current_scene()
