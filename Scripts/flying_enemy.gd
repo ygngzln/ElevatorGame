@@ -31,7 +31,8 @@ func _physics_process(delta: float) -> void:
 		
 	
 	checkDir();
-	move_and_slide()
+	if (health > 0):
+		move_and_slide()
 
 
 func _on_direction_change_timeout() -> void:

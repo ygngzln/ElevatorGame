@@ -15,7 +15,7 @@ var launchY := 0.0;
 var launched := 0.0;
 
 func _physics_process(delta: float) -> void:
-	if tracking and reloaded and launched < 1:
+	if tracking and reloaded and launched < 1 and health > 0:
 		var launch = calculate_arc_velocity(global_position, Global.player.global_position, -30, get_gravity().y)
 		launchX = launch.x
 		launchY = launch.y
@@ -28,7 +28,9 @@ func _physics_process(delta: float) -> void:
 		$cannonReload.start()
 	
 	checkDir();
-	move_and_slide()
+	
+	if (health > 0):
+		move_and_slide()
 
 func calculate_arc_velocity(source_position, target_position, arc_height, gravity):
 	var velocity = Vector2();
@@ -38,7 +40,7 @@ func calculate_arc_velocity(source_position, target_position, arc_height, gravit
 	var time_up = sqrt(-2 * arc_height / float(gravity))
 	var time_down = sqrt(2 * (displacement.y - arc_height) / float(gravity))
 
-	velocity.y = -sqrt(-2 * gravity * arc_height)*4;
+	velocity.y = -sqrt(-2 * gravity * arc_height)*1.5;
 	velocity.x = displacement.x / float(time_up + time_down) 
 	return velocity
 

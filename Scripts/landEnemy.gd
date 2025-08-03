@@ -18,7 +18,7 @@ func _physics_process(delta: float) -> void:
 	if ray_cast2.is_colliding() or not ray_cast4.is_colliding():
 		direction = 1;
 	#handling movement
-	if is_on_floor():
+	if is_on_floor() and health > 0:
 		velocity.x = direction * SPEED
 		animated_sprite_2d.play("run");
 	#apply gravity
@@ -28,7 +28,8 @@ func _physics_process(delta: float) -> void:
 		velocity += get_gravity() * delta * 4;
 		launchVector = velocity;
 	checkDir();
-	move_and_slide()
+	if health > 0:
+		move_and_slide()
 
 func launch(x, y):
 	launchVector = Vector2(x, y);

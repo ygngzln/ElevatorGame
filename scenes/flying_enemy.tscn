@@ -1,7 +1,84 @@
-[gd_scene load_steps=5 format=3 uid="uid://dca5w3ydpdcep"]
+[gd_scene load_steps=16 format=3 uid="uid://dca5w3ydpdcep"]
 
 [ext_resource type="PackedScene" uid="uid://cop0bc0c7rxu1" path="res://scenes/enemy.tscn" id="1_vbcm2"]
 [ext_resource type="Script" uid="uid://c6a7ioomxgmju" path="res://Scripts/flying_enemy.gd" id="2_fgwew"]
+[ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="3_c4a5w"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lrtul"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(128, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dyvm4"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(144, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms2v3"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(160, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1bv63"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(176, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x4wu4"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(192, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iapyh"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_uekyw"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2yokl"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2iyoq"]
+atlas = ExtResource("3_c4a5w")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aat01"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lrtul")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dyvm4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms2v3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1bv63")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x4wu4")
+}],
+"loop": false,
+"name": &"death",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iapyh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_uekyw")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2yokl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2iyoq")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_fgwew"]
 radius = 8.06226
@@ -16,10 +93,13 @@ dir = NodePath("DirectionChange")
 SPEED = 50.0
 
 [node name="AnimatedSprite2D" parent="." index="0"]
-animation = &"run"
+sprite_frames = SubResource("SpriteFrames_aat01")
 
 [node name="CollisionShape2D" parent="killzone" index="2"]
 shape = SubResource("CircleShape2D_fgwew")
+
+[node name="Death" parent="." index="4"]
+color = Color(0.337255, 0.52549, 0.811765, 1)
 
 [node name="DirectionChange" type="Timer" parent="." index="7"]
 wait_time = 3.2

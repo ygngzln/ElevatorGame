@@ -41,10 +41,13 @@ func checkDir():
 func damage(x, veloc):
 	health -= 50;
 	if health <= 0:
-		$AnimatedSprite2D.visible = false;
+		print ("dead")
 		$HealthBar.visible = false;
 		$Health.visible = false;
-		$Death.emitting = true;
+		animated_sprite_2d.play("death")
+		await animated_sprite_2d.animation_finished;
+		animated_sprite_2d.visible = false;
+		$Death.emitting = true;		
 		await $Death.finished;
 		queue_free();
 	$HealthBar.changeValue(health)

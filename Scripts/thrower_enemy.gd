@@ -48,9 +48,9 @@ func _physics_process(delta: float) -> void:
 		velocity.x = 0
 		
 	
-	if is_on_floor() and not targeting:
+	if is_on_floor() and not targeting and health > 0:
 		velocity.x = direction * SPEED
-		animated_sprite_2d.play("run");
+		animated_sprite_2d.play("idle");
 	#apply gravity
 	else:
 		velocity += get_gravity() * delta * 4;
