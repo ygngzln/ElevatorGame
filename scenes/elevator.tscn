@@ -97,7 +97,6 @@ shape = SubResource("RectangleShape2D_e5uy3")
 material = SubResource("CanvasItemMaterial_gisge")
 position = Vector2(-23, -15)
 scale = Vector2(0.3, 0.4)
-emitting = false
 amount = 100
 texture = ExtResource("4_gisge")
 speed_scale = 4.0
