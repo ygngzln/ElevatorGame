@@ -39,8 +39,7 @@ var freeze = false;
 
 var dashed = false
 var dashing = false
-var dashX = 500
-var dashY = 300
+var dash_speed = 500;
 var spikes_active = true;
 var dead = false;
 
@@ -92,14 +91,12 @@ func _physics_process(delta: float) -> void:
 		dashing = true
 		dashTrail.start_dash();
 
-		# Dash in the direction the sprite is facing
-		velocity.x = -dashX if animated_sprite.flip_h else dashX
-
-		# Optional vertical dash modifiers
-		if Input.is_action_pressed("jump"):
-			velocity.y = -dashY
-		elif Input.is_action_pressed("crouch"):
-			velocity.y = dashY
+		if !Input.is_action_pressed("jump") and !Input.is_action_pressed("crouch") and !Input.is_action_pressed("move_left") and !Input.is_action_pressed("move_right"):
+			# Dash in the direction the sprite is facing
+			velocity.x = -dash_speed if animated_sprite.flip_h else dash_speed
+		else:			
+			var direction = Input.get_vector("move_left", "move_right", "up", "crouch")	
+			velocity = direction * dash_speed;	
 		$dashTimer.start()
 		
 		invul.active = true;
@@ -111,7 +108,7 @@ func _physics_process(delta: float) -> void:
 		velocity.y = JUMP_VELOCITY
 		coyote.active = false
 		wall_jump = false;
-	elif is_on_floor() or (is_on_wall() and wall_jump):
+	elif is_on_floor():
 		coyote.active = true
 		coyote.timer = coyote.time
 	elif not dashing:

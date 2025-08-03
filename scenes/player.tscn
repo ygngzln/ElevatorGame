@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://53tl8bw06iln" path="res://assets/blackman/Hurt.png" id="4_h37o1"]
 [ext_resource type="Texture2D" uid="uid://p62t5f4u8ykx" path="res://assets/blackman/Idle.png" id="5_koeno"]
 [ext_resource type="Texture2D" uid="uid://b54va0ggv0b07" path="res://assets/blackman/Walk.png" id="6_jmoec"]
-[ext_resource type="Script" path="res://Scripts/dash_trail.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://dpdwsttsqqxlt" path="res://Scripts/dash_trail.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://mv6086b65qrf" path="res://assets/sounds/male_hurt7-48124.mp3" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uoif"]
@@ -298,7 +298,7 @@ wait_time = 0.2
 one_shot = true
 
 [node name="dashCooldown" type="Timer" parent="."]
-wait_time = 0.001
+wait_time = 0.364
 one_shot = true
 
 [node name="DashTrail" type="Line2D" parent="."]
