@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_dnkej"]
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://scenes/Coin.tscn" id="5_wtwp4"]
-[ext_resource type="PackedScene" uid="uid://dqvi1a5mckuxw" path="res://scenes/spikes_floor.tscn" id="8_np2pn"]
+[ext_resource type="PackedScene" path="res://scenes/spikes_floor.tscn" id="8_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dfx70v5gdiii0" path="res://scenes/spikes_ceiling.tscn" id="9_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cmabf6ihno2ww" path="res://scenes/spikes_leftwall.tscn" id="10_31oqk"]
 [ext_resource type="PackedScene" uid="uid://bipvpupxnet1l" path="res://scenes/spikes_rightwall.tscn" id="11_x7jkp"]
@@ -28,9 +28,9 @@
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="22_7o3do"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_o7j4k"]
-[ext_resource type="PackedScene" path="res://scenes/filter.tscn" id="28_x7jkp"]
+[ext_resource type="PackedScene" uid="uid://cuocvggm2707s" path="res://scenes/filter.tscn" id="28_x7jkp"]
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0qwwm"]
 texture = ExtResource("4_dnkej")
 1:1/0 = 0
 1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -235,12 +235,12 @@ texture = ExtResource("4_dnkej")
 11:15/0 = 0
 12:15/0 = 0
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_wtwp4"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_t4umt"]
 resource_name = "Special Tiles"
 scenes/1/scene = ExtResource("5_wtwp4")
 scenes/2/scene = ExtResource("5_mm8aj")
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_0qwwm"]
+[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_4yk0h"]
 resource_name = "Damaging Obstacles"
 scenes/1/scene = ExtResource("8_np2pn")
 scenes/2/scene = ExtResource("9_o7j4k")
@@ -250,9 +250,9 @@ scenes/5/scene = ExtResource("12_x7jkp")
 
 [sub_resource type="TileSet" id="TileSet_wtwp4"]
 physics_layer_0/collision_layer = 2
-sources/0 = SubResource("TileSetAtlasSource_mm8aj")
-sources/1 = SubResource("TileSetScenesCollectionSource_wtwp4")
-sources/2 = SubResource("TileSetScenesCollectionSource_0qwwm")
+sources/0 = SubResource("TileSetAtlasSource_0qwwm")
+sources/1 = SubResource("TileSetScenesCollectionSource_t4umt")
+sources/2 = SubResource("TileSetScenesCollectionSource_4yk0h")
 
 [sub_resource type="Theme" id="Theme_7o3do"]
 default_font = ExtResource("18_o7j4k")
@@ -260,7 +260,7 @@ default_font = ExtResource("18_o7j4k")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 distance = -40.0
 
-[node name="level1" type="Node2D"]
+[node name="level2" type="Node2D"]
 script = ExtResource("1_jt5ki")
 
 [node name="Background" parent="." instance=ExtResource("15_iwr0g")]
