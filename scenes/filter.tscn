@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://cuocvggm2707s"]
+
+[ext_resource type="Shader" uid="uid://cv8n28g3hcwrf" path="res://Scripts/misty.gdshader" id="1_i3jku"]
+[ext_resource type="Shader" uid="uid://gpo6q0n4210w" path="res://Scripts/mistydark.gdshader" id="2_rg8bj"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yqkek"]
+shader = ExtResource("1_i3jku")
+shader_parameter/color_bleed_enabled = true
+shader_parameter/chromatic_abberation_enabled = true
+shader_parameter/film_grain_enabled = true
+shader_parameter/sharpness_enabled = true
+shader_parameter/chromatic_abberation_seperation = 0.004
+shader_parameter/chromatic_abberation_intensity = 1.5
+shader_parameter/chromatic_abberation_blur_strength = 1.0
+shader_parameter/film_grain_intensity = 1.0
+shader_parameter/grain_size = 2.0
+shader_parameter/darkness_clamp = 0.28
+shader_parameter/sharpness_size = 1.0
+shader_parameter/sharpness_intensity = 0.7
+shader_parameter/color_bleed_seperation = 0.02
+shader_parameter/color_bleed_intensity = 0.2
+shader_parameter/anti_bleed_intensity = 1.8
+shader_parameter/color_bleed_blur_strength = 1.0
+shader_parameter/color_bleed_quality = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3sfm7"]
+shader = ExtResource("2_rg8bj")
+
+[node name="Filter" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visibility_layer = 512
+material = SubResource("ShaderMaterial_yqkek")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0350379, 0.0740832, 0.0635742, 1)
+metadata/_edit_use_anchors_ = true
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+visibility_layer = 3
+material = SubResource("ShaderMaterial_3sfm7")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0350379, 0.0740832, 0.0635742, 1)

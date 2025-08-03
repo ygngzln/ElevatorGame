@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=35 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -27,8 +27,7 @@
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="22_7o3do"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_o7j4k"]
-[ext_resource type="Shader" uid="uid://cv8n28g3hcwrf" path="res://Scripts/misty.gdshader" id="28_x7jkp"]
-[ext_resource type="Shader" uid="uid://gpo6q0n4210w" path="res://Scripts/mistydark.gdshader" id="29_0qwwm"]
+[ext_resource type="PackedScene" uid="uid://cuocvggm2707s" path="res://scenes/filter.tscn" id="28_x7jkp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -259,29 +258,6 @@ default_font = ExtResource("18_o7j4k")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 distance = -40.0
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4umt"]
-shader = ExtResource("28_x7jkp")
-shader_parameter/color_bleed_enabled = true
-shader_parameter/chromatic_abberation_enabled = true
-shader_parameter/film_grain_enabled = true
-shader_parameter/sharpness_enabled = true
-shader_parameter/chromatic_abberation_seperation = 0.004
-shader_parameter/chromatic_abberation_intensity = 1.5
-shader_parameter/chromatic_abberation_blur_strength = 1.0
-shader_parameter/film_grain_intensity = 1.0
-shader_parameter/grain_size = 2.0
-shader_parameter/darkness_clamp = 0.28
-shader_parameter/sharpness_size = 1.0
-shader_parameter/sharpness_intensity = 0.7
-shader_parameter/color_bleed_seperation = 0.02
-shader_parameter/color_bleed_intensity = 0.2
-shader_parameter/anti_bleed_intensity = 1.8
-shader_parameter/color_bleed_blur_strength = 1.0
-shader_parameter/color_bleed_quality = 5
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qwwm"]
-shader = ExtResource("29_0qwwm")
-
 [node name="level1" type="Node2D"]
 script = ExtResource("1_jt5ki")
 
@@ -483,29 +459,6 @@ position = Vector2(3221, 169)
 position = Vector2(5014, -15)
 script = ExtResource("19_v6ha0")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
-visibility_layer = 512
-material = SubResource("ShaderMaterial_t4umt")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0350379, 0.0740832, 0.0635742, 1)
-
-[node name="CanvasLayer2" type="CanvasLayer" parent="."]
-layer = 0
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
-visibility_layer = 3
-material = SubResource("ShaderMaterial_0qwwm")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.0350379, 0.0740832, 0.0635742, 1)
+[node name="Filter" parent="." instance=ExtResource("28_x7jkp")]
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
