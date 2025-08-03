@@ -1,0 +1,222 @@
+[gd_scene load_steps=21 format=3 uid="uid://cjnhxco1qoxg6"]
+
+[ext_resource type="Script" uid="uid://bo5knegrkstjt" path="res://Scripts/chained_enemy.gd" id="1_jq1hg"]
+[ext_resource type="Texture2D" uid="uid://b20lfl6ix6o1q" path="res://assets/spritesandtiles/knightspritesheet.png" id="2_odncs"]
+[ext_resource type="PackedScene" uid="uid://cqseq1rcfs8q" path="res://scenes/killzone.tscn" id="3_h803t"]
+[ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="4_qm55h"]
+[ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="5_e4o0u"]
+[ext_resource type="FontFile" uid="uid://com1nmermv0vi" path="res://assets/fonts/04B_30__.TTF" id="6_u06xd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xgbgi"]
+atlas = ExtResource("2_odncs")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lc16k"]
+atlas = ExtResource("2_odncs")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3514"]
+atlas = ExtResource("2_odncs")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l5i5e"]
+atlas = ExtResource("2_odncs")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_foi2s"]
+atlas = ExtResource("2_odncs")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c4um7"]
+atlas = ExtResource("2_odncs")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7nmno"]
+atlas = ExtResource("2_odncs")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t5ajn"]
+atlas = ExtResource("2_odncs")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aohpx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xgbgi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lc16k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w3514")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_l5i5e")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_foi2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c4um7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7nmno")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t5ajn")
+}],
+"loop": true,
+"name": &"run",
+"speed": 10.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_spfow"]
+radius = 6.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b6kot"]
+radius = 8.0
+
+[sub_resource type="Curve" id="Curve_c4w8v"]
+_data = [Vector2(0, 0.950035), 0.0, 0.0, 0, 0, Vector2(1, 0.504892), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_c4w8v"]
+colors = PackedColorArray(1, 1, 1, 1, 1, 1, 1, 0.717647)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_odncs"]
+radius = 522.188
+
+[node name="chainedEnemy" type="CharacterBody2D"]
+collision_layer = 8
+collision_mask = 2
+script = ExtResource("1_jq1hg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_aohpx")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+position = Vector2(0, -8)
+sprite_frames = SubResource("SpriteFrames_aohpx")
+animation = &"idle"
+autoplay = "idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_spfow")
+
+[node name="killzone" parent="." instance=ExtResource("3_h803t")]
+collision_layer = 0
+collision_mask = 1
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_b6kot")
+debug_color = Color(0.913616, 0.0984373, 0.671985, 0.42)
+
+[node name="HealthBar" parent="." instance=ExtResource("4_qm55h")]
+offset_left = -7.0
+offset_top = -18.0
+offset_right = 7.0
+offset_bottom = -16.0
+texture_under = ExtResource("5_e4o0u")
+texture_progress = ExtResource("5_e4o0u")
+tint_under = Color(0, 0, 0, 1)
+health = false
+enemy = true
+metadata/_edit_use_anchors_ = true
+
+[node name="Death" type="CPUParticles2D" parent="."]
+position = Vector2(0, -6)
+scale = Vector2(50, 50)
+emitting = false
+amount = 220
+lifetime = 0.25
+one_shot = true
+speed_scale = 1.2
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_min = 0.5
+scale_amount_max = 2.0
+
+[node name="Hit" type="CPUParticles2D" parent="."]
+position = Vector2(0, -7)
+scale = Vector2(50, 50)
+emitting = false
+amount = 12
+lifetime = 0.2
+one_shot = true
+speed_scale = 0.9
+explosiveness = 1.0
+lifetime_randomness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 4.0
+initial_velocity_max = 4.0
+linear_accel_min = 1.0
+linear_accel_max = 1.0
+scale_amount_min = 0.8
+scale_amount_max = 2.4
+scale_amount_curve = SubResource("Curve_c4w8v")
+color = Color(0.392157, 0, 0, 1)
+color_ramp = SubResource("Gradient_c4w8v")
+
+[node name="Health" type="RichTextLabel" parent="."]
+visible = false
+offset_left = -7.0
+offset_top = -25.0
+offset_right = 53.0
+offset_bottom = -4.0
+scale = Vector2(0.237771, 0.333608)
+theme_override_fonts/normal_font = ExtResource("6_u06xd")
+theme_override_font_sizes/normal_font_size = 20
+bbcode_enabled = true
+text = "[center]100[/center]"
+
+[node name="RayCast2D1" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(10, -2)
+collision_mask = 2
+
+[node name="RayCast2D2" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-10, -2)
+collision_mask = 2
+
+[node name="RayCast2D3" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(6, 7)
+collision_mask = 2
+
+[node name="RayCast2D4" type="RayCast2D" parent="."]
+position = Vector2(0, -6)
+target_position = Vector2(-6, 7)
+collision_mask = 2
+
+[node name="targetzone" type="Area2D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="targetzone"]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_odncs")
+
+[node name="Line2D" type="Line2D" parent="."]
+top_level = true
+
+[connection signal="body_entered" from="targetzone" to="." method="_on_targetzone_body_entered"]
+[connection signal="body_exited" from="targetzone" to="." method="_on_targetzone_body_exited"]
