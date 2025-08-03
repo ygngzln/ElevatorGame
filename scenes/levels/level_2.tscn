@@ -25,7 +25,7 @@
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="24_8ghkn"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_1c1qw"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="25_5ar51"]
-[ext_resource type="Script" uid="uid://de0xbfoxw40vy" path="res://scripts/nextlevel_3.gd" id="26_1a10c"]
+[ext_resource type="Script" uid="uid://de0xbfoxw40vy" path="res://Scripts/nextlevel_3.gd" id="26_1a10c"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("5_r6ket")
@@ -287,13 +287,14 @@ offset_bottom = -69.0
 theme = SubResource("Theme_7o3do")
 theme_override_fonts/font = ExtResource("12_oftal")
 theme_override_font_sizes/font_size = 2
-text = "use WASD to move"
+text = "everyone feels deja vu"
 label_settings = ExtResource("13_fqy8p")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="labels"]
+visible = false
 offset_left = 229.0
 offset_top = -152.0
 offset_right = 338.0
@@ -307,33 +308,33 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="labels"]
-offset_left = 439.0
-offset_top = -153.0
-offset_right = 548.0
-offset_bottom = -78.0
-text = "click to launch knives"
+offset_left = 739.0
+offset_top = -165.0
+offset_right = 848.0
+offset_bottom = -90.0
+text = "our minds make patterns in everything"
 label_settings = ExtResource("13_fqy8p")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="labels"]
-offset_left = 607.0
-offset_top = -133.0
-offset_right = 716.0
-offset_bottom = -58.0
-text = "have fun!"
+offset_left = 1754.0
+offset_top = -65.0
+offset_right = 1863.0
+offset_bottom = 10.0
+text = "it's an aspect of nature"
 label_settings = ExtResource("13_fqy8p")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="labels"]
-offset_left = 3831.0
-offset_top = 81.0
-offset_right = 3940.0
-offset_bottom = 156.0
-text = "yellow goombas shoot out green goombas"
+offset_left = 3651.0
+offset_top = 92.0
+offset_right = 3760.0
+offset_bottom = 167.0
+text = "don't worry, we all feel this way"
 label_settings = ExtResource("13_fqy8p")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -445,10 +446,10 @@ position = Vector2(3596, 239)
 [node name="landEnemy4" parent="Enemies" instance=ExtResource("24_8ghkn")]
 position = Vector2(2976, 155)
 
-[node name="cannonEnemy" parent="." instance=ExtResource("25_5ar51")]
+[node name="cannonEnemy" parent="Enemies" instance=ExtResource("25_5ar51")]
 position = Vector2(3882, 201)
 
-[node name="cannonEnemy2" parent="." instance=ExtResource("25_5ar51")]
+[node name="cannonEnemy2" parent="Enemies" instance=ExtResource("25_5ar51")]
 position = Vector2(1870, 57)
 
 [node name="Elevator" parent="." instance=ExtResource("25_1c1qw")]

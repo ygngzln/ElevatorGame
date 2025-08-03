@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=4 uid="uid://dswi77j3xwly5"]
+[gd_scene load_steps=38 format=4 uid="uid://dswi77j3xwly5"]
 
 [ext_resource type="Script" uid="uid://budhcoobial0j" path="res://Scripts/gamemanager.gd" id="1_g24pm"]
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jt5ki"]
@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://ccwraf5l2nxtk" path="res://assets/spritesandtiles/Dungeon Tile Set.png" id="4_dnkej"]
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://scenes/Coin.tscn" id="5_wtwp4"]
-[ext_resource type="PackedScene" uid="uid://dqvi1a5mckuxw" path="res://scenes/spikes_floor.tscn" id="8_np2pn"]
+[ext_resource type="PackedScene" path="res://scenes/spikes_floor.tscn" id="8_np2pn"]
 [ext_resource type="PackedScene" uid="uid://dfx70v5gdiii0" path="res://scenes/spikes_ceiling.tscn" id="9_o7j4k"]
 [ext_resource type="PackedScene" uid="uid://cmabf6ihno2ww" path="res://scenes/spikes_leftwall.tscn" id="10_31oqk"]
 [ext_resource type="PackedScene" uid="uid://bipvpupxnet1l" path="res://scenes/spikes_rightwall.tscn" id="11_x7jkp"]
@@ -27,6 +27,8 @@
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="22_7o3do"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="23_7h2jl"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_o7j4k"]
+[ext_resource type="Shader" uid="uid://cv8n28g3hcwrf" path="res://Scripts/misty.gdshader" id="28_x7jkp"]
+[ext_resource type="Shader" uid="uid://gpo6q0n4210w" path="res://Scripts/mistydark.gdshader" id="29_0qwwm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -257,6 +259,29 @@ default_font = ExtResource("18_o7j4k")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 distance = -40.0
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4umt"]
+shader = ExtResource("28_x7jkp")
+shader_parameter/color_bleed_enabled = true
+shader_parameter/chromatic_abberation_enabled = true
+shader_parameter/film_grain_enabled = true
+shader_parameter/sharpness_enabled = true
+shader_parameter/chromatic_abberation_seperation = 0.004
+shader_parameter/chromatic_abberation_intensity = 1.5
+shader_parameter/chromatic_abberation_blur_strength = 1.0
+shader_parameter/film_grain_intensity = 1.0
+shader_parameter/grain_size = 2.0
+shader_parameter/darkness_clamp = 0.28
+shader_parameter/sharpness_size = 1.0
+shader_parameter/sharpness_intensity = 0.7
+shader_parameter/color_bleed_seperation = 0.02
+shader_parameter/color_bleed_intensity = 0.2
+shader_parameter/anti_bleed_intensity = 1.8
+shader_parameter/color_bleed_blur_strength = 1.0
+shader_parameter/color_bleed_quality = 5
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0qwwm"]
+shader = ExtResource("29_0qwwm")
+
 [node name="level1" type="Node2D"]
 script = ExtResource("1_jt5ki")
 
@@ -350,6 +375,7 @@ shape = SubResource("WorldBoundaryShape2D_binft")
 [node name="HUD" type="CanvasLayer" parent="."]
 
 [node name="Parent" type="Control" parent="HUD"]
+visibility_layer = 385
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -362,6 +388,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="PlayerHealthBar" parent="HUD/Parent" instance=ExtResource("15_wtwp4")]
+visibility_layer = 512
 layout_mode = 1
 offset_left = 22.0
 offset_top = 19.0
@@ -372,6 +399,7 @@ size_flags_horizontal = 0
 texture_under = ExtResource("17_np2pn")
 
 [node name="ManaBar" parent="HUD/Parent" instance=ExtResource("15_wtwp4")]
+visibility_layer = 512
 layout_mode = 1
 offset_left = 22.0
 offset_top = 43.0
@@ -385,25 +413,27 @@ health = false
 mana = true
 
 [node name="Health" type="RichTextLabel" parent="HUD/Parent"]
+visibility_layer = 512
 layout_mode = 0
-offset_left = 127.0
-offset_top = 25.0
-offset_right = 170.0
-offset_bottom = 47.0
+offset_left = 124.0
+offset_top = 23.0
+offset_right = 167.0
+offset_bottom = 45.0
 theme_override_fonts/normal_font = ExtResource("18_o7j4k")
-theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/normal_font_size = 14
 text = "100"
 scroll_active = false
 script = ExtResource("19_ndtll")
 
 [node name="Mana" type="RichTextLabel" parent="HUD/Parent"]
+visibility_layer = 512
 layout_mode = 0
-offset_left = 127.0
-offset_top = 49.0
-offset_right = 170.0
-offset_bottom = 71.0
+offset_left = 125.0
+offset_top = 46.0
+offset_right = 168.0
+offset_bottom = 68.0
 theme_override_fonts/normal_font = ExtResource("18_o7j4k")
-theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/normal_font_size = 14
 text = "100"
 scroll_active = false
 script = ExtResource("21_7o3do")
@@ -452,6 +482,30 @@ position = Vector2(3221, 169)
 [node name="Elevator" parent="." instance=ExtResource("25_o7j4k")]
 position = Vector2(5014, -15)
 script = ExtResource("19_v6ha0")
-next_scene_path = "res://scenes/levels/level_2.tscn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visibility_layer = 512
+material = SubResource("ShaderMaterial_t4umt")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0350379, 0.0740832, 0.0635742, 1)
+
+[node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 0
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer2"]
+visibility_layer = 3
+material = SubResource("ShaderMaterial_0qwwm")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0350379, 0.0740832, 0.0635742, 1)
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]

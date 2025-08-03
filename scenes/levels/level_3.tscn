@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dff3w24g5ybc3"]
+[gd_scene load_steps=35 format=4 uid="uid://c4xyf3pjmec82"]
 
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_jql0x"]
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="2_do6pa"]
@@ -20,11 +20,13 @@
 [ext_resource type="Texture2D" uid="uid://dhy0to77jnuqf" path="res://assets/UI/Mana.png" id="18_v1m6f"]
 [ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_vn4iy"]
 [ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://Scripts/manaText.gd" id="20_y7n6r"]
-[ext_resource type="Script" uid="uid://d3uqngx7l1auw" path="res://scripts/nextlevel_2.gd" id="21_ly8gl"]
 [ext_resource type="PackedScene" uid="uid://dca5w3ydpdcep" path="res://scenes/flying_enemy.tscn" id="22_30ben"]
 [ext_resource type="PackedScene" uid="uid://cg8w61en2txnt" path="res://scenes/thrower_enemy.tscn" id="23_xlt7h"]
 [ext_resource type="PackedScene" uid="uid://c8soni5ie6a7s" path="res://scenes/land_enemy.tscn" id="24_0y66q"]
+[ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_do6pa"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="25_ovq3l"]
+[ext_resource type="Script" uid="uid://de0xbfoxw40vy" path="res://Scripts/nextlevel_3.gd" id="26_n8qcm"]
+[ext_resource type="Shader" uid="uid://cv8n28g3hcwrf" path="res://Scripts/misty.gdshader" id="27_n8qcm"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("5_k0dme")
@@ -254,10 +256,27 @@ default_font = ExtResource("12_ju8vr")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 distance = -40.0
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_np2pn"]
-size = Vector2(20, 74)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_aey3y"]
+shader = ExtResource("27_n8qcm")
+shader_parameter/color_bleed_enabled = true
+shader_parameter/chromatic_abberation_enabled = true
+shader_parameter/film_grain_enabled = true
+shader_parameter/sharpness_enabled = true
+shader_parameter/chromatic_abberation_seperation = 0.016
+shader_parameter/chromatic_abberation_intensity = 1.5
+shader_parameter/chromatic_abberation_blur_strength = 1.0
+shader_parameter/film_grain_intensity = 1.0
+shader_parameter/grain_size = 2.0
+shader_parameter/darkness_clamp = 0.28
+shader_parameter/sharpness_size = 1.0
+shader_parameter/sharpness_intensity = 0.7
+shader_parameter/color_bleed_seperation = 0.02
+shader_parameter/color_bleed_intensity = 0.2
+shader_parameter/anti_bleed_intensity = 1.8
+shader_parameter/color_bleed_blur_strength = 1.0
+shader_parameter/color_bleed_quality = 5
 
-[node name="level2" type="Node2D"]
+[node name="level1" type="Node2D"]
 script = ExtResource("1_jql0x")
 
 [node name="Background" parent="." instance=ExtResource("2_do6pa")]
@@ -289,13 +308,14 @@ offset_bottom = -69.0
 theme = SubResource("Theme_7o3do")
 theme_override_fonts/font = ExtResource("12_ju8vr")
 theme_override_font_sizes/font_size = 2
-text = "use WASD to move"
+text = "everyone feels deja vu"
 label_settings = ExtResource("13_tio2m")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label2" type="Label" parent="labels"]
+visible = false
 offset_left = 229.0
 offset_top = -152.0
 offset_right = 338.0
@@ -309,33 +329,33 @@ vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label5" type="Label" parent="labels"]
-offset_left = 439.0
-offset_top = -153.0
-offset_right = 548.0
-offset_bottom = -78.0
-text = "click to launch knives"
+offset_left = 739.0
+offset_top = -165.0
+offset_right = 848.0
+offset_bottom = -90.0
+text = "our minds make patterns in everything"
 label_settings = ExtResource("13_tio2m")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label6" type="Label" parent="labels"]
-offset_left = 607.0
-offset_top = -133.0
-offset_right = 716.0
-offset_bottom = -58.0
-text = "have fun!"
+offset_left = 1754.0
+offset_top = -65.0
+offset_right = 1863.0
+offset_bottom = 10.0
+text = "it's an aspect of nature"
 label_settings = ExtResource("13_tio2m")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 2
 
 [node name="Label7" type="Label" parent="labels"]
-offset_left = 3831.0
-offset_top = 81.0
-offset_right = 3940.0
-offset_bottom = 156.0
-text = "yellow goombas shoot out green goombas"
+offset_left = 3651.0
+offset_top = 92.0
+offset_right = 3760.0
+offset_bottom = 167.0
+text = "don't worry, we all feel this way"
 label_settings = ExtResource("13_tio2m")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -418,13 +438,6 @@ script = ExtResource("20_y7n6r")
 [node name="Regen" type="Timer" parent="."]
 wait_time = 1.2
 
-[node name="nextlevel-2" type="Area2D" parent="."]
-script = ExtResource("21_ly8gl")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="nextlevel-2"]
-position = Vector2(4976, -4)
-shape = SubResource("RectangleShape2D_np2pn")
-
 [node name="Enemies" type="Node2D" parent="."]
 
 [node name="FlyingEnemy" parent="Enemies" instance=ExtResource("22_30ben")]
@@ -454,10 +467,23 @@ position = Vector2(3596, 239)
 [node name="landEnemy4" parent="Enemies" instance=ExtResource("24_0y66q")]
 position = Vector2(2976, 155)
 
-[node name="cannonEnemy" parent="." instance=ExtResource("25_ovq3l")]
+[node name="cannonEnemy" parent="Enemies" instance=ExtResource("25_ovq3l")]
 position = Vector2(3882, 201)
 
-[node name="cannonEnemy2" parent="." instance=ExtResource("25_ovq3l")]
+[node name="cannonEnemy2" parent="Enemies" instance=ExtResource("25_ovq3l")]
 position = Vector2(1870, 57)
+
+[node name="Elevator" parent="." instance=ExtResource("25_do6pa")]
+position = Vector2(5014, -15)
+script = ExtResource("26_n8qcm")
+
+[node name="PostProcess" type="ColorRect" parent="."]
+visibility_layer = 513
+material = SubResource("ShaderMaterial_aey3y")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
