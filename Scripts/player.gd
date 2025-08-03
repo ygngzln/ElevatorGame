@@ -28,6 +28,8 @@ var timers = [invul, coyote];
 
 var was_on_floor := true
 
+var freeze = false;
+
 var dashed = false
 var dashing = false
 var dashX = 500
@@ -45,6 +47,7 @@ func _ready():
 	dead = false;
 
 func _physics_process(delta: float) -> void:
+	if freeze: return;
 	if !dead and Input.is_action_just_pressed("shoot") and Global.stats["mana"] >= 29 and !shootAnim:
 		animated_sprite.play("shoot");
 		shootAnim = true;
