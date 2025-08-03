@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://53tl8bw06iln" path="res://assets/blackman/Hurt.png" id="4_h37o1"]
 [ext_resource type="Texture2D" uid="uid://p62t5f4u8ykx" path="res://assets/blackman/Idle.png" id="5_koeno"]
 [ext_resource type="Texture2D" uid="uid://b54va0ggv0b07" path="res://assets/blackman/Walk.png" id="6_jmoec"]
-[ext_resource type="Script" path="res://Scripts/dash_trail.gd" id="7_fjrip"]
+[ext_resource type="Script" uid="uid://dpdwsttsqqxlt" path="res://Scripts/dash_trail.gd" id="7_fjrip"]
 [ext_resource type="AudioStream" uid="uid://mv6086b65qrf" path="res://assets/sounds/male_hurt7-48124.mp3" id="8_smehm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4uoif"]
@@ -264,8 +264,8 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tuyoq"]
-size = Vector2(16, 31.85)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_smehm"]
+height = 31.85
 
 [sub_resource type="Curve" id="Curve_fjrip"]
 _data = [Vector2(0, 0.0425397), 0.0, 0.0, 0, 0, Vector2(0.82963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.533651), 0.0, 0.0, 0, 0]
@@ -286,7 +286,7 @@ autoplay = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-11, 0.0749998)
-shape = SubResource("RectangleShape2D_tuyoq")
+shape = SubResource("CapsuleShape2D_smehm")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
