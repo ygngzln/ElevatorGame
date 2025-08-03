@@ -271,7 +271,8 @@ size = Vector2(16, 31.85)
 _data = [Vector2(0, 0.0425397), 0.0, 0.0, 0, 0, Vector2(0.82963, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.533651), 0.0, 0.0, 0, 0]
 point_count = 3
 
-[node name="Player" type="CharacterBody2D"]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("dashTrail")]
+self_modulate = Color(1, 0.145098, 0, 1)
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_smehm")

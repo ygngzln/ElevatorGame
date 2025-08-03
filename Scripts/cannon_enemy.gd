@@ -8,33 +8,39 @@ func _ready():
 var tracking := false
 var reloaded = true
 
-var lobtime := 2
-var launchX = 0
-var launchY = 0
+var lobtime := 2.0
+var launchX := 0.0;
+var launchY := 0.0;
 
-var launched = 0
-
+var launched := 0.0;
 
 func _physics_process(delta: float) -> void:
 	if tracking and reloaded and launched < 10:
-		var targvec = Global.player.global_position - global_position
-		var ydisp = targvec.y
-		var xdisp = targvec.x
-		launchX = xdisp/lobtime
-		launchY = (ydisp-0.5*get_gravity().y*lobtime*lobtime)/lobtime
+		var launch = calculate_arc_velocity(global_position, Global.player.global_position, -30, get_gravity().y)
+		launchX = launch.x
+		launchY = launch.y
 		var newspawn = projectile.instantiate()
-		self.get_parent().add_child(newspawn)
+		get_parent().add_child(newspawn)
 		newspawn.global_position = global_position
-		newspawn.velocity.x = launchX
-		newspawn.velocity.y = launchY
+		newspawn.launch(launchX, launchY);
 		reloaded = false
 		launched += 1
 		$cannonReload.start()
-		#print("pew")
 	
 	checkDir();
 	move_and_slide()
 
+func calculate_arc_velocity(source_position, target_position, arc_height, gravity):
+	var velocity = Vector2();
+	var displacement = target_position - source_position;
+	if displacement.y < arc_height:
+		arc_height = displacement.y;
+	var time_up = sqrt(-2 * arc_height / float(gravity))
+	var time_down = sqrt(2 * (displacement.y - arc_height) / float(gravity))
+
+	velocity.y = -sqrt(-2 * gravity * arc_height)*4;
+	velocity.x = displacement.x / float(time_up + time_down) 
+	return velocity
 
 func _on_direction_change_timeout() -> void:
 	direction *= -1;

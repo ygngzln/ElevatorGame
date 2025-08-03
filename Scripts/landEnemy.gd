@@ -5,6 +5,9 @@ extends Enemy
 @onready var ray_cast3: RayCast2D = $RayCast2D3
 @onready var ray_cast4: RayCast2D = $RayCast2D4
 
+var launching = false;
+var launchVector;
+
 func _physics_process(delta: float) -> void:
 	if kb.active:
 		takeKB();
@@ -20,6 +23,13 @@ func _physics_process(delta: float) -> void:
 		animated_sprite_2d.play("run");
 	#apply gravity
 	else:
+		if launching:
+			velocity = launchVector;
 		velocity += get_gravity() * delta * 4;
+		launchVector = velocity;
 	checkDir();
 	move_and_slide()
+
+func launch(x, y):
+	launchVector = Vector2(x, y);
+	launching = true;
