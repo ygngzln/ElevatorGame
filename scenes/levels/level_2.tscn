@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://dyhne7rqjmo6b"]
+[gd_scene load_steps=34 format=4 uid="uid://dyhne7rqjmo6b"]
 
 [ext_resource type="Script" uid="uid://b2fao4dt0xood" path="res://Scripts/level_1.gd" id="1_1c1qw"]
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="2_1a10c"]
@@ -26,6 +26,7 @@
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="25_1c1qw"]
 [ext_resource type="PackedScene" uid="uid://cure53ws6x05i" path="res://scenes/cannon_enemy.tscn" id="25_5ar51"]
 [ext_resource type="Script" uid="uid://de0xbfoxw40vy" path="res://Scripts/nextlevel_3.gd" id="26_1a10c"]
+[ext_resource type="PackedScene" uid="uid://cuocvggm2707s" path="res://scenes/filter.tscn" id="27_mx6s3"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("5_r6ket")
@@ -255,7 +256,7 @@ default_font = ExtResource("12_oftal")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_binft"]
 distance = -40.0
 
-[node name="level1" type="Node2D"]
+[node name="level2" type="Node2D"]
 script = ExtResource("1_1c1qw")
 
 [node name="Background" parent="." instance=ExtResource("2_1a10c")]
@@ -455,5 +456,8 @@ position = Vector2(1870, 57)
 [node name="Elevator" parent="." instance=ExtResource("25_1c1qw")]
 position = Vector2(5014, -15)
 script = ExtResource("26_1a10c")
+
+[node name="Filter" parent="." instance=ExtResource("27_mx6s3")]
+position = Vector2(3561.44, 9.1861)
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]
