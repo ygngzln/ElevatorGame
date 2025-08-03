@@ -12,7 +12,7 @@ func _ready():
 	if health: Global.player_health_changed.connect(changeValue);
 	if mana: Global.player_mana_changed.connect(changeValue);
 	
-func changeValue(new_value, _change):
+func changeValue(new_value):
 	if tween: tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "value", new_value, 0.5).set_trans(Tween.TRANS_SINE).set_ease(Tween.EASE_OUT)
