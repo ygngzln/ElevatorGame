@@ -276,6 +276,7 @@ self_modulate = Color(1, 0.145098, 0, 1)
 z_index = 5
 collision_mask = 14
 script = ExtResource("1_smehm")
+dashTrail = NodePath("DashTrail")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 position = Vector2(0, -8)
