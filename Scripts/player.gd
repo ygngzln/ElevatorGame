@@ -29,6 +29,7 @@ var kb := {
 	"vector": Vector2.ZERO
 }
 
+
 var shootAnim = false;
 var timers = [invul, coyote, kb];
 
@@ -44,7 +45,7 @@ var spikes_active = true;
 var dead = false;
 
 var wall_climbing = false;
-var wall_jump = false;
+var wall_jump = true;
 var wall_grav = 1080;
 
 func _ready():
@@ -82,6 +83,9 @@ func _physics_process(delta: float) -> void:
 
 	if is_on_floor() and dashed and not dashing and $dashCooldown.is_stopped():
 		dashed = false
+		
+	if is_on_floor():
+		wall_jump = true;
 	
 	if Input.is_action_pressed("dash") and not dashed:
 		dashed = true
@@ -100,11 +104,14 @@ func _physics_process(delta: float) -> void:
 		
 		invul.active = true;
 		invul.timer = invul.time;
-	if (is_on_floor() or coyote.active or wall_jump) and Input.is_action_pressed("jump"):
+	if (is_on_floor() or coyote.active) and Input.is_action_pressed("jump"):
+		velocity.y = JUMP_VELOCITY
+		coyote.active = false
+	elif wall_jump and is_on_wall() and checkWallCollision() and Input.is_action_pressed("jump") and velocity.y > 0:
 		velocity.y = JUMP_VELOCITY
 		coyote.active = false
 		wall_jump = false;
-	elif is_on_floor():
+	elif is_on_floor() or (is_on_wall() and wall_jump):
 		coyote.active = true
 		coyote.timer = coyote.time
 	elif not dashing:
@@ -113,11 +120,10 @@ func _physics_process(delta: float) -> void:
 	if kb.active == true:
 		velocity = kb.vector;
 	
-	if !is_on_floor() and is_on_wall() and checkWallCollision():
+	if !is_on_floor() and is_on_wall() and checkWallCollision() and velocity.y >= 0:
 		if !Input.is_action_pressed("crouch"):
 			velocity.y = clampf(velocity.y- wall_grav * delta, 30, 2000);
 		wall_climbing = true;
-		wall_jump = true;
 	elif wall_climbing:
 		$wallJumpWindow.start();
 		wall_climbing = false;
