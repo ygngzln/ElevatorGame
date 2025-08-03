@@ -24,7 +24,6 @@ func _physics_process(delta: float) -> void:
 		if ray_cast2.is_colliding() or not ray_cast4.is_colliding():
 			direction = 1;
 	else:
-		print("yee")
 		velocity = (Global.player.global_position - global_position).normalized() * SPEED
 		
 		
