@@ -10,15 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://b1kln8pibngpc" path="res://scenes/door.tscn" id="5_mm8aj"]
 [ext_resource type="PackedScene" uid="uid://bohs6n1yjf768" path="res://scenes/Coin.tscn" id="5_wtwp4"]
 [ext_resource type="PackedScene" uid="uid://dqvi1a5mckuxw" path="res://scenes/Spikes.tscn" id="8_np2pn"]
-[ext_resource type="Script" uid="uid://4sapg1ajynx8" path="res://Scripts/bounds-killzone.gd" id="13_mkypq"]
+[ext_resource type="Script" path="res://Scripts/bounds-killzone.gd" id="13_mkypq"]
 [ext_resource type="PackedScene" uid="uid://w4epx7o4kt83" path="res://scenes/background.tscn" id="15_iwr0g"]
 [ext_resource type="PackedScene" uid="uid://cb36ge76xiosx" path="res://scenes/health_bar.tscn" id="15_wtwp4"]
 [ext_resource type="Texture2D" uid="uid://dhy0to77jnuqf" path="res://assets/UI/Mana.png" id="17_bahl2"]
 [ext_resource type="Texture2D" uid="uid://j40q2fs3ja1e" path="res://assets/UI/health2.png" id="17_np2pn"]
 [ext_resource type="FontFile" uid="uid://fpdbp0o4kh3d" path="res://assets/fonts/Daydream.ttf" id="19_mqh5v"]
-[ext_resource type="Script" uid="uid://o5jhgnhs1btw" path="res://Scripts/healthText.gd" id="19_ndtll"]
+[ext_resource type="Script" path="res://Scripts/healthText.gd" id="19_ndtll"]
 [ext_resource type="PackedScene" uid="uid://d3h6yyywn80bt" path="res://scenes/elevator.tscn" id="19_v6ha0"]
-[ext_resource type="Script" uid="uid://cdyi222hem6e1" path="res://Scripts/manaText.gd" id="21_7o3do"]
+[ext_resource type="Script" path="res://Scripts/manaText.gd" id="21_7o3do"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mm8aj"]
 texture = ExtResource("4_dnkej")
@@ -402,6 +402,6 @@ script = ExtResource("21_7o3do")
 wait_time = 1.2
 
 [node name="Elevator" parent="." instance=ExtResource("19_v6ha0")]
-position = Vector2(1119, 16)
+position = Vector2(171, -31)
 
 [connection signal="timeout" from="Regen" to="gamemanager" method="_on_regen_timeout"]

@@ -38,3 +38,6 @@ func initializePlayer():
 func await_physics_frames(count: int) -> void:
 	for i in count:
 		await get_tree().physics_frame
+
+func finishGame():
+	get_tree().change_scene_to_file("res://scenes/win_menu.tscn");

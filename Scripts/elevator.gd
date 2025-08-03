@@ -4,21 +4,25 @@ var playerMovingIn = false;
 var mvmt:float;
 var time = 80;
 
+func _ready():
+	$Sprites.animation = "default";
+
 func _on_check_body_entered(body: Node2D) -> void:
 	if body.name == "Player":
 		Global.player.stopMoving();
 		$DashCharge.emitting = true;
 		$SmokeTimer.start();
+		Global.player.global_position.y = global_position.y+16
+		Global.player.global_position.x = global_position.x-6
 
 func _on_smoke_timer_timeout() -> void:
 	$DashCharge.emitting = false;
 	await get_tree().create_timer(0.2).timeout
-	print("??")
 	$Sprites.play("default");
 	await $Sprites.animation_finished;
-	Global.player.position = Vector2(1105, 32);
+	Global.player.animated_sprite.play("walk");
 	playerMovingIn = true;
-	mvmt = abs(global_position.x + 2 - Global.player.global_position.x)/80.0;
+	mvmt = abs(global_position.x + 4 - Global.player.global_position.x)/80.0;
 	time = 80.0;
 
 func _physics_process(delta: float) -> void:
@@ -27,4 +31,10 @@ func _physics_process(delta: float) -> void:
 		Global.player.global_position.x += mvmt;
 		if time <= 0:
 			playerMovingIn = false;
-	#Global.endGame();
+			Global.player.animated_sprite.play("idle");
+			Global.player.animated_sprite.stop();
+			await get_tree().create_timer(0.35).timeout
+			$Sprites.play("close");
+			Global.player.visible = false;
+			await $Sprites.animation_finished;
+			Global.finishGame();

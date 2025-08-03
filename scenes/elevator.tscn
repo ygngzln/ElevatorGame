@@ -1,9 +1,21 @@
-[gd_scene load_steps=11 format=3 uid="uid://d3h6yyywn80bt"]
+[gd_scene load_steps=14 format=3 uid="uid://d3h6yyywn80bt"]
 
 [ext_resource type="Texture2D" uid="uid://dirfdajubkgjl" path="res://assets/spritesandtiles/elevator.png" id="1_7lcry"]
 [ext_resource type="Script" uid="uid://bqldf0pqj8qwd" path="res://Scripts/elevator.gd" id="1_jmdsd"]
 [ext_resource type="AudioStream" uid="uid://blqqh1pq31831" path="res://assets/sounds/game-level-complete-143022 (1).mp3" id="2_8lbij"]
 [ext_resource type="Texture2D" uid="uid://cmxvmbpq6ixmm" path="res://assets/spritesandtiles/smoke.png" id="4_gisge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gisge"]
+atlas = ExtResource("1_7lcry")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr5mj"]
+atlas = ExtResource("1_7lcry")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xslfi"]
+atlas = ExtResource("1_7lcry")
+region = Rect2(0, 0, 32, 32)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8cwxy"]
 atlas = ExtResource("1_7lcry")
@@ -19,6 +31,20 @@ region = Rect2(64, 0, 32, 32)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8o1yk"]
 animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gisge")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr5mj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xslfi")
+}],
+"loop": false,
+"name": &"close",
+"speed": 3.5
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8cwxy")
